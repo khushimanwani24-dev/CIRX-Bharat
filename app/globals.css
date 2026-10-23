@@ -69,7 +69,8 @@
     display: block !important;
   }
 
-  .printable-manifest {
+  .printable-manifest,
+  .printable-form4 {
     box-shadow: none !important;
     border: 1px solid #000 !important;
     width: 100% !important;
@@ -77,4 +78,15 @@
     padding: 0 !important;
     margin: 0 !important;
   }
+}
+
+/* Dynamic Symbiosis Flowline Dashed Stroke Animation */
+@keyframes flowlineDash {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+.symbiosis-flowline-active {
+  animation: flowlineDash 1.2s linear infinite;
 }

@@ -35,7 +35,9 @@ import {
   Flame,
   Droplets,
   Layers,
+  Scale,
 } from 'lucide-react';
+import { MatchExplanationDrawer } from './MatchExplanationDrawer';
 
 interface BilateralExchangeCenterProps {
   matches: MatchProposal[];
@@ -65,6 +67,7 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
   const [filterTier, setFilterTier] = useState<'ALL' | 'HAZARDOUS' | 'NON_HAZARDOUS'>('ALL');
   const [filterConsent, setFilterConsent] = useState<'ALL' | 'UNLOCKED' | 'PENDING'>('ALL');
   const [expandedBreakdown, setExpandedBreakdown] = useState<Record<string, boolean>>({});
+  const [drawerMatchId, setDrawerMatchId] = useState<string | null>(null);
 
   const facilityMap = new Map<string, Facility>();
   facilities.forEach((f) => facilityMap.set(f.id, f));
@@ -245,15 +248,19 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
                 <div className="px-5 py-3.5 bg-slate-950/80 border-b border-slate-800/80 flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
                     {/* Score Badge */}
-                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-gradient-to-r from-emerald-950 to-slate-900 border border-emerald-500/50 shadow-sm">
+                    <button
+                      onClick={() => setDrawerMatchId(match.id)}
+                      className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-gradient-to-r from-emerald-950 to-slate-900 border border-emerald-500/50 shadow-sm hover:border-emerald-400 transition cursor-pointer text-left"
+                      title="Click to open Symbiosis Engineering Breakdown Drawer"
+                    >
                       <Sparkles className="w-4 h-4 text-emerald-400" />
                       <span className="text-sm font-black font-mono text-emerald-300">
                         {match.match_score}%
                       </span>
                       <span className="text-[10px] uppercase font-mono text-emerald-500 font-bold">
-                        Optimal Symbiosis
+                        Optimal Symbiosis ↗
                       </span>
-                    </div>
+                    </button>
 
                     {/* Haul Distance */}
                     <div className="flex items-center gap-1.5 text-xs font-mono text-slate-300 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
@@ -497,6 +504,15 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
                   {/* Manifest Generation & Action Buttons */}
                   <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
                     <button
+                      onClick={() => setDrawerMatchId(match.id)}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 font-mono text-xs font-bold border border-emerald-500/50 shadow-sm transition"
+                      title="Open interactive Symbiosis Engineering Breakdown Drawer"
+                    >
+                      <Scale className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>Symbiosis Breakdown</span>
+                    </button>
+
+                    <button
                       onClick={() => toggleExpand(match.id)}
                       className="text-xs text-slate-400 hover:text-slate-200 flex items-center gap-1 font-mono transition"
                     >
@@ -508,7 +524,7 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
                       ) : (
                         <>
                           <ChevronDown className="w-3.5 h-3.5" />
-                          Inspect Feasibility Logic
+                          Inspect Math
                         </>
                       )}
                     </button>
@@ -593,6 +609,23 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
           })
         )}
       </div>
+
+      {/* Interactive Match Explanation Sheet / Drawer */}
+      <MatchExplanationDrawer
+        match={matches.find((m) => m.id === drawerMatchId) || null}
+        facilities={facilities}
+        streams={streams}
+        manifests={manifests}
+        activeRole={activeRole}
+        onClose={() => setDrawerMatchId(null)}
+        onToggleConsent={onToggleConsent}
+        onGenerateManifest={onGenerateManifest}
+        onViewManifest={onViewManifest}
+        onLocateOnMap={(matchId) => {
+          setDrawerMatchId(null);
+          onSelectMatch(matchId);
+        }}
+      />
     </div>
   );
 };

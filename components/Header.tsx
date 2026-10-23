@@ -8,6 +8,7 @@ import {
   TrendingUp,
   MapPin,
   FileCheck2,
+  FileSpreadsheet,
   Cpu,
   Layers,
   Leaf,
@@ -24,7 +25,7 @@ export type UserRole =
   | 'REGULATOR_SPCB'
   | 'CLUSTER_ADMIN';
 
-export type ActiveTab = 'MATCHES' | 'INGEST' | 'MAP' | 'MANIFESTS' | 'ARCHITECTURE';
+export type ActiveTab = 'MATCHES' | 'INGEST' | 'MAP' | 'MANIFESTS' | 'FORM4' | 'ARCHITECTURE';
 
 interface HeaderProps {
   esgMetrics: ClusterESGMetrics;
@@ -256,6 +257,23 @@ export const Header: React.FC<HeaderProps> = ({
                 activeTab === 'MANIFESTS' ? 'bg-emerald-700 text-emerald-100' : 'bg-slate-800 text-slate-400'
               }`}>
                 {manifestCount}
+              </span>
+            </button>
+
+            <button
+              onClick={() => onTabChange('FORM4')}
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                activeTab === 'FORM4'
+                  ? 'bg-emerald-600 text-white shadow-sm shadow-emerald-900/50'
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+              }`}
+            >
+              <FileSpreadsheet className="w-3.5 h-3.5" />
+              Regulatory & Form 4 Reporting
+              <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
+                activeTab === 'FORM4' ? 'bg-emerald-700 text-emerald-100' : 'bg-purple-950 text-purple-300 border border-purple-500/30'
+              }`}>
+                Annual Return
               </span>
             </button>
 

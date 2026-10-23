@@ -16,6 +16,7 @@ import { BilateralExchangeCenter } from '@/components/BilateralExchangeCenter';
 import { StreamIngestionPortal } from '@/components/StreamIngestionPortal';
 import { IndustrialMap } from '@/components/IndustrialMap';
 import { ManifestCenter } from '@/components/ManifestCenter';
+import { Form4ComplianceCenter } from '@/components/Form4ComplianceCenter';
 import { ArchitectureDocs } from '@/components/ArchitectureDocs';
 import { Form10Modal } from '@/components/Form10Modal';
 import { runMatchingEngine } from '@/lib/matchingEngine';
@@ -350,6 +351,16 @@ export default function Home() {
             manifests={manifests}
             onOpenManifestModal={(m) => setActiveManifestModal(m)}
             onUpdateStatus={handleUpdateManifestStatus}
+            activeRole={activeRole}
+          />
+        )}
+
+        {activeTab === 'FORM4' && (
+          <Form4ComplianceCenter
+            facilities={facilities}
+            streams={streams}
+            matches={matches}
+            manifests={manifests}
             activeRole={activeRole}
           />
         )}
