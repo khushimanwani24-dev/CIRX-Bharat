@@ -1,0 +1,425 @@
+{
+  "facilities": [
+    {
+      "id": "fac-gen-01",
+      "legal_name": "Precision Plating Works Pvt. Ltd.",
+      "anonymous_label": "MIDC-Ambad-Unit-14",
+      "gstin": "27AABCP8841F1ZV",
+      "spcb_consent_id": "MPCB/RO-NSK/CONSENT/2401000142",
+      "cluster_zone": "MIDC Ambad Industrial Area",
+      "coordinates": {
+        "lat": 19.9542,
+        "lng": 73.7335
+      },
+      "contact_person": "Rajesh Kulkarni (Plant Operations Head)",
+      "contact_phone": "+91 98220 41421",
+      "contact_email": "operations@precisionplating.co.in",
+      "verified": true,
+      "facility_type": "GENERATOR",
+      "industry_sector": "Electroplating & Surface Finishing"
+    },
+    {
+      "id": "fac-gen-02",
+      "legal_name": "Nashik Auto Stamping Ltd.",
+      "anonymous_label": "MIDC-Ambad-Unit-88",
+      "gstin": "27AAGCN4109M1ZG",
+      "spcb_consent_id": "MPCB/RO-NSK/CONSENT/2308000511",
+      "cluster_zone": "MIDC Ambad Industrial Area",
+      "coordinates": {
+        "lat": 19.9485,
+        "lng": 73.728
+      },
+      "contact_person": "Virendra Shinde (EHS & Sustainability Manager)",
+      "contact_phone": "+91 94231 88510",
+      "contact_email": "virendra.s@nashikautostamp.com",
+      "verified": true,
+      "facility_type": "GENERATOR",
+      "industry_sector": "Automotive Sheet Metal & Paint Shop"
+    },
+    {
+      "id": "fac-gen-03",
+      "legal_name": "Godavari Alloys & Heavy Foundry Corp",
+      "anonymous_label": "MIDC-Satpur-Alloy-03",
+      "gstin": "27AAACG9012J1Z8",
+      "spcb_consent_id": "MPCB/RO-NSK/CONSENT/2205001209",
+      "cluster_zone": "MIDC Satpur Industrial Estate",
+      "coordinates": {
+        "lat": 19.9972,
+        "lng": 73.7485
+      },
+      "contact_person": "Sanjay Deshmukh (Operations Director)",
+      "contact_phone": "+91 98500 12090",
+      "contact_email": "s.deshmukh@godavarialloys.in",
+      "verified": true,
+      "facility_type": "GENERATOR",
+      "industry_sector": "Ferrous Castings & Melting Foundry"
+    },
+    {
+      "id": "fac-gen-04",
+      "legal_name": "Panchavati Food Formulations Ltd.",
+      "anonymous_label": "MIDC-Ambad-Agro-22",
+      "gstin": "27AABCP3310K1ZT",
+      "spcb_consent_id": "MPCB/RO-NSK/CONSENT/2402000871",
+      "cluster_zone": "MIDC Ambad Industrial Area",
+      "coordinates": {
+        "lat": 19.961,
+        "lng": 73.738
+      },
+      "contact_person": "Anita Patil (Quality & Compliance Lead)",
+      "contact_phone": "+91 98901 33104",
+      "contact_email": "anita.patil@panchavatifoods.com",
+      "verified": true,
+      "facility_type": "GENERATOR",
+      "industry_sector": "Fruit Processing & Puree Concentration"
+    },
+    {
+      "id": "fac-off-01",
+      "legal_name": "Sahyadri Precious Metals & Chemical Recovery",
+      "anonymous_label": "Satpur-Recovery-Hub-07",
+      "gstin": "27AASCS6542L1Z3",
+      "spcb_consent_id": "MPCB/HW-RECOVERY/SAT/2023-88",
+      "cluster_zone": "MIDC Satpur Industrial Estate",
+      "coordinates": {
+        "lat": 20.0055,
+        "lng": 73.754
+      },
+      "contact_person": "Dr. Arvind Joshi (Chief Metallurgist)",
+      "contact_phone": "+91 94222 65421",
+      "contact_email": "arvind.joshi@sahyadri-metals.com",
+      "verified": true,
+      "facility_type": "RECOVERY_HUB",
+      "industry_sector": "Hydrometallurgy & Hexavalent Chromium Reduction"
+    },
+    {
+      "id": "fac-off-02",
+      "legal_name": "Western India Cement Works",
+      "anonymous_label": "Sinnar-Kiln-Coproc-01",
+      "gstin": "27AAACW8890C1ZO",
+      "spcb_consent_id": "MPCB/CO-PROCESSING/SINNAR/2024-19",
+      "cluster_zone": "Sinnar Industrial Estate (MIDC Malegaon-Sinnar)",
+      "coordinates": {
+        "lat": 19.851,
+        "lng": 73.985
+      },
+      "contact_person": "Col. R. S. Rathore (Head - Alternative Fuel & Raw Materials)",
+      "contact_phone": "+91 97633 88901",
+      "contact_email": "afrm.sinnar@westernindiacement.com",
+      "verified": true,
+      "facility_type": "OFFTAKER",
+      "industry_sector": "Cement Manufacturing & Kiln Co-processing"
+    },
+    {
+      "id": "fac-off-03",
+      "legal_name": "Nashik Green-Pavers & Infrastructure",
+      "anonymous_label": "MIDC-Ambad-Infra-11",
+      "gstin": "27AAGCN7732P1ZX",
+      "spcb_consent_id": "MPCB/RO-NSK/CONSENT/2311000412",
+      "cluster_zone": "MIDC Ambad Industrial Area",
+      "coordinates": {
+        "lat": 19.939,
+        "lng": 73.712
+      },
+      "contact_person": "Ganesh Khairnar (Managing Partner)",
+      "contact_phone": "+91 98230 77320",
+      "contact_email": "ganesh@nashikgreenpavers.com",
+      "verified": true,
+      "facility_type": "OFFTAKER",
+      "industry_sector": "Pre-cast Concrete & Eco-Paver Blocks"
+    },
+    {
+      "id": "fac-off-04",
+      "legal_name": "Samarth Biogas & Energy Grid",
+      "anonymous_label": "Trimbak-Bioenergy-Unit-04",
+      "gstin": "27AAAFS2201D1ZM",
+      "spcb_consent_id": "MPCB/CBG-PLANT/TRIMBAK/2024-05",
+      "cluster_zone": "Trimbak Agro-Industrial Corridor",
+      "coordinates": {
+        "lat": 19.932,
+        "lng": 73.585
+      },
+      "contact_person": "Pramod Shinde (Bio-Reactor Supervisor)",
+      "contact_phone": "+91 94030 22019",
+      "contact_email": "pramod@samarthbiogas.org",
+      "verified": true,
+      "facility_type": "OFFTAKER",
+      "industry_sector": "Compressed Bio-Gas (CBG) & Organic Manure"
+    }
+  ],
+  "material_streams": [
+    {
+      "id": "stream-sup-01",
+      "facility_id": "fac-gen-01",
+      "stream_type": "SUPPLY",
+      "cpcb_waste_code": "Schedule I, Cat 35.3",
+      "material_name": "Acidic Chromium Effluent",
+      "physical_state": "LIQUID",
+      "monthly_volume_mt": 15,
+      "ph_level": 1.8,
+      "calorific_value_kcal": 0,
+      "moisture_percent": 94,
+      "is_hazardous": true,
+      "price_per_mt": -4500,
+      "assay_report_url": "https://rebharat.in/reports/assay-am-014-cr.pdf",
+      "chemical_assay_summary": "Hexavalent Cr(VI): 3,420 ppm, Free H2SO4: 4.2%, Total Heavy Metals: 4,110 ppm, Specific Gravity: 1.14"
+    },
+    {
+      "id": "stream-sup-02",
+      "facility_id": "fac-gen-02",
+      "stream_type": "SUPPLY",
+      "cpcb_waste_code": "Cat 21.1",
+      "material_name": "High-Solid Paint Sludge",
+      "physical_state": "SLUDGE",
+      "monthly_volume_mt": 25,
+      "ph_level": 6.8,
+      "calorific_value_kcal": 3200,
+      "moisture_percent": 28,
+      "is_hazardous": true,
+      "price_per_mt": -2800,
+      "assay_report_url": "https://rebharat.in/reports/assay-am-088-ps.pdf",
+      "chemical_assay_summary": "Volatile Organics: 28.4%, Fixed Carbon: 20.1%, Ash: 23.5%, Heavy Metals < 50 ppm, Flash Point: 72°C"
+    },
+    {
+      "id": "stream-sup-03",
+      "facility_id": "fac-gen-03",
+      "stream_type": "SUPPLY",
+      "cpcb_waste_code": "Schedule II-B (Non-Haz)",
+      "material_name": "Granulated Blast Furnace Slag",
+      "physical_state": "SOLID",
+      "monthly_volume_mt": 120,
+      "ph_level": 8.4,
+      "calorific_value_kcal": 0,
+      "moisture_percent": 6,
+      "is_hazardous": false,
+      "price_per_mt": 650,
+      "assay_report_url": "https://rebharat.in/reports/assay-sat-003-slg.pdf",
+      "chemical_assay_summary": "SiO2: 34.5%, CaO: 41.2%, Al2O3: 14.8%, MgO: 7.1%, Glass Content: 92%, Fineness: 380 m2/kg"
+    },
+    {
+      "id": "stream-sup-04",
+      "facility_id": "fac-gen-04",
+      "stream_type": "SUPPLY",
+      "cpcb_waste_code": "Agro-Byproduct (Non-Haz)",
+      "material_name": "High-Moisture Organic Pulp & Citrus Waste",
+      "physical_state": "SLUDGE",
+      "monthly_volume_mt": 40,
+      "ph_level": 4.2,
+      "calorific_value_kcal": 1450,
+      "moisture_percent": 78,
+      "is_hazardous": false,
+      "price_per_mt": -400,
+      "assay_report_url": "https://rebharat.in/reports/assay-am-022-org.pdf",
+      "chemical_assay_summary": "Total Solids: 22%, Volatile Solids: 88% of TS, COD: 68,000 mg/L, C:N Ratio: 26.4:1"
+    },
+    {
+      "id": "stream-dem-01",
+      "facility_id": "fac-off-01",
+      "stream_type": "DEMAND",
+      "cpcb_waste_code": "Schedule I, Cat 35.3",
+      "material_name": "Chromium / Heavy Metal Solutions (Neutralization/Precipitation)",
+      "physical_state": "LIQUID",
+      "monthly_volume_mt": 20,
+      "ph_level": 2.0,
+      "calorific_value_kcal": 0,
+      "moisture_percent": 90,
+      "is_hazardous": true,
+      "price_per_mt": 500,
+      "assay_report_url": "https://rebharat.in/specs/spec-rec-cr.pdf",
+      "chemical_assay_summary": "Tolerable pH: 0.8 - 3.2, Max Suspended Solids < 2%, Feedstock for chemical reduction to Cr(OH)3"
+    },
+    {
+      "id": "stream-dem-02",
+      "facility_id": "fac-off-02",
+      "stream_type": "DEMAND",
+      "cpcb_waste_code": "Cat 21.1",
+      "material_name": "High-Calorific Paint Sludge & Alternative Fuels for Kiln Co-processing",
+      "physical_state": "SLUDGE",
+      "monthly_volume_mt": 50,
+      "ph_level": 7.0,
+      "calorific_value_kcal": 2800,
+      "moisture_percent": 30,
+      "is_hazardous": true,
+      "price_per_mt": 0,
+      "assay_report_url": "https://rebharat.in/specs/spec-kiln-afrm.pdf",
+      "chemical_assay_summary": "Min Calorific: 2,500 kcal/kg, Chlorine < 0.5%, Sulfur < 1.2%, Moisture < 35%"
+    },
+    {
+      "id": "stream-dem-03",
+      "facility_id": "fac-off-03",
+      "stream_type": "DEMAND",
+      "cpcb_waste_code": "Schedule II-B (Non-Haz)",
+      "material_name": "Granulated Slag / Aggregate for Paver Blocks",
+      "physical_state": "SOLID",
+      "monthly_volume_mt": 150,
+      "ph_level": 8.0,
+      "calorific_value_kcal": 0,
+      "moisture_percent": 10,
+      "is_hazardous": false,
+      "price_per_mt": 550,
+      "assay_report_url": "https://rebharat.in/specs/spec-paver-agg.pdf",
+      "chemical_assay_summary": "Particle size: 0.15 - 4.75 mm, Soundness loss < 12%, Compressive strength enhancement index > 110%"
+    },
+    {
+      "id": "stream-dem-04",
+      "facility_id": "fac-off-04",
+      "stream_type": "DEMAND",
+      "cpcb_waste_code": "Agro-Byproduct (Non-Haz)",
+      "material_name": "Organic Fruit/Vegetable Slurries for Anaerobic Digestion",
+      "physical_state": "SLUDGE",
+      "monthly_volume_mt": 60,
+      "ph_level": 5.0,
+      "calorific_value_kcal": 1200,
+      "moisture_percent": 80,
+      "is_hazardous": false,
+      "price_per_mt": 0,
+      "assay_report_url": "https://rebharat.in/specs/spec-biogas-feed.pdf",
+      "chemical_assay_summary": "CSTR compatible slurry, Free of abrasive grit/plastics, Biodegradable fraction > 80%"
+    }
+  ],
+  "match_proposals": [
+    {
+      "id": "match-001",
+      "supply_stream_id": "stream-sup-01",
+      "demand_stream_id": "stream-dem-01",
+      "match_score": 96.2,
+      "transit_distance_km": 8.4,
+      "avoided_co2_mt": 12.3,
+      "economic_benefit_inr": 75000,
+      "status": "MUTUAL_CONSENT",
+      "generator_consent": true,
+      "offtaker_consent": true,
+      "unlocked_at": "2026-10-22T10:15:00.000Z",
+      "breakdown": {
+        "chemical_compatibility": 0.98,
+        "distance_score": 0.96,
+        "volume_ratio": 0.75,
+        "compatibility_notes": [
+          "CPCB Cat 35.3 match confirmed: Acidic hexavalent chromium stream is directly treatable at Sahyadri Recovery Hub.",
+          "pH of 1.8 perfectly meets the hydrometallurgical reduction specification window (0.8 - 3.2).",
+          "Short 8.4 km inter-cluster transit inside Nashik MIDC corridor cuts hazardous transport risks."
+        ]
+      },
+      "recommended_logistics_mode": "Rubber-lined Acid Tanker (PESO & CPCB approved)"
+    },
+    {
+      "id": "match-002",
+      "supply_stream_id": "stream-sup-02",
+      "demand_stream_id": "stream-dem-02",
+      "match_score": 91.8,
+      "transit_distance_km": 38.2,
+      "avoided_co2_mt": 20.5,
+      "economic_benefit_inr": 70000,
+      "status": "MANIFEST_GENERATED",
+      "generator_consent": true,
+      "offtaker_consent": true,
+      "unlocked_at": "2026-10-21T14:30:00.000Z",
+      "breakdown": {
+        "chemical_compatibility": 0.95,
+        "distance_score": 0.88,
+        "volume_ratio": 0.5,
+        "compatibility_notes": [
+          "CPCB Cat 21.1 paint sludge verified for direct co-processing in Western India Cement clinker precalciner.",
+          "High calorific value of 3,200 kcal/kg exceeds the 2,500 kcal/kg kiln threshold.",
+          "Diverts 25 MT/month from expensive hazardous TSDF landfill (saves ₹2,800/MT tipping fee)."
+        ]
+      },
+      "recommended_logistics_mode": "Leak-proof Hydraulic Skip Truck with GPS Telemetry"
+    },
+    {
+      "id": "match-003",
+      "supply_stream_id": "stream-sup-03",
+      "demand_stream_id": "stream-dem-03",
+      "match_score": 94.5,
+      "transit_distance_km": 4.2,
+      "avoided_co2_mt": 98.4,
+      "economic_benefit_inr": 138000,
+      "status": "MUTUAL_CONSENT",
+      "generator_consent": true,
+      "offtaker_consent": true,
+      "unlocked_at": "2026-10-23T08:00:00.000Z",
+      "breakdown": {
+        "chemical_compatibility": 0.99,
+        "distance_score": 0.99,
+        "volume_ratio": 0.8,
+        "compatibility_notes": [
+          "Non-hazardous granulated slag qualifies under MoEFCC fly-ash and slag utilization notifications.",
+          "Ultra-short 4.2 km haul minimizes transit cost to negligible ₹80/MT.",
+          "Substitutes mined river sand and crushed aggregate in M-30 interlocking pavers."
+        ]
+      },
+      "recommended_logistics_mode": "Tarpaulin Covered Heavy Tipper (16 Wheeler)"
+    },
+    {
+      "id": "match-004",
+      "supply_stream_id": "stream-sup-04",
+      "demand_stream_id": "stream-dem-04",
+      "match_score": 87.4,
+      "transit_distance_km": 17.8,
+      "avoided_co2_mt": 32.8,
+      "economic_benefit_inr": 24000,
+      "status": "PROPOSED",
+      "generator_consent": true,
+      "offtaker_consent": false,
+      "breakdown": {
+        "chemical_compatibility": 0.92,
+        "distance_score": 0.91,
+        "volume_ratio": 0.67,
+        "compatibility_notes": [
+          "Citrus peel and food pomace offer ideal 26.4:1 C:N ratio for stable anaerobic methanation.",
+          "Eliminates biological odor issues at source while generating 380 Nm3 biomethane/day.",
+          "Awaiting consumer bilateral consent to de-anonymize commercial contract."
+        ]
+      },
+      "recommended_logistics_mode": "Food-grade Sealed Tanker with Sludge Pump"
+    }
+  ],
+  "manifests": [
+    {
+      "id": "mnf-001",
+      "manifest_number": "CPCB/MH/NSK/2026/F10-0942",
+      "match_id": "match-002",
+      "sender_facility_id": "fac-gen-02",
+      "receiver_facility_id": "fac-off-02",
+      "transporter_name": "MahaClean HazLogistics Pvt. Ltd.",
+      "vehicle_no": "MH-15-EG-8421",
+      "transporter_license": "MPCB/TRANS/HW/2023-419",
+      "driver_name": "Pandurang Gavande",
+      "driver_phone": "+91 97654 32110",
+      "waste_category": "Cat 21.1 (Paint Sludge from Spray Booths)",
+      "material_name": "High-Solid Automotive Paint Sludge",
+      "physical_state": "SLUDGE",
+      "quantity_dispatched_mt": 24.5,
+      "packaging_type": "Hermetically Sealed MS Skips with Secondary Containment",
+      "special_handling_instructions": "Inflammable vapors (Flash Point 72°C). Keep away from open flame. Eye goggles & chemical gloves mandatory during transfer.",
+      "emergency_contact": "Emergency Hazmat Response Nashik: +91 253 2381200 / 112",
+      "dispatch_date": "2026-10-23T09:30:00.000Z",
+      "expected_delivery_date": "2026-10-23T13:00:00.000Z",
+      "spcb_noc_reference": "MPCB/RO-NSK/HW-NOC/2026-00388",
+      "status": "IN_TRANSIT",
+      "current_copy": "ORANGE"
+    },
+    {
+      "id": "mnf-002",
+      "manifest_number": "CPCB/MH/NSK/2026/F10-0891",
+      "match_id": "match-001",
+      "sender_facility_id": "fac-gen-01",
+      "receiver_facility_id": "fac-off-01",
+      "transporter_name": "Sahyadri Eco-Fleet & Chemical Carrier",
+      "vehicle_no": "MH-15-DM-3108",
+      "transporter_license": "MPCB/TRANS/HW/2022-108",
+      "driver_name": "Dnyaneshwar Shinde",
+      "driver_phone": "+91 98810 99402",
+      "waste_category": "Schedule I, Cat 35.3 (Spent Acid with Heavy Metals)",
+      "material_name": "Acidic Chromium Effluent",
+      "physical_state": "LIQUID",
+      "quantity_dispatched_mt": 14.8,
+      "packaging_type": "FRP Rubber-Lined Pressure Tanker (TREMCARD attached)",
+      "special_handling_instructions": "Corrosive Acid (pH 1.8). Contains Hexavalent Chromium. Neutralization agent (Sodium bisulfite) carried onboard.",
+      "emergency_contact": "MIDC Ambad Hazmat Cell: +91 253 2380111",
+      "dispatch_date": "2026-10-22T11:00:00.000Z",
+      "expected_delivery_date": "2026-10-22T12:30:00.000Z",
+      "spcb_noc_reference": "MPCB/RO-NSK/HW-NOC/2026-00291",
+      "status": "DELIVERED",
+      "current_copy": "GREEN"
+    }
+  ]
+}
