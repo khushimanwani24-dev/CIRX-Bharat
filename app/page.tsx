@@ -11,13 +11,15 @@ import {
   ManifestStatus,
   ManifestCopyColor,
 } from '@/types';
-import { Header, UserRole, ActiveTab } from '@/components/Header';
+import { UserRole } from '@/components/Header';
+import { Sidebar, MainNavTab } from '@/components/Sidebar';
+import { TopHeader } from '@/components/TopHeader';
+import { DashboardOverview } from '@/components/DashboardOverview';
 import { BilateralExchangeCenter } from '@/components/BilateralExchangeCenter';
 import { StreamIngestionPortal } from '@/components/StreamIngestionPortal';
 import { IndustrialMap } from '@/components/IndustrialMap';
-import { ManifestCenter } from '@/components/ManifestCenter';
-import { Form4ComplianceCenter } from '@/components/Form4ComplianceCenter';
-import { ArchitectureDocs } from '@/components/ArchitectureDocs';
+import { ComplianceCenter } from '@/components/ComplianceCenter';
+import { TechnicalSpecsModal } from '@/components/TechnicalSpecsModal';
 import { Form10Modal } from '@/components/Form10Modal';
 import { runMatchingEngine } from '@/lib/matchingEngine';
 
@@ -43,10 +45,13 @@ export default function Home() {
     hazardous_treated_mt: 39.8,
   });
 
+  // Default to DASHBOARD as the welcoming front door
   const [activeRole, setActiveRole] = useState<UserRole>('GEN_PRECISION');
-  const [activeTab, setActiveTab] = useState<ActiveTab>('MATCHES');
+  const [activeTab, setActiveTab] = useState<MainNavTab>('DASHBOARD');
   const [selectedMatchId, setSelectedMatchId] = useState<string | null>('match-001');
   const [activeManifestModal, setActiveManifestModal] = useState<Form10Manifest | null>(null);
+  const [isSpecsModalOpen, setIsSpecsModalOpen] = useState<boolean>(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const showToast = (msg: string) => {
@@ -269,7 +274,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-slate-900">
+    <div className="min-h-screen flex bg-[#F8FAFC] text-slate-900">
       {/* Toast Notification */}
       {toastMessage && (
         <div className="fixed bottom-5 right-5 z-50 max-w-md bg-white border border-emerald-300 shadow-xl rounded-xl p-3.5 text-xs text-slate-900 flex items-center justify-between gap-3 animate-slide-up ring-1 ring-emerald-500/20">
@@ -289,87 +294,112 @@ export default function Home() {
         </div>
       )}
 
-      {/* Main Header with Live ESG Counters & Role Switcher */}
-      <Header
-        esgMetrics={esgMetrics}
-        activeRole={activeRole}
-        onRoleChange={setActiveRole}
+      {/* 1. Left Vertical Fixed Sidebar */}
+      <Sidebar
         activeTab={activeTab}
         onTabChange={setActiveTab}
+        activeRole={activeRole}
+        onRoleChange={setActiveRole}
+        onOpenSpecs={() => setIsSpecsModalOpen(true)}
         onResetData={handleResetData}
-        manifestCount={manifests.length}
         matchCount={matches.length}
+        manifestCount={manifests.length}
+        isOpenMobile={isMobileMenuOpen}
+        onCloseMobile={() => setIsMobileMenuOpen(false)}
       />
 
-      {/* Main Tab Screen Area */}
-      <main className="flex-1 pb-16">
-        {activeTab === 'MATCHES' && (
-          <BilateralExchangeCenter
-            matches={matches}
-            facilities={facilities}
-            streams={streams}
-            activeRole={activeRole}
-            onToggleConsent={handleToggleConsent}
-            onGenerateManifest={handleGenerateManifest}
-            onViewManifest={(manifestId) => {
-              const found = manifests.find((m) => m.id === manifestId);
-              if (found) setActiveManifestModal(found);
-            }}
-            manifests={manifests}
-            selectedMatchId={selectedMatchId}
-            onSelectMatch={(matchId) => {
-              setSelectedMatchId(matchId);
-              setActiveTab('MAP');
-            }}
-          />
-        )}
+      {/* 2. Main Workspace (shifted by sidebar width on desktop) */}
+      <div className="flex-1 flex flex-col min-w-0 md:pl-64">
+        {/* Top Header */}
+        <TopHeader
+          activeTab={activeTab}
+          activeRole={activeRole}
+          onRoleChange={setActiveRole}
+          onToggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)}
+        />
 
-        {activeTab === 'INGEST' && (
-          <StreamIngestionPortal
-            facilities={facilities}
-            onStreamCreated={handleStreamCreated}
-            activeRole={activeRole}
-            onNavigateToMatches={() => setActiveTab('MATCHES')}
-          />
-        )}
-
-        {activeTab === 'MAP' && (
-          <div className="max-w-7xl mx-auto py-6 px-4">
-            <IndustrialMap
+        {/* Workspace Content Router */}
+        <main className="flex-1 pb-16">
+          {activeTab === 'DASHBOARD' && (
+            <DashboardOverview
+              esgMetrics={esgMetrics}
+              matches={matches}
               facilities={facilities}
               streams={streams}
-              matches={matches}
-              selectedMatchId={selectedMatchId}
+              activeRole={activeRole}
+              onNavigate={(tab) => setActiveTab(tab)}
               onSelectMatch={(matchId) => {
                 setSelectedMatchId(matchId);
                 setActiveTab('MATCHES');
               }}
+            />
+          )}
+
+          {activeTab === 'MATCHES' && (
+            <BilateralExchangeCenter
+              matches={matches}
+              facilities={facilities}
+              streams={streams}
+              activeRole={activeRole}
+              onToggleConsent={handleToggleConsent}
+              onGenerateManifest={handleGenerateManifest}
+              onViewManifest={(manifestId) => {
+                const found = manifests.find((m) => m.id === manifestId);
+                if (found) setActiveManifestModal(found);
+              }}
+              manifests={manifests}
+              selectedMatchId={selectedMatchId}
+              onSelectMatch={(matchId) => {
+                setSelectedMatchId(matchId);
+                setActiveTab('MAP');
+              }}
+            />
+          )}
+
+          {activeTab === 'INGEST' && (
+            <StreamIngestionPortal
+              facilities={facilities}
+              onStreamCreated={handleStreamCreated}
+              activeRole={activeRole}
+              onNavigateToMatches={() => setActiveTab('MATCHES')}
+            />
+          )}
+
+          {activeTab === 'MAP' && (
+            <div className="max-w-7xl mx-auto py-6 px-4">
+              <IndustrialMap
+                facilities={facilities}
+                streams={streams}
+                matches={matches}
+                selectedMatchId={selectedMatchId}
+                onSelectMatch={(matchId) => {
+                  setSelectedMatchId(matchId);
+                  setActiveTab('MATCHES');
+                }}
+                activeRole={activeRole}
+              />
+            </div>
+          )}
+
+          {activeTab === 'COMPLIANCE' && (
+            <ComplianceCenter
+              manifests={manifests}
+              facilities={facilities}
+              streams={streams}
+              matches={matches}
+              onOpenManifestModal={(m) => setActiveManifestModal(m)}
+              onUpdateStatus={handleUpdateManifestStatus}
               activeRole={activeRole}
             />
-          </div>
-        )}
+          )}
+        </main>
+      </div>
 
-        {activeTab === 'MANIFESTS' && (
-          <ManifestCenter
-            manifests={manifests}
-            onOpenManifestModal={(m) => setActiveManifestModal(m)}
-            onUpdateStatus={handleUpdateManifestStatus}
-            activeRole={activeRole}
-          />
-        )}
-
-        {activeTab === 'FORM4' && (
-          <Form4ComplianceCenter
-            facilities={facilities}
-            streams={streams}
-            matches={matches}
-            manifests={manifests}
-            activeRole={activeRole}
-          />
-        )}
-
-        {activeTab === 'ARCHITECTURE' && <ArchitectureDocs />}
-      </main>
+      {/* Technical Specs & Math Modal */}
+      <TechnicalSpecsModal
+        isOpen={isSpecsModalOpen}
+        onClose={() => setIsSpecsModalOpen(false)}
+      />
 
       {/* CPCB Form 10 Modal */}
       {activeManifestModal && (
