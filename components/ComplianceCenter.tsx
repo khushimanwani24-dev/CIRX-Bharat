@@ -43,9 +43,9 @@ export const ComplianceCenter: React.FC<ComplianceCenterProps> = ({
               <Scale className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-slate-900">SPCB Statutory Compliance Center</h2>
+              <h2 className="text-base font-bold text-slate-900">GPCB Statutory Compliance Center</h2>
               <p className="text-xs text-slate-500">
-                Rule 19 Form 10 movement tracking and Rule 20 (1) Form 4 annual return filing
+                GPCB Extended Green Node (XGN) Rule 19 Form 10 tracking and Rule 20 (1) Form 4 filing
               </p>
             </div>
           </div>

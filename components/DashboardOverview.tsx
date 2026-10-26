@@ -50,21 +50,21 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
         <div className="relative z-10 max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-semibold">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Nashik Industrial Belt • MIDC Ambad, Satpur & Sinnar
+            Ahmedabad Industrial Cluster • Vatva GIDC, Naroda GIDC & Kathwada Corridor
           </div>
 
           <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white font-sans">
-            Nashik Industrial Symbiosis Grid
+            Ahmedabad Industrial Symbiosis Grid
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-            Autonomous secondary feedstock exchange enabling zero-leakage industrial circularity. Connecting hazardous byproduct generators with licensed co-processors under CPCB Rule 19 statutory tracking.
+            Autonomous secondary feedstock exchange enabling zero-leakage industrial circularity across Gujarat MSMEs. Connecting hazardous byproduct generators with licensed co-processors under GPCB XGN statutory tracking.
           </p>
 
           <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-medium text-slate-400">
             <span className="flex items-center gap-1.5 text-emerald-400">
               <CheckCircle2 className="w-4 h-4" />
-              100% CPCB Form 10 Compliant
+              100% GPCB XGN Form 10 Compliant
             </span>
             <span>•</span>
             <span className="flex items-center gap-1.5 text-slate-300">
@@ -72,7 +72,7 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
               Zero-Leakage Trade Shield Active
             </span>
             <span>•</span>
-            <span className="text-slate-400">12 Verified Industrial Facilities</span>
+            <span className="text-slate-400">Vatva & Naroda GIDC Units</span>
           </div>
         </div>
 
@@ -152,7 +152,7 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
         <div className="flex items-center justify-between mb-4">
           <div>
             <h2 className="text-base font-bold text-slate-900">Corridor Telemetry & ESG Impact</h2>
-            <p className="text-xs text-slate-500">Live aggregate metrics across the Nashik Industrial Belt</p>
+            <p className="text-xs text-slate-500">Live aggregate metrics across the Ahmedabad Industrial Cluster</p>
           </div>
           <button
             onClick={() => onNavigate('MAP')}
@@ -300,6 +300,16 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
                     <span className="text-slate-400 block text-[10px]">Arbitrage</span>
                     <span className="font-bold text-emerald-700">{formatINR(match.economic_benefit_inr)}</span>
                   </div>
+                </div>
+
+                {/* ROI / Arbitrage Badges */}
+                <div className="flex flex-col sm:flex-row gap-1.5 pt-1">
+                  <span className="inline-flex items-center text-[10px] font-semibold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">
+                    Savings vs. NEPL/TSDF Landfill Fees (₹1,500/MT saved)
+                  </span>
+                  <span className="inline-flex items-center text-[10px] font-semibold px-2 py-0.5 rounded-md bg-sky-50 text-sky-800 border border-sky-200">
+                    Savings vs. Virgin Mineral Gypsum (₹1,050/MT saved)
+                  </span>
                 </div>
 
                 <div className="flex items-center justify-between pt-1">

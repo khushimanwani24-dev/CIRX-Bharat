@@ -61,21 +61,20 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
 
       if (!isMounted) return;
 
-      // Center map around Nashik Industrial Corridor (Ambad / Satpur / Sinnar)
+      // Center map around Ahmedabad Industrial Corridor (Vatva / Naroda / Kathwada / Sanand)
       const map = L.map(mapContainerRef.current, {
-        center: [19.955, 73.745],
-        zoom: 12,
+        center: [23.0225, 72.6100],
+        zoom: 11,
         zoomControl: false,
       });
 
       L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-      // Free clean light tile layer: CartoDB Voyager (no API key required)
+      // Clean public OpenStreetMap tile layer (no API key required)
       L.tileLayer(
-        'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         {
-          attribution: '&copy; OpenStreetMap contributors &copy; CARTO | Nashik Industrial Symbiosis Corridor',
-          subdomains: 'abcd',
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Ahmedabad Industrial Symbiosis Corridor',
           maxZoom: 19,
         }
       ).addTo(map);
@@ -432,7 +431,7 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
       <div className="absolute top-4 left-4 z-[500] flex flex-wrap items-center gap-2.5 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-xl border border-slate-200 shadow-md max-w-[92%]">
         <div className="flex items-center gap-2 mr-1">
           <Navigation className="w-4 h-4 text-emerald-600" />
-          <span className="text-xs font-bold text-slate-900 font-sans">Nashik Industrial Corridor</span>
+          <span className="text-xs font-bold text-slate-900 font-sans">Ahmedabad Industrial Cluster — Vatva, Naroda & Kathwada Corridor</span>
         </div>
 
         {/* Route Selector Dropdown */}
@@ -551,19 +550,19 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
         </div>
         <div className="flex items-center gap-2 text-slate-700">
           <span className="w-3 h-3 rounded-full bg-rose-500 border border-rose-300 shadow-2xs" />
-          <span>Hazardous Generator (Ambad)</span>
+          <span>Spent Acid Generator (Naroda GIDC)</span>
         </div>
         <div className="flex items-center gap-2 text-slate-700">
           <span className="w-3 h-3 rounded-full bg-amber-500 border border-amber-300 shadow-2xs" />
-          <span>Non-Hazardous Generator</span>
+          <span>Synthetic Gypsum Generator (Vatva GIDC)</span>
         </div>
         <div className="flex items-center gap-2 text-slate-700">
           <span className="w-3 h-3 rounded-full bg-sky-500 border border-sky-300 shadow-2xs" />
-          <span>Hydrometallurgy Recovery Hub</span>
+          <span>AAC Block & Brick Infra (Kathwada)</span>
         </div>
         <div className="flex items-center gap-2 text-slate-700">
           <span className="w-3 h-3 rounded-full bg-emerald-500 border border-emerald-300 shadow-2xs" />
-          <span>Circular Consumer (Sinnar/Ambad)</span>
+          <span>Cement Grinding Terminal (Sanand)</span>
         </div>
         <div className="flex items-center gap-2 text-slate-700 pt-1 border-t border-slate-200">
           <span className="w-6 h-0.5 border-t-2 border-dashed border-emerald-600" />

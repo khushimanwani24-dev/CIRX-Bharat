@@ -12,9 +12,9 @@
 
 ## Executive Summary
 
-**ReBharat (री-भारत)** is an enterprise-grade industrial symbiosis and secondary raw material exchange platform designed for India's high-density manufacturing corridors. It establishes a closed-loop digital twin across heavy manufacturing, chemical synthesis, electroplating, automotive stamping, and cement manufacturing clusters, diverting hazardous and industrial byproducts away from landfills into high-value circular supply chains.
+**ReBharat (री-भारत)** is an enterprise-grade industrial symbiosis and secondary raw material exchange platform designed for India's high-density manufacturing corridors. It establishes a closed-loop digital twin across chemical dye-intermediates, acid processing, cement grinding, and building material clusters, diverting hazardous and industrial byproducts away from landfills into high-value circular supply chains.
 
-The platform's flagship deployment model targets the **Nashik Manufacturing Corridor** in Maharashtra (encompassing MIDC Ambad, MIDC Satpur, Sinnar Industrial Area, and Trimbak Road), orchestrating algorithmic byproduct discovery, cryptographic trade-secret protection, automated logistics dispatch, and statutory regulatory compliance under the **Central Pollution Control Board (CPCB)**.
+The platform's flagship deployment model targets the **Ahmedabad Industrial Cluster** in Gujarat (encompassing Vatva GIDC Phase-III, Naroda GIDC, Kathwada GIDC, and the Sanand / Sarkhej Grinding Belt), orchestrating algorithmic byproduct discovery, cryptographic trade-secret protection, automated logistics dispatch, and statutory regulatory compliance under the **Gujarat Pollution Control Board (GPCB)** and CPCB.
 
 ---
 
@@ -73,11 +73,11 @@ ReBharat is architected around a resilient, high-throughput four-layer operation
                                               │
  ┌────────────────────────────────────────────┴───────────────────────────────────────────┐
  │ Layer 3: ZERO-LEAKAGE PRIVACY & ANONYMIZATION ENGINE (`/lib/anonymizer.ts`)            │
- │  • Trade-Secret Shield: Company masking (e.g., "MIDC-Ambad-Unit-14")                   │
- │  • Cryptographic PII Redaction: GSTIN (`27AABCP•••••••ZV`), SPCB Consent masking       │
+ │  • Trade-Secret Shield: Company masking (e.g., "GIDC-Vatva-Unit-09")                  │
+ │  • Cryptographic PII Redaction: GSTIN (`24AABCV•••••••ZT`), GPCB Consent masking      │
  │  • Spatial Jitter Blurring: Deterministic ±1.5 km geographic noise on public GIS map   │
  │  • Bilateral Consent Protocol: Mutual opt-in handshake required to lift identity shield│
- │  • Regulatory Backdoor Bypass: Continuous unmasked audit visibility for verified SPCB   │
+ │  • Regulatory Backdoor Bypass: Continuous unmasked audit visibility for verified GPCB  │
  └────────────────────────────────────────────┬───────────────────────────────────────────┘
                                               │
  ┌────────────────────────────────────────────┴───────────────────────────────────────────┐
@@ -109,7 +109,7 @@ ReBharat is architected around a resilient, high-throughput four-layer operation
 
 ### Layer 3: Zero-Leakage Privacy & Anonymization Engine (`/lib/anonymizer.ts`)
 - Solves the primary adoption hurdle in industrial symbiosis: **commercial and competitive secrecy**.
-- Counterparties browse listings under pseudonymous node identifiers (e.g., `MIDC-Ambad-Unit-14`), with GSTINs and SPCB Consent IDs masked.
+- Counterparties browse listings under pseudonymous node identifiers (e.g., `GIDC-Vatva-Unit-09`), with GSTINs and GPCB Consent IDs masked.
 - Public GIS coordinates are shifted using a deterministic mathematical hash function generating a **$\pm 1.5\text{ km}$ spatial blur**, preventing competitors from locating facilities through triangulation.
 - Legal names, executive contact details, and precise coordinates remain locked until **both** counterparties execute a cryptographically signed bilateral handshake (`MUTUAL_CONSENT`). State Pollution Control Board regulators maintain continuous oversight with full audit bypass.
 
@@ -225,11 +225,11 @@ Under **Rule 19 (1)** of the *Hazardous and Other Wastes (Management and Transbo
 ├──────┬─────────┬──────────────────────────────┬────────────────────────────────────────┤
 │ Copy │ Color   │ Statutory Recipient          │ Legal Mandate & Timing                 │
 ├──────┼─────────┼──────────────────────────────┼────────────────────────────────────────┤
-│  1   │ White   │ SPCB Regional Office (Nashik)│ Submitted by Sender within 3 days.     │
-│  2   │ Yellow  │ Sender Archive (Generator)   │ Retained by Sender after driver signs. │
-│  3   │ Pink    │ Receiver Archive (Offtaker)  │ Retained by Offtaker for audit trail.  │
-│  4   │ Orange  │ Transporter Vehicle Cab      │ Accompanies truck in-transit w/ TREMCARD│
-│  5   │ Green   │ SPCB Regional Office (Nashik)│ Sent by Receiver confirming delivery.  │
+│  1   │ White   │ GPCB Regional Office (Ahmedabad)│ Submitted by Sender within 3 days.   │
+│  2   │ Yellow  │ Sender Archive (Generator)     │ Retained by Sender after driver signs. │
+│  3   │ Pink    │ Receiver Archive (Offtaker)    │ Retained by Offtaker for audit trail.  │
+│  4   │ Orange  │ Transporter Vehicle Cab        │ Accompanies truck in-transit w/ TREMCARD│
+│  5   │ Green   │ GPCB Regional Office (Ahmedabad)│ Sent by Receiver confirming delivery. │
 │  6   │ Blue    │ Sender Final Closure Proof   │ Returned to Sender with weight seal.   │
 │  7   │ Grey    │ Transporter Clearance        │ Retained by fleet logistics operator.  │
 └──────┴─────────┴──────────────────────────────┴────────────────────────────────────────┘
@@ -244,39 +244,36 @@ Under **Rule 19 (1)** of the *Hazardous and Other Wastes (Management and Transbo
 
 ---
 
-## 🏭 Nashik Corridor Pilot Blueprint
+## 🏭 Ahmedabad Corridor Pilot Blueprint (Vatva & Naroda GIDC)
 
-The repository comes pre-loaded with comprehensive industrial fixtures (`/data/seed.json`) mapped to the **Nashik Manufacturing Hub**:
+The repository comes pre-loaded with comprehensive industrial fixtures (`/data/seed.json`) mapped to the **Ahmedabad Chemical & Building Material Cluster**:
 
 ```
-                                    [ Western India Cement ]
-                                    (Sinnar Industrial - 38 km)
+                                    [ Gujarat Regional Cement ]
+                                    (Sanand / Sarkhej Grinding - 24 km)
                                               ▲
-                                              │ AFR Kiln Co-processing
-                                              │ (Paint Sludge - Cat 21.1)
+                                              │ Secondary Gypsum Retarder
+                                              │ (Replaces Virgin Rajasthan Gypsum)
                                               │
-    [ Precision Plating Works ] ──────────────┼──────────────► [ Sahyadri Precious Metals ]
-    (MIDC Ambad - Cat 35.3 Effluent)          │                (MIDC Satpur - 8.4 km)
-                                              │                Hydrometallurgical Recovery
+    [ Vatva Specialty Dye-Chem ] ─────────────┼──────────────► [ Kathwada Eco-Crete & AAC ]
+    (GIDC Vatva - Chemical Gypsum Sludge)     │                (GIDC Kathwada - 11 km)
+                                              │                Pozzolana Binder in AAC Blocks
                                               │
-    [ Godavari Alloys Foundry ] ──────────────┴──────────────► [ Nashik Green-Pavers ]
-    (MIDC Satpur - Slag Schedule II-B)                         (MIDC Ambad - 4.2 km)
-                                                               Sand Replacement in Pavers
+    [ Sabarmati Pigments & Acid ] ────────────┴──────────────► [ Gujarat Regional Cement ]
+    (GIDC Naroda - Spent H2SO4)                                (Neutralization & Mineral Retarder)
 ```
 
 ### Pre-Configured Facilities & Verified Streams:
-1. **Precision Plating Works Pvt. Ltd.** (MIDC Ambad)
-   - *Stream:* 15 MT/month **Acidic Chromium Effluent** (CPCB Cat 35.3, pH 1.8).
-   - *Symbiosis Partner:* **Sahyadri Precious Metals** (MIDC Satpur, 8.4 km) for hydrometallurgical precipitation.
-2. **Nashik Auto Stamping Ltd.** (MIDC Ambad)
-   - *Stream:* 25 MT/month **Automotive Paint Sludge** (CPCB Cat 21.1, GCV 3,200 kcal/kg, 28% moisture).
-   - *Symbiosis Partner:* **Western India Cement Works** (Sinnar, 38 km) for high-temperature ($1,450^\circ\text{C}$) clinker burning.
-3. **Godavari Alloys & Heavy Foundry Corp** (MIDC Satpur)
-   - *Stream:* 120 MT/month **Granulated Blast Furnace Slag** (Schedule II-B Pozzolana).
-   - *Symbiosis Partner:* **Nashik Green-Pavers & Infrastructure** (MIDC Ambad, 4.2 km) for river-sand replacement in M-30 paver blocks.
-4. **Panchavati Food Formulations Ltd.** (MIDC Ambad)
-   - *Stream:* 40 MT/month **Citrus Pomace & Puree Waste** (High-COD Organic Slurry).
-   - *Symbiosis Partner:* **Samarth Biogas & Energy Grid** (Trimbak Road, 18 km) for anaerobic CSTR digestion.
+1. **Vatva Specialty Dye-Chem Industries Pvt. Ltd.** (GIDC Phase-III, Vatva)
+   - *Stream:* 45 MT/month **Neutralized Chemical Gypsum Sludge** (CPCB Cat 35.3, pH 6.8, Moisture: 18%, Tipping Subsidy: -₹1,200/MT).
+   - *Symbiosis Partner:* **Kathwada Eco-Crete & AAC Block Infra** (GIDC Kathwada, 11 km) for autoclaved aerated concrete block curing.
+2. **Sabarmati Pigments & Acid Corp** (GIDC Industrial Estate, Naroda)
+   - *Stream:* 20 MT/month **Spent Sulphuric Acid (H2SO4)** (CPCB Cat 35.3, pH 1.2, 68% concentration, Hazardous Rule 19).
+   - *Symbiosis Partner:* **Gujarat Regional Cement & Grinding Terminal** (Sanand, 24 km) for clinker retarding and sulfate formulation.
+3. **Kathwada Eco-Crete & AAC Block Infra** (GIDC Kathwada)
+   - *Demand:* 60 MT/month **Gypsum & Fine Pozzolana Binder** for fly ash brick and block curing (Procure Price: ₹450/MT).
+4. **Gujarat Regional Cement & Grinding Terminal** (Sanand Industrial Gate / Sarkhej Belt)
+   - *Demand:* 150 MT/month **Setting Retarder Gypsum Grade** (Procure Price: ₹750/MT vs ₹1,800/MT Virgin Rajasthan Gypsum).
 
 ---
 
@@ -368,7 +365,7 @@ Upon launching ReBharat, you can test end-to-end industrial workflows across 5 p
 ```
 
 ### Key Interactive Flows to Test:
-- **Bilateral Consent Handshake:** Navigate to `/` (Bilateral Exchange Center). Observe that company names are masked as `MIDC-Ambad-Unit-14`. Click **"Generator Consent"**, then click **"Offtaker Consent"**. Watch the confetti animation trigger as verified corporate names and GSTINs unlock, enabling the **"Generate CPCB Form 10 Manifest"** button.
+- **Bilateral Consent Handshake:** Navigate to `/` (Bilateral Exchange Center). Observe that company names are masked as `GIDC-Vatva-Unit-09`. Click **"Generator Consent"**, then click **"Offtaker Consent"**. Watch the confetti animation trigger as verified corporate names and GSTINs unlock, enabling the **"Generate GPCB / CPCB Form 10 Manifest"** button.
 - **Privacy Jitter Inspection:** Switch to the **Industrial Corridor Map** (`tab=map`). Toggle between **"Exact Coordinates"** and **"Privacy Radius (±1.5 km)"** to observe the spatial perturbation protecting factory locations from competitor triangulation.
 - **Statutory Manifest Printout:** In the **Manifest Center**, open any manifest and cycle through the **7-color slip switcher** (White ➔ Yellow ➔ Pink ➔ Orange ➔ Green ➔ Blue ➔ Grey). Click **"Print / Save PDF"** to inspect the clean, unbranded `@media print` compliance layout.
 - **Active Persona Switcher:** Use the persona selector in the navigation bar to test the interface from the perspective of an **Automotive Generator**, a **Cement Offtaker**, or an **Official SPCB Regulatory Auditor** (which automatically bypasses privacy redactions).
@@ -429,7 +426,7 @@ ReBharat is built to advance the **Viksit Bharat 2047** national imperative—tr
 - Indian MSMEs integrated into global supply chains face tightening European and international carbon border tariffs (CBAM). ReBharat provides verifiable, transaction-level avoided carbon certificates ($0.82\text{ kg CO}_2\text{e/kg}$), empowering Indian exporters to access low-cost sovereign green finance and ESG investment pools.
 
 ### 5. Corridor-Scale Replicability under PM Gati Shakti
-- The Nashik Industrial Pilot serves as a reproducible blueprint designed for direct federation with the **PM Gati Shakti National Master Plan**.
+- The Ahmedabad Industrial Pilot (Vatva & Naroda GIDC) serves as a reproducible blueprint designed for direct federation with the **PM Gati Shakti National Master Plan**.
 - The same 4-layer architecture scales seamlessly across major Indian corridors: **Pune-Chakan Auto Hub**, **Ankleshwar-Vapi Chemical Belt**, **Sriperumbudur Electronics Corridor**, and the **Durgapur-Jamshedpur Steel Triangle**.
 
 ---

@@ -4,10 +4,10 @@ import { Facility, MaterialStream, MatchProposal } from '@/types';
  * ReBharat Zero-Leakage Privacy & Anonymization Engine
  * 
  * Guarantees trade-secret and competitive confidentiality:
- * - Counterparties only see anonymous labels (e.g., "MIDC-Ambad-Unit-14")
+ * - Counterparties only see anonymous labels (e.g., "GIDC-Vatva-Unit-09")
  * - Geographic coordinates are blurred (+/- 1.5 to 2.0 km jitter)
  * - GSTIN, SPCB Consent IDs, and executive contact info are strictly locked
- * - Confidentiality shield is disengaged ONLY upon mutual bilateral consent or for official SPCB regulators.
+ * - Confidentiality shield is disengaged ONLY upon mutual bilateral consent or for official GPCB regulators.
  */
 
 export interface SanitizedFacility {

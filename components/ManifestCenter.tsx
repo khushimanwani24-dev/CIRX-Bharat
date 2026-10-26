@@ -54,21 +54,21 @@ export const ManifestCenter: React.FC<ManifestCenterProps> = ({
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
               <FileCheck2 className="w-5 h-5 text-emerald-600" />
-              SPCB Regulatory & Form 10 Manifest Center
+              GPCB Regulatory & Form 10 Manifest Center
             </h2>
             <span className="text-[11px] font-semibold uppercase px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
-              Statutory Compliance Registry
+              GPCB XGN Registry
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-1">
-            Official 7-color tracking under Rule 19 of the Hazardous and Other Wastes (Management and Transboundary Movement) Rules, 2016.
+            Official 7-color tracking under Rule 19 via Gujarat Pollution Control Board Extended Green Node (XGN) System.
           </p>
         </div>
 
         {activeRole === 'REGULATOR_SPCB' && (
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-purple-50 border border-purple-200 text-purple-800 text-xs font-medium">
             <ShieldCheck className="w-4 h-4 text-purple-600" />
-            <span>Auditor Level: Unrestricted SPCB Access</span>
+            <span>Auditor Level: Unrestricted GPCB Access</span>
           </div>
         )}
       </div>
@@ -82,7 +82,7 @@ export const ManifestCenter: React.FC<ManifestCenterProps> = ({
           <div className="text-2xl font-bold text-slate-900 mt-1">
             {manifests.length}
           </div>
-          <div className="text-[11px] text-slate-400 mt-0.5">Electronic CPCB Registry</div>
+          <div className="text-[11px] text-slate-400 mt-0.5">Electronic GPCB / XGN Registry</div>
         </div>
 
         <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
@@ -212,7 +212,7 @@ export const ManifestCenter: React.FC<ManifestCenterProps> = ({
                       Sender (Generator)
                     </span>
                     <div className="font-bold text-slate-900">
-                      {manifest.sender_facility?.legal_name || 'Precision Plating Works Pvt. Ltd.'}
+                      {manifest.sender_facility?.legal_name || 'Vatva Specialty Dye-Chem Industries Pvt. Ltd.'}
                     </div>
                     <div className="text-slate-500 text-[11px] mt-0.5 font-mono">
                       Consent: {manifest.sender_facility?.spcb_consent_id}
@@ -225,7 +225,7 @@ export const ManifestCenter: React.FC<ManifestCenterProps> = ({
                       Receiver (Offtaker)
                     </span>
                     <div className="font-bold text-slate-900">
-                      {manifest.receiver_facility?.legal_name || 'Sahyadri Precious Metals'}
+                      {manifest.receiver_facility?.legal_name || 'Kathwada Eco-Crete & AAC Block Infra'}
                     </div>
                     <div className="text-slate-500 text-[11px] mt-0.5 font-mono">
                       Consent: {manifest.receiver_facility?.spcb_consent_id}

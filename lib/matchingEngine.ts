@@ -54,7 +54,7 @@ export function calculateDistanceScore(distanceKm: number): number {
     return 0.0;
   }
   if (distanceKm <= 5) {
-    return 1.0; // Hyper-local cluster symbiosis (e.g. Ambad-to-Ambad)
+    return 1.0; // Hyper-local cluster symbiosis (e.g. Vatva-to-Vatva)
   }
   if (distanceKm <= 20) {
     // 5 km to 20 km: scale 1.0 down to 0.90

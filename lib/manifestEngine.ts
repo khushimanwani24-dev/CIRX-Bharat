@@ -16,9 +16,9 @@ export const FORM_10_COPIES: ManifestCopyMeta[] = [
   {
     copy_number: 1,
     color: 'WHITE',
-    title: 'Copy 1 (White) - SPCB Dispatch Notification',
-    recipient_role: 'State Pollution Control Board (SPCB) - Nashik Regional Office',
-    regulatory_instruction: 'To be forwarded by the Sender to SPCB within 3 working days of dispatch.',
+    title: 'Copy 1 (White) - GPCB Dispatch Notification',
+    recipient_role: 'Gujarat Pollution Control Board (GPCB) - Regional Office Ahmedabad East (Paryavaran Bhavan, Vatva)',
+    regulatory_instruction: 'To be forwarded by the Sender to GPCB (XGN) within 3 working days of dispatch.',
   },
   {
     copy_number: 2,
@@ -44,9 +44,9 @@ export const FORM_10_COPIES: ManifestCopyMeta[] = [
   {
     copy_number: 5,
     color: 'GREEN',
-    title: 'Copy 5 (Green) - SPCB Delivery Acknowledgment',
-    recipient_role: 'State Pollution Control Board (SPCB) - Nashik Regional Office',
-    regulatory_instruction: 'To be sent by the Receiver to SPCB after receipt and weighbridge acceptance of waste.',
+    title: 'Copy 5 (Green) - GPCB Delivery Acknowledgment',
+    recipient_role: 'Gujarat Pollution Control Board (GPCB) - Regional Office Ahmedabad East (Paryavaran Bhavan, Vatva)',
+    regulatory_instruction: 'To be sent by the Receiver to GPCB via XGN after receipt and weighbridge acceptance of waste.',
   },
   {
     copy_number: 6,
@@ -139,14 +139,14 @@ export function generateForm10Manifest(
   const now = new Date();
   const deliveryEstimate = new Date(now.getTime() + 4 * 60 * 60 * 1000); // +4 hours
 
-  const manifestNumber = `CPCB/MH/NSK/${now.getFullYear()}/F10-${serial}`;
+  const manifestNumber = `GPCB/XGN/AHM/${now.getFullYear()}/F10-${serial}`;
 
   let instructions = 'Comply with Rule 19 transport guidelines. Keep emergency TREMCARD in cab.';
   if (supplyStream.is_hazardous) {
     if (supplyStream.physical_state === 'LIQUID') {
-      instructions = 'Corrosive chemical liquid. Ensure spark-proof suction valves and neutralizer kit on board.';
+      instructions = 'Corrosive chemical liquid (Spent H2SO4). Ensure spark-proof suction valves and neutralizer kit on board.';
     } else if (supplyStream.physical_state === 'SLUDGE') {
-      instructions = 'Volatile hydrocarbons present. Hermetically sealed containers. No naked flames or open smoking.';
+      instructions = 'Chemical gypsum sludge. Hermetically sealed MS skips with tarpaulin covers. Prevent spillage.';
     }
   }
 
@@ -158,21 +158,21 @@ export function generateForm10Manifest(
     receiver_facility_id: receiver.id,
     sender_facility: sender,
     receiver_facility: receiver,
-    transporter_name: transporterInfo?.transporter_name || 'MahaClean HazLogistics Pvt. Ltd.',
-    vehicle_no: transporterInfo?.vehicle_no || 'MH-15-EG-8421',
-    transporter_license: 'MPCB/TRANS/HW/2024-512',
-    driver_name: transporterInfo?.driver_name || 'Santosh G. More',
-    driver_phone: transporterInfo?.driver_phone || '+91 98221 54321',
+    transporter_name: transporterInfo?.transporter_name || 'Gujarat CleanChem Logistics Pvt. Ltd.',
+    vehicle_no: transporterInfo?.vehicle_no || 'GJ-27-AX-4821',
+    transporter_license: 'GPCB/TRANS/HW/GJ-2024-891',
+    driver_name: transporterInfo?.driver_name || 'Rameshbhai Patel',
+    driver_phone: transporterInfo?.driver_phone || '+91 98251 43210',
     waste_category: `${supplyStream.cpcb_waste_code} - ${supplyStream.material_name}`,
     material_name: supplyStream.material_name,
     physical_state: supplyStream.physical_state,
     quantity_dispatched_mt: Math.min(supplyStream.monthly_volume_mt, 25),
     packaging_type: transporterInfo?.packaging_type || (supplyStream.physical_state === 'LIQUID' ? 'FRP Rubber-Lined Tanker' : 'Hermetic MS Skips'),
     special_handling_instructions: instructions,
-    emergency_contact: 'MIDC Ambad Emergency Response: +91 253 2381200 / 112',
+    emergency_contact: 'GPCB Vatva Emergency Response & NEPL TSDF: +91 79 2583 1200 / 112',
     dispatch_date: now.toISOString(),
     expected_delivery_date: deliveryEstimate.toISOString(),
-    spcb_noc_reference: `MPCB/RO-NSK/NOC/2026-${serial}`,
+    spcb_noc_reference: `GPCB/RO-AHM/XGN/2026-${serial}`,
     status: 'IN_TRANSIT',
     current_copy: 'ORANGE',
     color_slip_distribution: FORM_10_COPIES,

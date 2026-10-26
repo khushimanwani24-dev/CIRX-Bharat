@@ -83,9 +83,9 @@ export const ArchitectureDocs: React.FC = () => {
               State A: Confidentiality Shield Active (Default)
             </div>
             <ul className="space-y-1 text-slate-600 list-disc list-inside text-[11px] font-sans">
-              <li>Company Name: Masked as &quot;MIDC-Ambad-Unit-14&quot;</li>
-              <li>GSTIN: Masked as &quot;27AABCP•••••••ZV&quot;</li>
-              <li>SPCB Consent: Masked as &quot;MPCB/RO-NSK/••••/••••&quot;</li>
+              <li>Company Name: Masked as &quot;GIDC-Vatva-Unit-09&quot;</li>
+              <li>GSTIN: Masked as &quot;24AABCV•••••••ZT&quot;</li>
+              <li>SPCB Consent: Masked as &quot;GPCB/AHM-EAST/••••/••••&quot;</li>
               <li>Map Location: Pseudo-jittered radius (+/- 1.5 km blur)</li>
               <li>Executive Contacts: Strictly hidden</li>
             </ul>
@@ -99,9 +99,9 @@ export const ArchitectureDocs: React.FC = () => {
             <ul className="space-y-1 text-slate-700 list-disc list-inside text-[11px] font-sans">
               <li>Triggered ONLY when BOTH Generator and Offtaker approve</li>
               <li>Reveals verified legal entity names & registered addresses</li>
-              <li>Unlocks full GSTIN, SPCB consent certificates, and phone contacts</li>
-              <li>Permits generation of statutory CPCB Form 10 Manifest</li>
-              <li>Statutory exception: SPCB State Regulators possess full audit access</li>
+              <li>Unlocks full GSTIN, GPCB consent certificates, and phone contacts</li>
+              <li>Permits generation of statutory CPCB / GPCB Form 10 Manifest (XGN)</li>
+              <li>Statutory exception: GPCB State Regulators possess full audit access</li>
             </ul>
           </div>
         </div>

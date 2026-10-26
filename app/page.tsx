@@ -38,11 +38,11 @@ export default function Home() {
   });
 
   const [esgMetrics, setEsgMetrics] = useState<ClusterESGMetrics>({
-    total_diverted_mt: 199.5,
-    total_savings_inr: 348000,
-    total_avoided_co2_mt: 164.0,
-    active_symbioses_count: 3,
-    hazardous_treated_mt: 39.8,
+    total_diverted_mt: 90.0,
+    total_savings_inr: 162000,
+    total_avoided_co2_mt: 73.8,
+    active_symbioses_count: 2,
+    hazardous_treated_mt: 20.0,
   });
 
   // Default to DASHBOARD as the welcoming front door
@@ -261,11 +261,11 @@ export default function Home() {
         }))
       );
       setEsgMetrics({
-        total_diverted_mt: 199.5,
-        total_savings_inr: 348000,
-        total_avoided_co2_mt: 164.0,
-        active_symbioses_count: 3,
-        hazardous_treated_mt: 39.8,
+        total_diverted_mt: 90.0,
+        total_savings_inr: 162000,
+        total_avoided_co2_mt: 73.8,
+        active_symbioses_count: 2,
+        hazardous_treated_mt: 20.0,
       });
       showToast('All corridor fixtures reset to default seed state.');
     } catch (err) {

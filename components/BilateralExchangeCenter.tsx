@@ -134,7 +134,7 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-1 font-medium">
-            Deterministic matching matrix pairing generator secondary streams with consented offtakers across the Nashik manufacturing corridor.
+            Deterministic matching matrix pairing generator secondary streams with consented offtakers across the Ahmedabad manufacturing corridor (Vatva & Naroda GIDC).
           </p>
         </div>
 
@@ -306,6 +306,20 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
                       {isSelected ? 'Focused' : 'Locate on GIS'}
                     </button>
                   </div>
+                </div>
+
+                {/* Industrial Arbitrage & ROI Badges */}
+                <div className="px-5 py-2.5 bg-emerald-50/40 border-b border-emerald-100/70 flex flex-wrap items-center gap-2">
+                  <span className="text-[11px] font-bold text-slate-700 flex items-center gap-1">
+                    <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
+                    Economic Arbitrage:
+                  </span>
+                  <span className="inline-flex items-center text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-white text-emerald-800 border border-emerald-300 shadow-2xs">
+                    Savings vs. NEPL/TSDF Landfill Fees (₹1,500/MT saved)
+                  </span>
+                  <span className="inline-flex items-center text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-white text-sky-800 border border-sky-300 shadow-2xs">
+                    Savings vs. Virgin Mineral Gypsum (₹1,050/MT saved)
+                  </span>
                 </div>
 
                 {/* Main Content: Side-by-Side Generator vs Offtaker Comparative Panels (Requirement 6) */}
@@ -586,7 +600,7 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
                           {(match.breakdown.distance_score * 100).toFixed(1)}% Score
                         </div>
                         <p className="text-[11px] text-slate-600 mt-1">
-                          Haversine decay across {match.transit_distance_km} km inside Nashik corridor (Max 150 km).
+                          Haversine decay across {match.transit_distance_km} km inside Ahmedabad corridor (Max 150 km).
                         </p>
                       </div>
 

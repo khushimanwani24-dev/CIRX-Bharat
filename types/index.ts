@@ -8,7 +8,7 @@ export interface Coordinates {
 export interface Facility {
   id: string;
   legal_name: string;
-  anonymous_label: string; // e.g., "MIDC-Ambad-Unit-14"
+  anonymous_label: string; // e.g., "GIDC-Vatva-Unit-09"
   gstin: string;
   spcb_consent_id: string;
   cluster_zone: string;

@@ -177,7 +177,7 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
       <div className="p-4 bg-white rounded-2xl border border-slate-200/80 shadow-sm">
         <div className="text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
           <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-          Load Standard Industrial Template (Nashik Corridor Common Streams):
+          Load Standard Industrial Template (Ahmedabad Corridor Common Streams):
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
           <button
@@ -185,49 +185,24 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
             onClick={() =>
               applyPreset({
                 type: 'SUPPLY',
-                name: 'Spent Hexavalent Chromium Rinse Solution',
-                code: 'Schedule I, Cat 35.3',
-                state: 'LIQUID',
-                volume: 18,
-                ph: 1.5,
-                cal: 0,
-                moist: 92,
-                haz: true,
-                price: -4200,
-                desc: 'Cr(VI): 2,850 ppm, H2SO4: 3.8%, Specific Gravity: 1.12',
-              })
-            }
-            className="p-3 rounded-xl bg-rose-50/40 hover:bg-rose-50/80 border border-rose-200/80 text-left transition text-xs group shadow-2xs"
-          >
-            <div className="font-semibold text-rose-900 group-hover:text-rose-950">
-              Acidic Chromium Effluent
-            </div>
-            <div className="text-[11px] text-slate-500 mt-0.5">Cat 35.3 • pH 1.5 • 18 MT</div>
-          </button>
-
-          <button
-            type="button"
-            onClick={() =>
-              applyPreset({
-                type: 'SUPPLY',
-                name: 'Automotive Primer & Enamel Sludge',
-                code: 'Cat 21.1',
+                name: 'Neutralized Chemical Gypsum Sludge',
+                code: 'CPCB Schedule I, Cat 35.3',
                 state: 'SLUDGE',
-                volume: 30,
-                ph: 6.9,
-                cal: 3400,
-                moist: 26,
-                haz: true,
-                price: -2900,
-                desc: 'High calorific (3,400 kcal/kg), volatiles 32%, kiln co-processing compliant',
+                volume: 45,
+                ph: 6.8,
+                cal: 0,
+                moist: 18,
+                haz: false,
+                price: -1200,
+                desc: 'CaSO4·2H2O: 84%, Moisture: 18%, pH: 6.8, Non-Hazardous aggregate grade, Tipping fee subsidy: -₹1,200/MT',
               })
             }
             className="p-3 rounded-xl bg-amber-50/40 hover:bg-amber-50/80 border border-amber-200/80 text-left transition text-xs group shadow-2xs"
           >
             <div className="font-semibold text-amber-900 group-hover:text-amber-950">
-              Automotive Paint Sludge
+              Neutralized Gypsum Sludge
             </div>
-            <div className="text-[11px] text-slate-500 mt-0.5">Cat 21.1 • 3400 kcal • 30 MT</div>
+            <div className="text-[11px] text-slate-500 mt-0.5">Cat 35.3 • pH 6.8 • 45 MT/mo</div>
           </button>
 
           <button
@@ -235,24 +210,24 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
             onClick={() =>
               applyPreset({
                 type: 'SUPPLY',
-                name: 'Granulated Blast Furnace Slag (GGBS Grade)',
-                code: 'Schedule II-B (Non-Haz)',
-                state: 'SOLID',
-                volume: 140,
-                ph: 8.2,
+                name: 'Spent Sulphuric Acid (H2SO4)',
+                code: 'CPCB Cat 35.3',
+                state: 'LIQUID',
+                volume: 20,
+                ph: 1.2,
                 cal: 0,
-                moist: 5,
-                haz: false,
-                price: 700,
-                desc: 'CaO: 42%, SiO2: 35%, Al2O3: 14%, Glass content 94%',
+                moist: 32,
+                haz: true,
+                price: 0,
+                desc: 'H2SO4: 68%, Total Acidity: 68%, pH: 1.2, Hazardous Rule 19 off-site recovery',
               })
             }
-            className="p-3 rounded-xl bg-emerald-50/40 hover:bg-emerald-50/80 border border-emerald-200/80 text-left transition text-xs group shadow-2xs"
+            className="p-3 rounded-xl bg-rose-50/40 hover:bg-rose-50/80 border border-rose-200/80 text-left transition text-xs group shadow-2xs"
           >
-            <div className="font-semibold text-emerald-900 group-hover:text-emerald-950">
-              Blast Furnace Slag
+            <div className="font-semibold text-rose-900 group-hover:text-rose-950">
+              Spent Sulphuric Acid
             </div>
-            <div className="text-[11px] text-slate-500 mt-0.5">Schedule II-B • 140 MT • ₹700/MT</div>
+            <div className="text-[11px] text-slate-500 mt-0.5">Cat 35.3 • pH 1.2 • 20 MT/mo</div>
           </button>
 
           <button
@@ -260,24 +235,49 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
             onClick={() =>
               applyPreset({
                 type: 'DEMAND',
-                name: 'Alternative Fuels & Raw Materials for Precalciner',
-                code: 'Cat 21.1 / Solvents',
-                state: 'SLUDGE',
-                volume: 80,
-                ph: 7.0,
-                cal: 2600,
-                moist: 30,
-                haz: true,
-                price: 0,
-                desc: 'Accepting paint sludge & heavy organic residues for high-temperature cement co-processing',
+                name: 'Gypsum & Fine Pozzolana Binder',
+                code: 'Schedule I, Cat 35.3 / Pozzolana',
+                state: 'SOLID',
+                volume: 60,
+                ph: 7.2,
+                cal: 0,
+                moist: 20,
+                haz: false,
+                price: 450,
+                desc: 'Demand for fly ash brick and AAC block curing, Procure Price: ₹450/MT',
               })
             }
-            className="p-3 rounded-xl bg-teal-50/40 hover:bg-teal-50/80 border border-teal-200/80 text-left transition text-xs group shadow-2xs"
+            className="p-3 rounded-xl bg-cyan-50/40 hover:bg-cyan-50/80 border border-cyan-200/80 text-left transition text-xs group shadow-2xs"
           >
-            <div className="font-semibold text-teal-900 group-hover:text-teal-950">
-              Cement Kiln Demand (AFR)
+            <div className="font-semibold text-cyan-900 group-hover:text-cyan-950">
+              AAC Block Binder Demand
             </div>
-            <div className="text-[11px] text-slate-500 mt-0.5">Offtake Demand • 80 MT/mo</div>
+            <div className="text-[11px] text-slate-500 mt-0.5">Offtake Demand • 60 MT • ₹450/MT</div>
+          </button>
+
+          <button
+            type="button"
+            onClick={() =>
+              applyPreset({
+                type: 'DEMAND',
+                name: 'Setting Retarder Gypsum Grade',
+                code: 'Cat 35.3 / Secondary Gypsum',
+                state: 'SOLID',
+                volume: 150,
+                ph: 7.0,
+                cal: 0,
+                moist: 15,
+                haz: false,
+                price: 750,
+                desc: 'Setting retarder gypsum for clinker grinding, replacing virgin Rajasthan gypsum at ₹750/MT',
+              })
+            }
+            className="p-3 rounded-xl bg-emerald-50/40 hover:bg-emerald-50/80 border border-emerald-200/80 text-left transition text-xs group shadow-2xs"
+          >
+            <div className="font-semibold text-emerald-900 group-hover:text-emerald-950">
+              Cement Retarder Demand
+            </div>
+            <div className="text-[11px] text-slate-500 mt-0.5">Offtake Demand • 150 MT • ₹750/MT</div>
           </button>
         </div>
       </div>
@@ -729,7 +729,7 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
                   <span className="absolute right-3 top-2.5 text-xs text-slate-500 font-medium">km</span>
                 </div>
                 <div className="text-[10px] text-slate-500 mt-1">
-                  Corridor standard: Nashik-Sinnar cluster spans ~45 km.
+                  Corridor standard: Vatva-Naroda-Kathwada cluster spans ~15-25 km.
                 </div>
               </div>
             </div>

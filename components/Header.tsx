@@ -40,40 +40,40 @@ interface HeaderProps {
 
 export const ROLE_LABELS: Record<UserRole, { label: string; badge: string; color: string; entity: string }> = {
   GEN_PRECISION: {
-    label: 'Generator: Precision Plating Works',
-    badge: 'CPCB Cat 35.3',
+    label: 'Generator: Vatva Specialty Dye-Chem',
+    badge: 'GPCB Cat 35.3',
     color: 'border-rose-200 bg-rose-50 text-rose-700',
-    entity: 'Precision Plating Works Pvt. Ltd. (MIDC Ambad)',
+    entity: 'Vatva Specialty Dye-Chem Industries Pvt. Ltd. (GIDC Vatva)',
   },
   GEN_AUTO: {
-    label: 'Generator: Nashik Auto Stamping',
-    badge: 'CPCB Cat 21.1',
+    label: 'Generator: Sabarmati Pigments & Acid',
+    badge: 'Spent H2SO4',
     color: 'border-amber-200 bg-amber-50 text-amber-800',
-    entity: 'Nashik Auto Stamping Ltd. (MIDC Ambad)',
+    entity: 'Sabarmati Pigments & Acid Corp (GIDC Naroda)',
   },
   OFF_CEMENT: {
-    label: 'Offtaker: Western India Cement',
-    badge: 'Kiln Co-Processing',
+    label: 'Offtaker: Gujarat Regional Cement',
+    badge: 'Cement Retarder',
     color: 'border-emerald-200 bg-emerald-50 text-emerald-800',
-    entity: 'Western India Cement Works (Sinnar)',
+    entity: 'Gujarat Regional Cement & Grinding Terminal (Sanand)',
   },
   OFF_SAHYADRI: {
-    label: 'Offtaker: Sahyadri Precious Metals',
-    badge: 'Hydrometallurgy Hub',
+    label: 'Offtaker: Kathwada Eco-Crete',
+    badge: 'AAC Blocks',
     color: 'border-cyan-200 bg-cyan-50 text-cyan-800',
-    entity: 'Sahyadri Precious Metals (MIDC Satpur)',
+    entity: 'Kathwada Eco-Crete & AAC Block Infra (GIDC Kathwada)',
   },
   REGULATOR_SPCB: {
-    label: 'Regulator: SPCB Regional Officer',
-    badge: 'Statutory Inspector',
+    label: 'Regulator: GPCB Regional Officer',
+    badge: 'GPCB Inspector',
     color: 'border-indigo-200 bg-indigo-50 text-indigo-700',
-    entity: 'Maharashtra Pollution Control Board (Nashik Div)',
+    entity: 'Gujarat Pollution Control Board (Ahmedabad East - Vatva)',
   },
   CLUSTER_ADMIN: {
-    label: 'Administrator: MIDC Cluster Authority',
+    label: 'Administrator: GIDC Cluster Authority',
     badge: 'Platform Root',
     color: 'border-slate-200 bg-slate-100 text-slate-800',
-    entity: 'MIDC Industrial Symbiosis Directorate',
+    entity: 'GIDC Industrial Symbiosis Directorate (Ahmedabad)',
   },
 };
 
@@ -113,7 +113,7 @@ export const Header: React.FC<HeaderProps> = ({
               </h1>
             </div>
             <p className="text-xs text-slate-500 font-medium">
-              Closed-Loop Secondary Feedstock Exchange for Indian Industry
+              Closed-Loop Secondary Feedstock Exchange for Gujarat MSMEs
             </p>
           </div>
         </div>
@@ -181,12 +181,12 @@ export const Header: React.FC<HeaderProps> = ({
               onChange={(e) => onRoleChange(e.target.value as UserRole)}
               className="mt-0.5 text-xs bg-white border border-slate-200 hover:border-slate-300 text-slate-800 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-xs font-medium cursor-pointer"
             >
-              <option value="GEN_PRECISION">Generator: Precision Plating (Hazardous Cr)</option>
-              <option value="GEN_AUTO">Generator: Nashik Auto Stamping (Paint Sludge)</option>
-              <option value="OFF_CEMENT">Offtaker: Western India Cement (Kiln Co-proc)</option>
-              <option value="OFF_SAHYADRI">Offtaker: Sahyadri Precious Metals (Metals)</option>
-              <option value="REGULATOR_SPCB">Regulator: SPCB Nashik Officer (Audit View)</option>
-              <option value="CLUSTER_ADMIN">MIDC Cluster Admin (Full Control)</option>
+              <option value="GEN_PRECISION">Generator: Vatva Specialty Dye-Chem (Gypsum Sludge)</option>
+              <option value="GEN_AUTO">Generator: Sabarmati Pigments & Acid (Spent H2SO4)</option>
+              <option value="OFF_CEMENT">Offtaker: Gujarat Regional Cement (Setting Retarder)</option>
+              <option value="OFF_SAHYADRI">Offtaker: Kathwada Eco-Crete (AAC Blocks)</option>
+              <option value="REGULATOR_SPCB">Regulator: GPCB Regional Officer (Audit View)</option>
+              <option value="CLUSTER_ADMIN">GIDC Ahmedabad Cluster Admin (Full Control)</option>
             </select>
           </div>
         </div>

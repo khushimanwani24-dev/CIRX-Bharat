@@ -58,10 +58,10 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-base font-bold text-slate-900 tracking-tight">
-                  CPCB Form 10 Manifest Generator
+                  GPCB Form 10 Manifest Generator (XGN Compliant)
                 </h3>
                 <span className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                  Rule 19 Compliance
+                  GPCB XGN Rule 19
                 </span>
               </div>
               <p className="text-xs text-slate-500 mt-0.5">
@@ -197,16 +197,16 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                     1. Sender&apos;s Name & Mailing Address (Generator):
                   </span>
                   <div className="font-semibold text-slate-900">
-                    {manifest.sender_facility?.legal_name || 'Precision Plating Works Pvt. Ltd.'}
+                    {manifest.sender_facility?.legal_name || 'Vatva Specialty Dye-Chem Industries Pvt. Ltd.'}
                   </div>
                   <div className="text-slate-700 text-[11px]">
-                    {manifest.sender_facility?.cluster_zone || 'MIDC Ambad Industrial Area, Nashik - 422010'}
+                    {manifest.sender_facility?.cluster_zone || 'GIDC Phase-III, Vatva, Ahmedabad - 382445'}
                   </div>
                   <div className="text-slate-700 text-[11px] mt-0.5 font-mono">
-                    GSTIN: {manifest.sender_facility?.gstin || '27AABCP8841F1ZV'}
+                    GSTIN: {manifest.sender_facility?.gstin || '24AABCV5412K1ZT'}
                   </div>
                   <div className="text-slate-700 text-[11px]">
-                    Contact: {manifest.sender_facility?.contact_person || 'Rajesh Kulkarni'} ({manifest.sender_facility?.contact_phone || '+91 98220 41421'})
+                    Contact: {manifest.sender_facility?.contact_person || 'Harshad Patel'} ({manifest.sender_facility?.contact_phone || '+91 98250 54121'})
                   </div>
                 </div>
 
@@ -215,10 +215,10 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                     2. Sender&apos;s Authorization / Consent No:
                   </span>
                   <div className="font-mono font-bold text-slate-900 bg-slate-50 p-1.5 rounded border border-slate-200">
-                    {manifest.sender_facility?.spcb_consent_id || 'MPCB/RO-NSK/CONSENT/2401000142'}
+                    {manifest.sender_facility?.spcb_consent_id || 'GPCB/AHM-EAST/CCA-5412'}
                   </div>
                   <div className="text-[10px] text-slate-600 mt-1">
-                    Issued under Section 25 of Water Act & Section 21 of Air Act
+                    Issued by Gujarat Pollution Control Board under Water & Air Acts
                   </div>
                 </div>
               </div>
@@ -233,7 +233,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                     {manifest.transporter_name}
                   </div>
                   <div className="text-[11px] text-slate-700">
-                    Nashik Transport Hub, Pathardi Phata, Nashik - 422009
+                    Ahmedabad Logistics Hub, S.P. Ring Road, Naroda, Ahmedabad - 382330
                   </div>
                   <div className="text-[11px] font-mono text-slate-700">
                     Reg No: {manifest.transporter_license}
@@ -263,11 +263,11 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                     5. Movement Authorization:
                   </span>
                   <div className="text-[11px] text-slate-800">
-                    Valid for inter-MIDC transit within Maharashtra. Route tracking via onboard GPS active.
+                    Valid for inter-GIDC transit within Gujarat (Vatva - Naroda - Kathwada - Sanand). Route tracking via onboard GPS active.
                   </div>
                   <div className="text-[10px] text-emerald-800 font-semibold mt-1 flex items-center gap-1">
                     <ShieldCheck className="w-3.5 h-3.5" />
-                    PESO / MPCB HazTrans Compliant
+                    GPCB XGN / PESO HazTrans Compliant
                   </div>
                 </div>
               </div>
@@ -279,16 +279,16 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                     6. Receiver&apos;s Name & Facility Address (Offtaker / Co-processor):
                   </span>
                   <div className="font-semibold text-slate-900">
-                    {manifest.receiver_facility?.legal_name || 'Sahyadri Precious Metals & Chemical Recovery'}
+                    {manifest.receiver_facility?.legal_name || 'Kathwada Eco-Crete & AAC Block Infra'}
                   </div>
                   <div className="text-slate-700 text-[11px]">
-                    {manifest.receiver_facility?.cluster_zone || 'MIDC Satpur Industrial Estate, Nashik - 422007'}
+                    {manifest.receiver_facility?.cluster_zone || 'GIDC Kathwada Industrial Estate, Ahmedabad - 382430'}
                   </div>
                   <div className="text-slate-700 text-[11px] mt-0.5 font-mono">
-                    GSTIN: {manifest.receiver_facility?.gstin || '27AASCS6542L1Z3'}
+                    GSTIN: {manifest.receiver_facility?.gstin || '24AABCK3901F1ZV'}
                   </div>
                   <div className="text-slate-700 text-[11px]">
-                    Contact: {manifest.receiver_facility?.contact_person || 'Dr. Arvind Joshi'}
+                    Contact: {manifest.receiver_facility?.contact_person || 'Nilesh Prajapati'}
                   </div>
                 </div>
 
@@ -297,10 +297,10 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                     7. Receiver&apos;s SPCB Authorization No:
                   </span>
                   <div className="font-mono font-bold text-slate-900 bg-slate-50 p-1.5 rounded border border-slate-200">
-                    {manifest.receiver_facility?.spcb_consent_id || 'MPCB/HW-RECOVERY/SAT/2023-88'}
+                    {manifest.receiver_facility?.spcb_consent_id || 'GPCB/AHM-EAST/CCA-3901'}
                   </div>
                   <div className="text-[10px] text-slate-600 mt-1">
-                    Authorized for Co-processing / Hydrometallurgical Raw Material Substitution
+                    Authorized for Gypsum Substitution & Pozzolanic Secondary Block Manufacturing
                   </div>
                 </div>
               </div>
@@ -379,7 +379,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                       [Digital Signature Verified]
                     </div>
                     <div className="text-[10px] text-slate-700 font-medium">
-                      Rajesh Kulkarni (Plant Head)
+                      Harshad Patel (Plant Operations Head)
                     </div>
                     <div className="text-[9px] text-slate-500 font-mono">
                       Date: {new Date(manifest.dispatch_date).toLocaleDateString('en-IN')}
@@ -442,7 +442,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                   <QrCode className="w-8 h-8 text-slate-800" />
                   <div>
                     <div>ReBharat Circular Chain Verified #RB-{manifest.id.toUpperCase()}</div>
-                    <div>SPCB Nashik Regional Office Electronic Hazardous Waste Registry</div>
+                    <div>GPCB Regional Office (Ahmedabad East - Paryavaran Bhavan, Vatva) Extended Green Node (XGN) Hazardous Waste Registry</div>
                   </div>
                 </div>
                 <div className="text-right">

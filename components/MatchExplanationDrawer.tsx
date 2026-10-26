@@ -399,7 +399,7 @@ export const MatchExplanationDrawer: React.FC<MatchExplanationDrawerProps> = ({
                   Secondary Recovered Stream
                 </div>
                 <div className="text-xs text-slate-700 font-medium truncate">
-                  ReBharat Circular Feedstock (Nashik Hub)
+                  ReBharat Circular Feedstock (Ahmedabad Hub)
                 </div>
                 <div className="text-lg font-bold font-sans text-emerald-700">
                   {formatINR(unitEconomics.secondaryRecoveredCostPerMt)} <span className="text-xs font-normal text-slate-500">/ MT</span>
@@ -408,6 +408,16 @@ export const MatchExplanationDrawer: React.FC<MatchExplanationDrawerProps> = ({
                   Net cost including freight transit + skip handling + secondary transfer price.
                 </p>
               </div>
+            </div>
+
+            {/* ROI / Arbitrage Value Badges */}
+            <div className="flex flex-wrap gap-2 pt-1">
+              <span className="inline-flex items-center text-xs font-semibold px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-300">
+                Savings vs. NEPL/TSDF Landfill Fees (₹1,500/MT saved)
+              </span>
+              <span className="inline-flex items-center text-xs font-semibold px-2.5 py-1 rounded-lg bg-sky-50 text-sky-800 border border-sky-300">
+                Savings vs. Virgin Mineral Gypsum (₹1,050/MT saved)
+              </span>
             </div>
 
             {/* Net Arbitrage Metrics */}

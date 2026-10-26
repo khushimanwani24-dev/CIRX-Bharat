@@ -16,18 +16,21 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ReBharat | Closed-Loop Secondary Feedstock Exchange for Indian Industry",
+  title: "ReBharat | Closed-Loop Secondary Feedstock Exchange for Gujarat MSMEs",
   description:
-    "Enterprise B2B industrial symbiosis platform for the Nashik manufacturing corridor. Circular byproduct matching, zero-leakage privacy, and CPCB Form 10 compliance.",
+    "Enterprise B2B industrial symbiosis platform for the Ahmedabad manufacturing cluster (Vatva & Naroda GIDC). Closed-loop secondary feedstock exchange for Gujarat MSMEs, zero-leakage privacy, and GPCB XGN compliance.",
   keywords: [
     "Industrial Symbiosis",
-    "Circular Economy India",
-    "CPCB Form 10",
+    "Circular Economy Gujarat",
+    "GPCB XGN Form 10",
     "Hazardous Waste Exchange",
     "Secondary Feedstocks",
-    "MIDC Ambad",
-    "MIDC Satpur",
-    "Maharashtra Industrial Development",
+    "Vatva GIDC",
+    "Naroda GIDC",
+    "Kathwada GIDC",
+    "Gujarat Industrial Development Corporation",
+    "Synthetic Gypsum",
+    "Spent Acid",
   ],
 };
 

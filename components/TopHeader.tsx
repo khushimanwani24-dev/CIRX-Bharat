@@ -54,12 +54,12 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
       case 'MAP':
         return {
           section: 'Geospatial Grid',
-          title: 'Nashik Industrial GIS Corridor',
+          title: 'Ahmedabad Industrial GIS Corridor',
           icon: <MapPin className="w-4 h-4 text-emerald-600" />,
         };
       case 'COMPLIANCE':
         return {
-          section: 'SPCB Compliance',
+          section: 'GPCB Compliance',
           title: 'Form 10 Manifests & Form 4 Returns',
           icon: <Scale className="w-4 h-4 text-purple-600" />,
         };

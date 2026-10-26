@@ -114,7 +114,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 </span>
               </div>
               <p className="text-[11px] text-slate-500 font-medium">
-                Nashik Industrial Belt
+                Ahmedabad (Vatva & Naroda GIDC)
               </p>
             </div>
           </div>

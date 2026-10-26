@@ -117,7 +117,7 @@ export const Form4ComplianceCenter: React.FC<Form4ComplianceCenterProps> = ({
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
               <FileText className="w-5 h-5 text-emerald-600" />
-              SPCB Form 4 — Annual Regulatory & Circularity Return
+              GPCB Form 4 — Annual Regulatory & Circularity Return
             </h2>
             <span className="text-[11px] font-semibold uppercase px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
               Statutory Rule 20 (1) Return
@@ -131,7 +131,7 @@ export const Form4ComplianceCenter: React.FC<Form4ComplianceCenterProps> = ({
               <Calendar className="w-3.5 h-3.5" /> Period: FY 2025–26 (April 1 – March 31)
             </span>
             <span>•</span>
-            <span className="text-slate-600">Target Authority: MPCB Nashik Regional Office (MIDC Ambad)</span>
+            <span className="text-slate-600">Target Authority: GPCB Regional Office (Ahmedabad East - Paryavaran Bhavan, Vatva)</span>
           </div>
         </div>
 
@@ -150,7 +150,7 @@ export const Form4ComplianceCenter: React.FC<Form4ComplianceCenterProps> = ({
             className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-sm transition"
           >
             <Printer className="w-4 h-4" />
-            <span>Export SPCB Annual Return</span>
+            <span>Export GPCB Annual Return</span>
           </button>
         </div>
       </div>
@@ -422,13 +422,13 @@ export const Form4ComplianceCenter: React.FC<Form4ComplianceCenterProps> = ({
               <div className="grid grid-cols-2 gap-4 border border-slate-200 p-3 rounded-lg text-[11px]">
                 <div>
                   <span className="font-bold block">1. Name and address of facility:</span>
-                  <span>Nashik Industrial Symbiosis Cluster Coordination Hub</span>
-                  <span className="block text-slate-600">MIDC Industrial Areas Ambad & Satpur, Nashik - 422010</span>
+                  <span>Ahmedabad Industrial Symbiosis Cluster Coordination Hub</span>
+                  <span className="block text-slate-600">GIDC Industrial Estates Vatva & Naroda, Ahmedabad - 382445</span>
                 </div>
                 <div>
                   <span className="font-bold block">2. Name of Authorized Signatory / Occupier:</span>
-                  <span>Director of Industrial Environment & Symbiosis, MIDC</span>
-                  <span className="block text-slate-600">SPCB Consent Ref: MPCB/RO-NSK/FORM4/ANNUAL/2026-094</span>
+                  <span>Director of Industrial Environment & Circularity, GIDC</span>
+                  <span className="block text-slate-600">GPCB Consent Ref: GPCB/RO-AHM/FORM4/ANNUAL/2026-094</span>
                 </div>
               </div>
 
@@ -445,7 +445,7 @@ export const Form4ComplianceCenter: React.FC<Form4ComplianceCenterProps> = ({
                       <th className="border border-slate-300 p-2">Waste Description</th>
                       <th className="border border-slate-300 p-2">Physical State</th>
                       <th className="border border-slate-300 p-2">Annual Diverted (MT)</th>
-                      <th className="border border-slate-300 p-2">Authorized Destination Unit & SPCB Consent</th>
+                      <th className="border border-slate-300 p-2">Authorized Destination Unit & GPCB Consent</th>
                       <th className="border border-slate-300 p-2">End-Use Utilization Mode</th>
                       <th className="border border-slate-300 p-2">Form 10 Manifest Blue Copies Stamped</th>
                     </tr>
@@ -483,20 +483,20 @@ export const Form4ComplianceCenter: React.FC<Form4ComplianceCenterProps> = ({
               {/* Verification & Signature Block */}
               <div className="pt-6 grid grid-cols-2 gap-8 text-[11px]">
                 <div>
-                  <p><strong>Place:</strong> Nashik, Maharashtra</p>
+                  <p><strong>Place:</strong> Ahmedabad, Gujarat</p>
                   <p><strong>Date:</strong> 24th October 2026</p>
                   <p className="mt-2 text-[10px] text-slate-600">
-                    Certified that all secondary byproduct movements followed CPCB Form 10 manifests under Rule 19 with 100% digital trace compliance.
+                    Certified that all secondary byproduct movements followed CPCB Form 10 manifests under Rule 19 with 100% GPCB XGN digital trace compliance.
                   </p>
                 </div>
                 <div className="text-right space-y-8">
                   <div>
                     <span className="block font-bold">Signature of the Occupier / Operator:</span>
-                    <span className="block text-[10px] text-slate-500">[ Digitally Signed via ReBharat State Audit Node ]</span>
+                    <span className="block text-[10px] text-slate-500">[ Digitally Signed via GPCB XGN State Audit Node ]</span>
                   </div>
                   <div className="border-t border-slate-400 pt-1 inline-block min-w-[200px]">
                     <span className="font-bold block">Authorized Signatory Stamp</span>
-                    <span className="text-[10px] text-slate-600">MIDC Industrial Cluster Authority</span>
+                    <span className="text-[10px] text-slate-600">GIDC Industrial Cluster Authority</span>
                   </div>
                 </div>
               </div>
