@@ -6,17 +6,12 @@ import {
   Sparkles,
   AlertTriangle,
   CheckCircle2,
-  TrendingUp,
-  FileText,
   FlaskConical,
   Flame,
   Droplets,
-  Scale,
   ArrowRight,
-  ShieldCheck,
 } from 'lucide-react';
-import { Facility, MaterialStream, PhysicalState, StreamType } from '@/types';
-import { formatINR, formatNumber } from '@/lib/utils';
+import { Facility, PhysicalState, StreamType } from '@/types';
 import { UserRole } from './Header';
 
 interface StreamIngestionPortalProps {
@@ -126,18 +121,18 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
   return (
     <div className="max-w-5xl mx-auto py-6 px-4 space-y-6">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-5">
         <div>
           <div className="flex items-center gap-2">
-            <h2 className="text-xl font-bold text-white font-mono flex items-center gap-2">
-              <Layers className="w-5 h-5 text-emerald-400" />
+            <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
+              <Layers className="w-5 h-5 text-emerald-600" />
               Stream Ingestion & Assay Portal
             </h2>
-            <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+            <span className="text-[11px] font-semibold uppercase px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
               CPCB Schedule I / II Ingestion
             </span>
           </div>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Register industrial byproduct streams or feedstock procurement mandates with verified chemical assay parameters.
           </p>
         </div>
@@ -145,7 +140,7 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
         <button
           type="button"
           onClick={onNavigateToMatches}
-          className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs shadow-md transition self-start sm:self-auto"
+          className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-xs shadow-sm transition self-start sm:self-auto"
         >
           View Live Matches
           <ArrowRight className="w-3.5 h-3.5" />
@@ -153,12 +148,12 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
       </div>
 
       {/* Quick Ingestion Presets */}
-      <div className="p-4 bg-slate-900/60 rounded-xl border border-slate-800">
-        <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+      <div className="p-4 bg-white rounded-2xl border border-slate-200/80 shadow-sm">
+        <div className="text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+          <Sparkles className="w-3.5 h-3.5 text-amber-500" />
           Load Standard Industrial Template (Nashik Corridor Common Streams):
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
           <button
             type="button"
             onClick={() =>
@@ -176,12 +171,12 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
                 desc: 'Cr(VI): 2,850 ppm, H2SO4: 3.8%, Specific Gravity: 1.12',
               })
             }
-            className="p-2.5 rounded-lg bg-slate-950/80 hover:bg-slate-900 border border-rose-500/30 text-left transition text-xs group"
+            className="p-3 rounded-xl bg-rose-50/40 hover:bg-rose-50/80 border border-rose-200/80 text-left transition text-xs group shadow-2xs"
           >
-            <div className="font-semibold text-rose-300 group-hover:text-rose-200">
+            <div className="font-semibold text-rose-900 group-hover:text-rose-950">
               Acidic Chromium Effluent
             </div>
-            <div className="text-[11px] text-slate-400 font-mono mt-0.5">Cat 35.3 • pH 1.5 • 18 MT</div>
+            <div className="text-[11px] text-slate-500 mt-0.5">Cat 35.3 • pH 1.5 • 18 MT</div>
           </button>
 
           <button
@@ -201,12 +196,12 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
                 desc: 'High calorific (3,400 kcal/kg), volatiles 32%, kiln co-processing compliant',
               })
             }
-            className="p-2.5 rounded-lg bg-slate-950/80 hover:bg-slate-900 border border-amber-500/30 text-left transition text-xs group"
+            className="p-3 rounded-xl bg-amber-50/40 hover:bg-amber-50/80 border border-amber-200/80 text-left transition text-xs group shadow-2xs"
           >
-            <div className="font-semibold text-amber-300 group-hover:text-amber-200">
+            <div className="font-semibold text-amber-900 group-hover:text-amber-950">
               Automotive Paint Sludge
             </div>
-            <div className="text-[11px] text-slate-400 font-mono mt-0.5">Cat 21.1 • 3400 kcal • 30 MT</div>
+            <div className="text-[11px] text-slate-500 mt-0.5">Cat 21.1 • 3400 kcal • 30 MT</div>
           </button>
 
           <button
@@ -226,12 +221,12 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
                 desc: 'CaO: 42%, SiO2: 35%, Al2O3: 14%, Glass content 94%',
               })
             }
-            className="p-2.5 rounded-lg bg-slate-950/80 hover:bg-slate-900 border border-emerald-500/30 text-left transition text-xs group"
+            className="p-3 rounded-xl bg-emerald-50/40 hover:bg-emerald-50/80 border border-emerald-200/80 text-left transition text-xs group shadow-2xs"
           >
-            <div className="font-semibold text-emerald-300 group-hover:text-emerald-200">
+            <div className="font-semibold text-emerald-900 group-hover:text-emerald-950">
               Blast Furnace Slag
             </div>
-            <div className="text-[11px] text-slate-400 font-mono mt-0.5">Schedule II-B • 140 MT • ₹700/MT</div>
+            <div className="text-[11px] text-slate-500 mt-0.5">Schedule II-B • 140 MT • ₹700/MT</div>
           </button>
 
           <button
@@ -251,28 +246,28 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
                 desc: 'Accepting paint sludge & heavy organic residues for high-temperature cement co-processing',
               })
             }
-            className="p-2.5 rounded-lg bg-slate-950/80 hover:bg-slate-900 border border-cyan-500/30 text-left transition text-xs group"
+            className="p-3 rounded-xl bg-teal-50/40 hover:bg-teal-50/80 border border-teal-200/80 text-left transition text-xs group shadow-2xs"
           >
-            <div className="font-semibold text-cyan-300 group-hover:text-cyan-200">
+            <div className="font-semibold text-teal-900 group-hover:text-teal-950">
               Cement Kiln Demand (AFR)
             </div>
-            <div className="text-[11px] text-slate-400 font-mono mt-0.5">Offtake Demand • 80 MT/mo</div>
+            <div className="text-[11px] text-slate-500 mt-0.5">Offtake Demand • 80 MT/mo</div>
           </button>
         </div>
       </div>
 
       {/* Main Ingestion Form */}
-      <form onSubmit={handleSubmit} className="p-6 bg-slate-900/90 rounded-2xl border border-slate-800 space-y-6">
+      <form onSubmit={handleSubmit} className="p-6 sm:p-8 bg-white rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
         {successMessage && (
-          <div className="p-4 rounded-xl bg-emerald-950/70 border border-emerald-500/50 flex items-center justify-between text-emerald-200 text-xs">
+          <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between text-emerald-800 text-xs shadow-2xs">
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-              <span>{successMessage}</span>
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+              <span className="font-medium">{successMessage}</span>
             </div>
             <button
               type="button"
               onClick={onNavigateToMatches}
-              className="underline font-bold text-white hover:text-emerald-300 ml-4 whitespace-nowrap"
+              className="underline font-bold text-emerald-700 hover:text-emerald-900 ml-4 whitespace-nowrap"
             >
               Go to Matchboard →
             </button>
@@ -282,7 +277,7 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Stream Type (Supply vs Demand) */}
           <div>
-            <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
               1. Exchange Intent (Stream Type)
             </label>
             <div className="grid grid-cols-2 gap-2">
@@ -291,11 +286,11 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
                 onClick={() => setStreamType('SUPPLY')}
                 className={`py-2.5 px-3 rounded-xl border text-xs font-semibold flex items-center justify-center gap-2 transition ${
                   streamType === 'SUPPLY'
-                    ? 'bg-amber-950/60 border-amber-500 text-amber-200 shadow-sm'
-                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
+                    ? 'bg-amber-50 border-amber-300 text-amber-900 shadow-2xs'
+                    : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-white hover:text-slate-900'
                 }`}
               >
-                <span className="w-2 h-2 rounded-full bg-amber-400" />
+                <span className="w-2 h-2 rounded-full bg-amber-500" />
                 SUPPLY (Generator Byproduct)
               </button>
               <button
@@ -303,11 +298,11 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
                 onClick={() => setStreamType('DEMAND')}
                 className={`py-2.5 px-3 rounded-xl border text-xs font-semibold flex items-center justify-center gap-2 transition ${
                   streamType === 'DEMAND'
-                    ? 'bg-emerald-950/60 border-emerald-500 text-emerald-200 shadow-sm'
-                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
+                    ? 'bg-emerald-50 border-emerald-300 text-emerald-900 shadow-2xs'
+                    : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-white hover:text-slate-900'
                 }`}
               >
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
                 DEMAND (Offtaker Feedstock)
               </button>
             </div>
@@ -315,13 +310,13 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
 
           {/* Facility Selector */}
           <div>
-            <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
               2. Facility Ownership
             </label>
             <select
               value={facilityId}
               onChange={(e) => setFacilityId(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:ring-1 focus:ring-emerald-500 font-medium"
+              className="w-full bg-white border border-slate-200 hover:border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-medium transition shadow-2xs"
             >
               {facilities.map((fac) => (
                 <option key={fac.id} value={fac.id}>
@@ -330,8 +325,8 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
               ))}
             </select>
             {currentFac && (
-              <div className="text-[11px] text-slate-400 mt-1 font-mono">
-                Consent: {currentFac.spcb_consent_id} • Cluster: {currentFac.cluster_zone}
+              <div className="text-[11px] text-slate-500 mt-1">
+                Consent: <span className="font-mono text-slate-700">{currentFac.spcb_consent_id}</span> • Cluster: {currentFac.cluster_zone}
               </div>
             )}
           </div>
@@ -340,7 +335,7 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Material Name */}
           <div className="md:col-span-2">
-            <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
               3. Commercial Material Name
             </label>
             <input
@@ -349,13 +344,13 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
               value={materialName}
               onChange={(e) => setMaterialName(e.target.value)}
               placeholder="e.g. Acidic Chromium Effluent, Paint Sludge, Foundry Slag"
-              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:ring-1 focus:ring-emerald-500"
+              className="w-full bg-white border border-slate-200 hover:border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 font-medium transition shadow-2xs"
             />
           </div>
 
           {/* CPCB Category Code */}
           <div>
-            <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
               4. CPCB Category Code
             </label>
             <input
@@ -364,7 +359,7 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
               value={cpcbCode}
               onChange={(e) => setCpcbCode(e.target.value)}
               placeholder="e.g. Schedule I, Cat 35.3 or Cat 21.1"
-              className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:ring-1 focus:ring-emerald-500 font-mono"
+              className="w-full bg-white border border-slate-200 hover:border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 font-medium transition shadow-2xs font-mono"
             />
           </div>
         </div>
@@ -372,7 +367,7 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {/* Physical State */}
           <div>
-            <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
               5. Physical State
             </label>
             <div className="grid grid-cols-3 gap-1.5">
@@ -381,10 +376,10 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
                   key={state}
                   type="button"
                   onClick={() => setPhysicalState(state)}
-                  className={`py-2 rounded-lg border text-xs font-mono font-medium transition ${
+                  className={`py-2 rounded-lg border text-xs font-medium transition ${
                     physicalState === state
-                      ? 'bg-slate-800 border-emerald-500 text-emerald-300'
-                      : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
+                      ? 'bg-emerald-50 border-emerald-300 text-emerald-800 font-semibold shadow-2xs'
+                      : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
                   }`}
                 >
                   {state}
@@ -395,7 +390,7 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
 
           {/* Monthly Volume */}
           <div>
-            <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
               6. Monthly Volume (Metric Tonnes)
             </label>
             <div className="relative">
@@ -405,11 +400,11 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
                 max="5000"
                 value={monthlyVolumeMt}
                 onChange={(e) => setMonthlyVolumeMt(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:ring-1 focus:ring-emerald-500 font-mono"
+                className="w-full bg-white border border-slate-200 hover:border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-medium transition shadow-2xs"
               />
-              <span className="absolute right-3 top-2 text-xs text-slate-500 font-mono">MT/mo</span>
+              <span className="absolute right-3 top-2.5 text-xs text-slate-500 font-medium">MT/mo</span>
             </div>
-            <div className="text-[11px] text-teal-400 mt-1 font-mono flex items-center gap-1">
+            <div className="text-[11px] text-emerald-600 mt-1 font-medium flex items-center gap-1">
               <Sparkles className="w-3 h-3" />
               Est. Avoided Carbon: ~{estimatedAvoidedCo2} MT CO₂e/mo
             </div>
@@ -417,7 +412,7 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
 
           {/* Pricing Model */}
           <div>
-            <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
               7. Price / Gate Fee (₹ / MT)
             </label>
             <div className="relative">
@@ -425,11 +420,11 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
                 type="number"
                 value={pricePerMt}
                 onChange={(e) => setPricePerMt(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:ring-1 focus:ring-emerald-500 font-mono"
+                className="w-full bg-white border border-slate-200 hover:border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-medium transition shadow-2xs"
               />
-              <span className="absolute right-3 top-2 text-xs text-slate-500 font-mono">₹/MT</span>
+              <span className="absolute right-3 top-2.5 text-xs text-slate-500 font-medium">₹/MT</span>
             </div>
-            <div className="text-[10px] text-slate-400 mt-1">
+            <div className="text-[10px] text-slate-500 mt-1">
               {pricePerMt < 0
                 ? 'Negative value = Generator pays tipping fee (cost savings if offtaken)'
                 : 'Positive value = Feedstock sale revenue'}
@@ -438,13 +433,13 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
         </div>
 
         {/* Chemical Assay & Lab Parameters Panel */}
-        <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800 space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
-            <span className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
-              <FlaskConical className="w-4 h-4 text-emerald-400" />
+        <div className="p-5 bg-slate-50/70 rounded-xl border border-slate-200/80 space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
+            <span className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+              <FlaskConical className="w-4 h-4 text-emerald-600" />
               Chemical Assay Parameters
             </span>
-            <span className="text-[10px] font-mono text-slate-500">
+            <span className="text-[11px] font-medium text-slate-500">
               Evaluated by Matching Engine (0.50 Weight)
             </span>
           </div>
@@ -453,13 +448,13 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
             {/* pH Level */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <label className="text-xs text-slate-300 font-medium">pH Level</label>
-                <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded ${
+                <label className="text-xs text-slate-700 font-medium">pH Level</label>
+                <span className={`text-xs font-semibold px-2 py-0.5 rounded-md ${
                   phLevel < 4
-                    ? 'bg-rose-950 text-rose-300 border border-rose-500/30'
+                    ? 'bg-rose-50 text-rose-700 border border-rose-200'
                     : phLevel > 9
-                    ? 'bg-blue-950 text-blue-300 border border-blue-500/30'
-                    : 'bg-emerald-950 text-emerald-300 border border-emerald-500/30'
+                    ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                    : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
                 }`}>
                   pH {phLevel.toFixed(1)} {phLevel < 4 ? '(Strong Acid)' : phLevel > 9 ? '(Alkaline)' : '(Neutral)'}
                 </span>
@@ -471,9 +466,9 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
                 step="0.1"
                 value={phLevel}
                 onChange={(e) => setPhLevel(Number(e.target.value))}
-                className="w-full accent-emerald-500 cursor-pointer"
+                className="w-full accent-emerald-600 cursor-pointer"
               />
-              <div className="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
+              <div className="flex justify-between text-[10px] text-slate-500 font-medium mt-1">
                 <span>0 (Acid)</span>
                 <span>7 (Neutral)</span>
                 <span>14 (Alkali)</span>
@@ -483,11 +478,11 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
             {/* Calorific Value */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <label className="text-xs text-slate-300 font-medium flex items-center gap-1">
-                  <Flame className="w-3.5 h-3.5 text-orange-400" />
+                <label className="text-xs text-slate-700 font-medium flex items-center gap-1">
+                  <Flame className="w-3.5 h-3.5 text-amber-500" />
                   Calorific Value (GCV)
                 </label>
-                <span className="text-xs font-mono text-orange-300 font-bold">
+                <span className="text-xs text-amber-700 font-bold">
                   {calorificValue} kcal/kg
                 </span>
               </div>
@@ -499,11 +494,11 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
                 value={calorificValue}
                 onChange={(e) => setCalorificValue(Number(e.target.value))}
                 placeholder="e.g. 3200 for paint sludge"
-                className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:ring-1 focus:ring-emerald-500 font-mono"
+                className="w-full bg-white border border-slate-200 hover:border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 rounded-xl px-3 py-2 text-xs text-slate-900 font-medium transition shadow-2xs"
               />
-              <div className="text-[10px] text-slate-400 mt-1">
+              <div className="text-[10px] text-slate-500 mt-1">
                 {calorificValue >= 2500 ? (
-                  <span className="text-emerald-400 font-semibold">✓ Meets cement kiln co-processing threshold</span>
+                  <span className="text-emerald-700 font-medium">✓ Meets cement kiln co-processing threshold</span>
                 ) : (
                   <span>Threshold for kiln AFR is ≥ 2,500 kcal/kg</span>
                 )}
@@ -513,11 +508,11 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
             {/* Moisture Percent */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <label className="text-xs text-slate-300 font-medium flex items-center gap-1">
-                  <Droplets className="w-3.5 h-3.5 text-cyan-400" />
+                <label className="text-xs text-slate-700 font-medium flex items-center gap-1">
+                  <Droplets className="w-3.5 h-3.5 text-teal-600" />
                   Moisture Content
                 </label>
-                <span className="text-xs font-mono text-cyan-300 font-bold">
+                <span className="text-xs text-teal-700 font-bold">
                   {moisturePercent}%
                 </span>
               </div>
@@ -527,9 +522,9 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
                 max="100"
                 value={moisturePercent}
                 onChange={(e) => setMoisturePercent(Number(e.target.value))}
-                className="w-full accent-cyan-500 cursor-pointer"
+                className="w-full accent-emerald-600 cursor-pointer"
               />
-              <div className="text-[10px] text-slate-400 mt-1">
+              <div className="text-[10px] text-slate-500 mt-1">
                 {moisturePercent > 70 ? 'High moisture suitable for wet digester' : 'Dry solid/sludge profile'}
               </div>
             </div>
@@ -537,7 +532,7 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
 
           {/* Assay Summary Text */}
           <div>
-            <label className="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
               Certified Laboratory Assay Breakdown (Spectroscopy / Chromatography)
             </label>
             <input
@@ -545,26 +540,26 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
               value={assaySummary}
               onChange={(e) => setAssaySummary(e.target.value)}
               placeholder="e.g. Hexavalent Cr: 3,420 ppm, Free H2SO4: 4.2%, Ash: 24%, Heavy Metals < 50 ppm"
-              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:ring-1 focus:ring-emerald-500 font-mono"
+              className="w-full bg-white border border-slate-200 hover:border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder:text-slate-400 font-medium transition shadow-2xs"
             />
           </div>
         </div>
 
         {/* Hazard Classification Checkbox */}
-        <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 flex items-start gap-3">
+        <div className="p-4 rounded-xl bg-rose-50/50 border border-rose-200/80 flex items-start gap-3">
           <input
             type="checkbox"
             id="hazardous-toggle"
             checked={isHazardous}
             onChange={(e) => setIsHazardous(e.target.checked)}
-            className="mt-0.5 h-4 w-4 rounded border-slate-700 text-rose-600 focus:ring-rose-500 accent-rose-500 cursor-pointer"
+            className="mt-0.5 h-4 w-4 rounded border-slate-300 text-rose-600 focus:ring-rose-500 accent-rose-600 cursor-pointer"
           />
           <div className="text-xs">
-            <label htmlFor="hazardous-toggle" className="font-bold text-white cursor-pointer flex items-center gap-1.5">
-              <AlertTriangle className={`w-4 h-4 ${isHazardous ? 'text-rose-400' : 'text-slate-500'}`} />
+            <label htmlFor="hazardous-toggle" className="font-semibold text-slate-900 cursor-pointer flex items-center gap-1.5">
+              <AlertTriangle className={`w-4 h-4 ${isHazardous ? 'text-rose-600' : 'text-slate-400'}`} />
               Classify as CPCB Hazardous Waste (Rule 19 Mandate)
             </label>
-            <p className="text-[11px] text-slate-400 mt-0.5">
+            <p className="text-[11px] text-slate-600 mt-0.5">
               Requires Form 10 7-copy movement manifest, GPS-enabled authorized carrier, and SPCB prior consent. ReBharat will automatically enforce regulatory containment protocols.
             </p>
           </div>
@@ -575,7 +570,7 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg shadow-emerald-950/50 transition disabled:opacity-50"
+            className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs shadow-sm transition disabled:opacity-50"
           >
             {isSubmitting ? (
               <span>Calculating Pairwise Feasibility...</span>

@@ -2,8 +2,8 @@
 
 @layer base {
   :root {
-    --background: #020617;
-    --foreground: #f8fafc;
+    --background: #F8FAFC;
+    --foreground: #0f172a;
     --primary: #059669;
     --primary-foreground: #ffffff;
   }
@@ -16,32 +16,32 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #94a3b8;
 }
 
-/* Leaflet Custom Styling for Dark Theme Map */
+/* Leaflet Custom Styling for Clean Light Theme Map */
 .leaflet-container {
   width: 100%;
   height: 100%;
-  background-color: #0b1120 !important;
+  background-color: #f8fafc !important;
   font-family: inherit;
 }
 
 .leaflet-popup-content-wrapper {
-  background: #0f172a !important;
-  color: #f1f5f9 !important;
-  border: 1px solid #334155 !important;
-  border-radius: 8px !important;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5) !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
   padding: 0 !important;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .leaflet-popup-tip {
-  background: #0f172a !important;
+  background: #ffffff !important;
 }
 
 /* Form 10 Official Print Styles */

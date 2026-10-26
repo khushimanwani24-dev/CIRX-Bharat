@@ -70,9 +70,9 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
 
       L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-      // CartoDB Dark Matter Tiles for enterprise dark slate theme
+      // Free clean light tile layer: CartoDB Voyager (no API key required)
       L.tileLayer(
-        'https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png',
+        'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
         {
           attribution: '&copy; OpenStreetMap contributors &copy; CARTO | Nashik Industrial Symbiosis Corridor',
           subdomains: 'abcd',
@@ -214,14 +214,14 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
 
         const midMarker = L.circleMarker([midLat, midLng], {
           radius: 7,
-          fillColor: '#10b981',
+          fillColor: '#059669',
           color: '#ffffff',
           weight: 2,
           fillOpacity: 1,
         });
 
         midMarker.bindTooltip(
-          `<div style="font-family: monospace; font-weight: bold; background: #020617; color: #6ee7b7; padding: 4px 8px; border-radius: 6px; border: 1px solid #059669; box-shadow: 0 4px 12px rgba(0,0,0,0.8); font-size: 11px;">
+          `<div style="font-family: inherit; font-weight: 600; background: #ffffff; color: #065f46; padding: 4px 10px; border-radius: 8px; border: 1px solid #10b981; box-shadow: 0 4px 12px rgba(0,0,0,0.12); font-size: 11px;">
             ⚡ ${match.match_score}% Match • ${match.transit_distance_km} km Haul • ${match.avoided_co2_mt} MT CO₂e Avoided
           </div>`,
           { permanent: true, direction: 'top', className: 'custom-leaflet-tooltip', offset: [0, -10] }
@@ -230,9 +230,9 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
       } else {
         // Subtle unselected route polyline
         const polyline = L.polyline([genCoord, offCoord], {
-          color: supply.is_hazardous ? '#f43f5e' : '#06b6d4',
+          color: supply.is_hazardous ? '#e11d48' : '#0284c7',
           weight: 2,
-          opacity: 0.35,
+          opacity: 0.45,
           dashArray: '6, 8',
         });
 
@@ -255,18 +255,18 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
       const isNodeConnectedToActive = isSelectedGenerator || isSelectedOfftaker;
 
       // Determine pin type & base color
-      let pinColor = '#10b981'; // Green: Circular consumer
+      let pinColor = '#059669'; // Green: Circular consumer
       let pinType = 'CONSUMER';
 
       if (fac.facility_type === 'RECOVERY_HUB') {
-        pinColor = '#06b6d4';
+        pinColor = '#0284c7';
         pinType = 'RECOVERY HUB';
       } else if (fac.facility_type === 'GENERATOR') {
         if (isHazardous) {
-          pinColor = '#f43f5e';
+          pinColor = '#e11d48';
           pinType = 'HAZARDOUS GENERATOR';
         } else {
-          pinColor = '#f59e0b';
+          pinColor = '#d97706';
           pinType = 'BYPRODUCT GENERATOR';
         }
       }
@@ -280,7 +280,7 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
 
       const displayName = isPrivileged ? fac.legal_name : fac.anonymous_label;
 
-      // Custom marker icon with pulsating halo if connected to active match
+      // Custom marker icon with refined light theme styling
       const customIcon = L.divIcon({
         className: 'custom-map-pin',
         html: `
@@ -291,13 +291,13 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
             justify-content: center;
             width: ${isNodeConnectedToActive ? '40px' : '32px'};
             height: ${isNodeConnectedToActive ? '40px' : '32px'};
-            background: #0f172a;
-            border: 2px solid ${isNodeConnectedToActive ? '#ffffff' : pinColor};
+            background: #ffffff;
+            border: 2px solid ${isNodeConnectedToActive ? '#059669' : pinColor};
             border-radius: 50%;
             box-shadow: ${
               isNodeConnectedToActive
-                ? `0 0 25px ${pinColor}, 0 0 50px ${pinColor}99`
-                : `0 0 12px ${pinColor}66`
+                ? `0 4px 16px rgba(5, 150, 105, 0.4), 0 0 0 4px rgba(5, 150, 105, 0.15)`
+                : `0 2px 8px rgba(0,0,0,0.15)`
             };
             cursor: pointer;
             transition: all 0.3s ease;
@@ -310,9 +310,9 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
             "></div>
             ${
               isSelectedGenerator
-                ? `<div style="position: absolute; bottom: -20px; white-space: nowrap; font-size: 9px; font-family: monospace; font-weight: bold; background: #991b1b; color: #fff; padding: 1px 5px; border-radius: 4px; border: 1px solid #f87171;">SOURCE: GEN</div>`
+                ? `<div style="position: absolute; bottom: -20px; white-space: nowrap; font-size: 9px; font-family: inherit; font-weight: 700; background: #e11d48; color: #fff; padding: 1px 6px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.15);">SOURCE: GEN</div>`
                 : isSelectedOfftaker
-                ? `<div style="position: absolute; bottom: -20px; white-space: nowrap; font-size: 9px; font-family: monospace; font-weight: bold; background: #065f46; color: #fff; padding: 1px 5px; border-radius: 4px; border: 1px solid #34d399;">TARGET: OFFTAKE</div>`
+                ? `<div style="position: absolute; bottom: -20px; white-space: nowrap; font-size: 9px; font-family: inherit; font-weight: 700; background: #059669; color: #fff; padding: 1px 6px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.15);">TARGET: OFFTAKE</div>`
                 : ''
             }
           </div>
@@ -339,13 +339,13 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
           const counterName = counterFac ? (isPrivileged ? counterFac.legal_name : counterFac.anonymous_label) : 'Counterparty';
 
           return `
-            <div style="margin-top: 6px; padding: 6px 8px; background: rgba(2, 6, 23, 0.9); border: 1px solid #059669; border-radius: 6px; display: flex; align-items: center; justify-content: space-between;">
-              <span style="font-size: 10px; font-family: monospace; color: #6ee7b7; font-weight: bold;">
+            <div style="margin-top: 6px; padding: 6px 10px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-size: 11px; color: #166534; font-weight: 600;">
                 ➔ ${counterName} (${m.match_score}%)
               </span>
               <button 
                 onclick="window.selectSymbiosisRoute('${m.id}')"
-                style="background: #059669; color: white; border: none; font-size: 9px; font-family: monospace; padding: 2px 6px; border-radius: 4px; cursor: pointer;"
+                style="background: #059669; color: white; border: none; font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 6px; cursor: pointer;"
               >
                 Connect Polyline
               </button>
@@ -357,13 +357,13 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
       const streamListHtml = facilityStreams
         .map(
           (s) => `
-          <div style="margin-top: 6px; padding: 6px; background: rgba(15,23,42,0.8); border: 1px solid #334155; border-radius: 6px;">
-            <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 11px;">
-              <span style="color: ${s.is_hazardous ? '#fda4af' : '#6ee7b7'}; font-family: monospace;">${s.stream_type}: ${s.material_name}</span>
-              <span style="color: #94a3b8;">${s.monthly_volume_mt} MT/mo</span>
+          <div style="margin-top: 6px; padding: 8px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 11px;">
+              <span style="color: ${s.is_hazardous ? '#be123c' : '#047857'};">${s.stream_type}: ${s.material_name}</span>
+              <span style="color: #64748b;">${s.monthly_volume_mt} MT/mo</span>
             </div>
-            <div style="font-size: 10px; color: #94a3b8; font-family: monospace; margin-top: 2px;">
-              Code: ${s.cpcb_waste_code} • State: ${s.physical_state} • pH: ${s.ph_level ?? 'N/A'}
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              Code: <span style="font-family: monospace;">${s.cpcb_waste_code}</span> • State: ${s.physical_state} • pH: ${s.ph_level ?? 'N/A'}
             </div>
           </div>
         `
@@ -371,29 +371,29 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
         .join('');
 
       const popupHtml = `
-        <div style="padding: 12px; min-width: 260px; font-family: sans-serif;">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-            <span style="font-size: 9px; font-family: monospace; font-weight: bold; padding: 2px 6px; border-radius: 4px; background: ${pinColor}22; color: ${pinColor}; border: 1px solid ${pinColor}44;">
+        <div style="padding: 14px; min-width: 270px; font-family: inherit; color: #0f172a;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+            <span style="font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 9999px; background: ${pinColor}15; color: ${pinColor}; border: 1px solid ${pinColor}30;">
               ${pinType}
             </span>
-            <span style="font-size: 10px; color: #94a3b8;">${fac.cluster_zone}</span>
+            <span style="font-size: 11px; color: #64748b; font-weight: 500;">${fac.cluster_zone}</span>
           </div>
-          <div style="font-weight: bold; font-size: 13px; color: #f8fafc; margin-top: 4px;">
+          <div style="font-weight: 700; font-size: 14px; color: #0f172a; margin-top: 2px;">
             ${displayName}
           </div>
           ${
             isPrivileged
-              ? `<div style="font-size: 10px; font-family: monospace; color: #cbd5e1; margin-top: 2px;">GSTIN: ${fac.gstin}</div>`
-              : `<div style="font-size: 10px; font-family: monospace; color: #64748b; margin-top: 2px;">Identity Protected by ReBharat Shield</div>`
+              ? `<div style="font-size: 11px; font-family: monospace; color: #475569; margin-top: 2px;">GSTIN: ${fac.gstin}</div>`
+              : `<div style="font-size: 11px; color: #64748b; margin-top: 2px;">Identity Protected by ReBharat Shield</div>`
           }
 
-          <div style="margin-top: 8px;">
-            <div style="font-size: 10px; text-transform: uppercase; font-family: monospace; color: #94a3b8;">Active Symbiosis Routes:</div>
-            ${matchLinksHtml || '<div style="font-size: 10px; color: #64748b; font-family: monospace; margin-top: 4px;">No match pairings active</div>'}
+          <div style="margin-top: 10px;">
+            <div style="font-size: 10px; text-transform: uppercase; font-weight: 700; color: #64748b; letter-spacing: 0.05em;">Active Symbiosis Routes:</div>
+            ${matchLinksHtml || '<div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">No match pairings active</div>'}
           </div>
 
-          <div style="margin-top: 8px;">
-            <div style="font-size: 10px; text-transform: uppercase; font-family: monospace; color: #94a3b8;">Registered Streams:</div>
+          <div style="margin-top: 10px;">
+            <div style="font-size: 10px; text-transform: uppercase; font-weight: 700; color: #64748b; letter-spacing: 0.05em;">Registered Streams:</div>
             ${streamListHtml}
           </div>
         </div>
@@ -427,21 +427,21 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
   const selectedMatch = matches.find((m) => m.id === selectedMatchId);
 
   return (
-    <div className="relative w-full h-[calc(100vh-140px)] min-h-[600px] rounded-xl overflow-hidden border border-slate-800 bg-slate-950 flex flex-col">
+    <div className="relative w-full h-[calc(100vh-140px)] min-h-[600px] rounded-2xl overflow-hidden border border-slate-200/80 bg-white shadow-sm flex flex-col">
       {/* Map Header Overlay Bar */}
-      <div className="absolute top-4 left-4 z-[500] flex flex-wrap items-center gap-2.5 bg-slate-950/95 backdrop-blur-md px-4 py-2.5 rounded-xl border border-slate-700 shadow-2xl max-w-[92%]">
+      <div className="absolute top-4 left-4 z-[500] flex flex-wrap items-center gap-2.5 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-xl border border-slate-200 shadow-md max-w-[92%]">
         <div className="flex items-center gap-2 mr-1">
-          <Navigation className="w-4 h-4 text-emerald-400" />
-          <span className="text-xs font-bold text-white font-mono">Nashik Industrial Corridor</span>
+          <Navigation className="w-4 h-4 text-emerald-600" />
+          <span className="text-xs font-bold text-slate-900 font-sans">Nashik Industrial Corridor</span>
         </div>
 
         {/* Route Selector Dropdown */}
-        <div className="flex items-center gap-1.5 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800 text-xs">
-          <Zap className="w-3.5 h-3.5 text-emerald-400" />
+        <div className="flex items-center gap-1.5 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200 text-xs">
+          <Zap className="w-3.5 h-3.5 text-emerald-600" />
           <select
             value={selectedMatchId || ''}
             onChange={(e) => onSelectMatch(e.target.value)}
-            className="bg-transparent text-slate-200 text-xs font-mono font-medium focus:outline-none cursor-pointer"
+            className="bg-transparent text-slate-800 text-xs font-medium focus:outline-none cursor-pointer"
           >
             <option value="" disabled>Select Symbiosis Route...</option>
             {matches.map((m) => {
@@ -453,7 +453,7 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
               const oName = oFac ? (activeRole === 'REGULATOR_SPCB' || activeRole === 'CLUSTER_ADMIN' ? oFac.legal_name : oFac.anonymous_label) : 'Off';
 
               return (
-                <option key={m.id} value={m.id} className="bg-slate-950 text-white">
+                <option key={m.id} value={m.id} className="bg-white text-slate-900">
                   Route #{m.id.toUpperCase()}: {gName} ➔ {oName} ({m.match_score}%)
                 </option>
               );
@@ -462,27 +462,27 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
         </div>
 
         {/* Hazard Filter Buttons */}
-        <div className="flex items-center gap-1 bg-slate-900 p-0.5 rounded-lg border border-slate-800 text-xs">
+        <div className="flex items-center gap-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200 text-xs">
           <button
             onClick={() => setFilterType('ALL')}
-            className={`px-2 py-1 rounded text-[11px] font-medium transition ${
-              filterType === 'ALL' ? 'bg-slate-800 text-white' : 'text-slate-400 hover:text-slate-200'
+            className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition ${
+              filterType === 'ALL' ? 'bg-white text-slate-900 shadow-xs font-semibold' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             All Streams ({facilities.length})
           </button>
           <button
             onClick={() => setFilterType('HAZARDOUS')}
-            className={`px-2 py-1 rounded text-[11px] font-medium transition ${
-              filterType === 'HAZARDOUS' ? 'bg-rose-950/70 text-rose-300 border border-rose-500/30' : 'text-slate-400 hover:text-slate-200'
+            className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition ${
+              filterType === 'HAZARDOUS' ? 'bg-rose-50 text-rose-700 border border-rose-200 font-semibold' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Hazardous (Cat 35.3 / 21.1)
           </button>
           <button
             onClick={() => setFilterType('NON_HAZARDOUS')}
-            className={`px-2 py-1 rounded text-[11px] font-medium transition ${
-              filterType === 'NON_HAZARDOUS' ? 'bg-emerald-950/70 text-emerald-300 border border-emerald-500/30' : 'text-slate-400 hover:text-slate-200'
+            className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition ${
+              filterType === 'NON_HAZARDOUS' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200 font-semibold' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Circular Byproducts
@@ -494,80 +494,80 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
           onClick={() => setUseExactCoords(!useExactCoords)}
           className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium border transition ${
             useExactCoords
-              ? 'bg-slate-900 border-slate-700 text-slate-300 hover:bg-slate-800'
-              : 'bg-emerald-950/60 border-emerald-500/40 text-emerald-300'
+              ? 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50 shadow-xs'
+              : 'bg-indigo-50 border-indigo-200 text-indigo-700 font-semibold shadow-xs'
           }`}
           title="Toggle between exact PostGIS coordinates and blurred public +/- 1.5km privacy radius"
         >
-          {useExactCoords ? <Eye className="w-3.5 h-3.5 text-slate-400" /> : <EyeOff className="w-3.5 h-3.5 text-emerald-400" />}
+          {useExactCoords ? <Eye className="w-3.5 h-3.5 text-slate-500" /> : <EyeOff className="w-3.5 h-3.5 text-indigo-600" />}
           <span>{useExactCoords ? 'Exact PostGIS' : 'Privacy Blur (+/- 1.5 km)'}</span>
         </button>
       </div>
 
       {/* Selected Match Route Card (Floating Bottom Left) */}
       {selectedMatch && (
-        <div className="absolute bottom-6 left-4 z-[500] w-88 bg-slate-950/95 backdrop-blur-md rounded-xl border border-emerald-500/50 p-4 shadow-2xl space-y-2">
+        <div className="absolute bottom-6 left-4 z-[500] w-88 bg-white/95 backdrop-blur-md rounded-2xl border border-emerald-200/90 p-4 shadow-xl space-y-2 text-slate-900">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold">
-              Connected Symbiosis Polyline
+            <span className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
+              Active Symbiosis Route
             </span>
-            <span className="text-xs font-mono font-bold text-emerald-400">
+            <span className="text-xs font-bold text-emerald-700 font-sans">
               {selectedMatch.match_score}% Score
             </span>
           </div>
 
-          <div className="text-xs font-mono text-white flex items-center justify-between pt-1 border-t border-slate-800">
-            <span className="text-slate-400">Haul Distance:</span>
-            <span className="font-bold text-emerald-300">{selectedMatch.transit_distance_km} km</span>
+          <div className="text-xs text-slate-800 flex items-center justify-between pt-1 border-t border-slate-100">
+            <span className="text-slate-500 font-medium">Haul Distance:</span>
+            <span className="font-bold text-slate-900">{selectedMatch.transit_distance_km} km</span>
           </div>
-          <div className="text-xs font-mono text-white flex items-center justify-between">
-            <span className="text-slate-400">Avoided Carbon:</span>
-            <span className="font-bold text-teal-300">{selectedMatch.avoided_co2_mt} MT CO₂e / mo</span>
+          <div className="text-xs text-slate-800 flex items-center justify-between">
+            <span className="text-slate-500 font-medium">Avoided Carbon:</span>
+            <span className="font-bold text-teal-700">{selectedMatch.avoided_co2_mt} MT CO₂e / mo</span>
           </div>
-          <div className="text-xs font-mono text-white flex items-center justify-between">
-            <span className="text-slate-400">Monthly Value:</span>
-            <span className="font-bold text-amber-300">₹{selectedMatch.economic_benefit_inr.toLocaleString('en-IN')} / mo</span>
+          <div className="text-xs text-slate-800 flex items-center justify-between">
+            <span className="text-slate-500 font-medium">Monthly Value:</span>
+            <span className="font-bold text-emerald-700">₹{selectedMatch.economic_benefit_inr.toLocaleString('en-IN')} / mo</span>
           </div>
-          <div className="text-[11px] text-slate-400 truncate">
-            Fleet: <span className="text-slate-200">{selectedMatch.recommended_logistics_mode}</span>
+          <div className="text-[11px] text-slate-500 truncate">
+            Fleet: <span className="text-slate-700 font-medium">{selectedMatch.recommended_logistics_mode}</span>
           </div>
 
           <div className="pt-2 flex items-center gap-2">
             <button
               onClick={() => onSelectMatch(selectedMatch.id)}
-              className="flex-1 py-1.5 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs transition text-center font-mono"
+              className="flex-1 py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs shadow-xs transition text-center font-sans"
             >
-              Inspect Engineering Math
+              Inspect Symbiosis Math
             </button>
           </div>
         </div>
       )}
 
       {/* Map Legend Overlay (Top Right) */}
-      <div className="absolute top-4 right-4 z-[500] bg-slate-950/95 backdrop-blur-md px-3.5 py-3 rounded-xl border border-slate-700 shadow-xl text-xs space-y-2">
-        <div className="font-mono font-bold text-slate-300 text-[10px] uppercase tracking-wider mb-1 flex items-center gap-1.5">
-          <Compass className="w-3.5 h-3.5 text-slate-400" />
+      <div className="absolute top-4 right-4 z-[500] bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl border border-slate-200/90 shadow-lg text-xs space-y-2 text-slate-700">
+        <div className="font-bold text-slate-900 text-[10px] uppercase tracking-wider mb-1 flex items-center gap-1.5">
+          <Compass className="w-3.5 h-3.5 text-slate-500" />
           Corridor GIS Legend
         </div>
-        <div className="flex items-center gap-2 text-slate-300">
-          <span className="w-3 h-3 rounded-full bg-rose-500 border border-rose-300" />
+        <div className="flex items-center gap-2 text-slate-700">
+          <span className="w-3 h-3 rounded-full bg-rose-500 border border-rose-300 shadow-2xs" />
           <span>Hazardous Generator (Ambad)</span>
         </div>
-        <div className="flex items-center gap-2 text-slate-300">
-          <span className="w-3 h-3 rounded-full bg-amber-500 border border-amber-300" />
+        <div className="flex items-center gap-2 text-slate-700">
+          <span className="w-3 h-3 rounded-full bg-amber-500 border border-amber-300 shadow-2xs" />
           <span>Non-Hazardous Generator</span>
         </div>
-        <div className="flex items-center gap-2 text-slate-300">
-          <span className="w-3 h-3 rounded-full bg-cyan-400 border border-cyan-200" />
+        <div className="flex items-center gap-2 text-slate-700">
+          <span className="w-3 h-3 rounded-full bg-sky-500 border border-sky-300 shadow-2xs" />
           <span>Hydrometallurgy Recovery Hub</span>
         </div>
-        <div className="flex items-center gap-2 text-slate-300">
-          <span className="w-3 h-3 rounded-full bg-emerald-500 border border-emerald-300" />
+        <div className="flex items-center gap-2 text-slate-700">
+          <span className="w-3 h-3 rounded-full bg-emerald-500 border border-emerald-300 shadow-2xs" />
           <span>Circular Consumer (Sinnar/Ambad)</span>
         </div>
-        <div className="flex items-center gap-2 text-slate-300 pt-1 border-t border-slate-800">
-          <span className="w-6 h-0.5 border-t-2 border-dashed border-emerald-400" />
-          <span className="text-emerald-300 font-mono text-[11px]">Active Symbiosis Polyline</span>
+        <div className="flex items-center gap-2 text-slate-700 pt-1 border-t border-slate-200">
+          <span className="w-6 h-0.5 border-t-2 border-dashed border-emerald-600" />
+          <span className="text-emerald-700 font-semibold text-[11px]">Active Symbiosis Polyline</span>
         </div>
       </div>
 

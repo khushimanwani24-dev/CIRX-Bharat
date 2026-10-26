@@ -269,17 +269,20 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100">
+    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-slate-900">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-5 right-5 z-50 max-w-md bg-slate-900 border border-emerald-500/60 shadow-2xl rounded-xl p-3.5 text-xs text-white flex items-center justify-between gap-3 animate-slide-up">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span className="font-medium">{toastMessage}</span>
+        <div className="fixed bottom-5 right-5 z-50 max-w-md bg-white border border-emerald-300 shadow-xl rounded-xl p-3.5 text-xs text-slate-900 flex items-center justify-between gap-3 animate-slide-up ring-1 ring-emerald-500/20">
+          <div className="flex items-center gap-2.5">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
+            </span>
+            <span className="font-medium text-slate-800">{toastMessage}</span>
           </div>
           <button
             onClick={() => setToastMessage(null)}
-            className="text-slate-400 hover:text-white text-xs px-1"
+            className="text-slate-400 hover:text-slate-700 text-xs px-1.5 py-0.5 rounded hover:bg-slate-100 transition"
           >
             ✕
           </button>

@@ -6,12 +6,7 @@ import {
   Printer,
   FileCheck,
   Truck,
-  Building,
-  AlertTriangle,
-  CheckCircle2,
-  Calendar,
   Layers,
-  Phone,
   QrCode,
   ShieldCheck,
 } from 'lucide-react';
@@ -52,25 +47,25 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-5xl my-auto bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-900/60 backdrop-blur-sm overflow-y-auto">
+      <div className="relative w-full max-w-5xl my-auto bg-white border border-slate-200/90 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
         {/* Modal Control Header (Hidden when printing) */}
-        <div className="no-print flex items-center justify-between px-6 py-4 bg-slate-950 border-b border-slate-800">
+        <div className="no-print flex items-center justify-between px-6 py-4 bg-white border-b border-slate-200">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+            <div className="p-2 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200">
               <FileCheck className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-base font-bold text-white font-mono">
+                <h3 className="text-base font-bold text-slate-900 tracking-tight">
                   CPCB Form 10 Manifest Generator
                 </h3>
-                <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                <span className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
                   Rule 19 Compliance
                 </span>
               </div>
-              <p className="text-xs text-slate-400">
-                Manifest Ref: <span className="font-mono text-slate-200">{manifest.manifest_number}</span>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Manifest Ref: <span className="font-mono font-medium text-slate-800">{manifest.manifest_number}</span>
               </p>
             </div>
           </div>
@@ -78,14 +73,14 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrint}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium border border-slate-700 transition"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-sm transition"
             >
               <Printer className="w-3.5 h-3.5" />
               Print / Save PDF
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition"
+              className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition"
             >
               <X className="w-5 h-5" />
             </button>
@@ -93,11 +88,11 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
         </div>
 
         {/* 7-Color Slip Selector Tabs (Hidden when printing) */}
-        <div className="no-print px-6 py-3 bg-slate-950/90 border-b border-slate-800/80 overflow-x-auto">
+        <div className="no-print px-6 py-3.5 bg-slate-50 border-b border-slate-200 overflow-x-auto">
           <div className="flex items-center justify-between gap-4 min-w-[700px]">
             <div className="flex items-center gap-1.5">
-              <span className="text-xs font-mono text-slate-400 uppercase tracking-wider mr-2 flex items-center gap-1">
-                <Layers className="w-3.5 h-3.5 text-emerald-400" />
+              <span className="text-xs font-semibold text-slate-600 uppercase tracking-wider mr-2 flex items-center gap-1">
+                <Layers className="w-3.5 h-3.5 text-emerald-600" />
                 Select Copy:
               </span>
               {FORM_10_COPIES.map((copy) => {
@@ -106,10 +101,10 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                   <button
                     key={copy.color}
                     onClick={() => handleAdvanceCopy(copy.color)}
-                    className={`px-2.5 py-1 rounded text-xs font-medium transition flex items-center gap-1.5 ${
+                    className={`px-2.5 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 ${
                       isSelected
-                        ? 'bg-slate-800 text-white ring-2 ring-emerald-500 shadow'
-                        : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
+                        ? 'bg-white text-slate-900 font-semibold border border-slate-300 shadow-2xs'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
                     }`}
                   >
                     <span
@@ -135,22 +130,22 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
               })}
             </div>
 
-            <div className="text-[11px] font-mono text-slate-400">
-              Current Dispatch Status: <span className="text-emerald-400 font-semibold">{manifest.status}</span>
+            <div className="text-[11px] text-slate-500 font-medium">
+              Current Dispatch Status: <span className="text-emerald-700 font-bold">{manifest.status.replace('_', ' ')}</span>
             </div>
           </div>
-          <div className="mt-2 text-xs text-slate-300 bg-slate-900/80 px-3 py-1.5 rounded border border-slate-800 flex items-center justify-between">
-            <span className="font-medium text-emerald-400">
+          <div className="mt-2 text-xs text-slate-700 bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-2xs flex items-center justify-between">
+            <span className="font-semibold text-emerald-700">
               {activeCopyMeta.title}:
             </span>
-            <span className="text-slate-400">
+            <span className="text-slate-600">
               {activeCopyMeta.regulatory_instruction}
             </span>
           </div>
         </div>
 
         {/* Official Printable Form 10 Document Area */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-8 bg-slate-950/40">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-8 bg-slate-100/70">
           <div
             className={`printable-manifest mx-auto max-w-4xl rounded-xl border-2 p-6 sm:p-8 transition-colors ${theme.bg} ${theme.border} text-slate-900 shadow-xl`}
           >
@@ -158,7 +153,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
             <div className="border-b-2 border-slate-900 pb-4 mb-5">
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded border-2 border-slate-900 flex flex-col items-center justify-center font-bold font-serif text-[10px] text-center leading-none bg-slate-100">
+                  <div className="w-12 h-12 rounded border-2 border-slate-900 flex flex-col items-center justify-center font-bold font-serif text-[10px] text-center leading-none bg-white">
                     <span>सत्यमेव</span>
                     <span>जयते</span>
                     <span className="text-[8px] mt-0.5">GOI</span>
@@ -196,7 +191,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
             {/* Statutory Grid - 14 Numbered Clauses */}
             <div className="space-y-4 text-xs">
               {/* Clause 1 & 2: Sender Details & Authorization */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 rounded border border-slate-400 bg-white/70">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 rounded-lg border border-slate-300 bg-white/80">
                 <div>
                   <span className="font-bold text-slate-950 block mb-1">
                     1. Sender&apos;s Name & Mailing Address (Generator):
@@ -219,7 +214,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                   <span className="font-bold text-slate-950 block mb-1">
                     2. Sender&apos;s Authorization / Consent No:
                   </span>
-                  <div className="font-mono font-bold text-slate-900 bg-slate-100 p-1.5 rounded border border-slate-300">
+                  <div className="font-mono font-bold text-slate-900 bg-slate-50 p-1.5 rounded border border-slate-200">
                     {manifest.sender_facility?.spcb_consent_id || 'MPCB/RO-NSK/CONSENT/2401000142'}
                   </div>
                   <div className="text-[10px] text-slate-600 mt-1">
@@ -229,7 +224,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
               </div>
 
               {/* Clause 3 & 4: Transporter & Vehicle */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 p-3 rounded border border-slate-400 bg-white/70">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 p-3 rounded-lg border border-slate-300 bg-white/80">
                 <div>
                   <span className="font-bold text-slate-950 block mb-1">
                     3. Transporter Name & Address:
@@ -250,7 +245,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                     4. Vehicle Registration & Driver:
                   </span>
                   <div className="flex items-center gap-2">
-                    <span className="font-mono font-bold text-slate-900 text-sm bg-amber-100 px-2 py-0.5 rounded border border-amber-300">
+                    <span className="font-mono font-bold text-slate-900 text-sm bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
                       {manifest.vehicle_no}
                     </span>
                     <Truck className="w-4 h-4 text-slate-700" />
@@ -278,7 +273,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
               </div>
 
               {/* Clause 6 & 7: Receiver Details & Authorization */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 rounded border border-slate-400 bg-white/70">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 rounded-lg border border-slate-300 bg-white/80">
                 <div>
                   <span className="font-bold text-slate-950 block mb-1">
                     6. Receiver&apos;s Name & Facility Address (Offtaker / Co-processor):
@@ -301,7 +296,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                   <span className="font-bold text-slate-950 block mb-1">
                     7. Receiver&apos;s SPCB Authorization No:
                   </span>
-                  <div className="font-mono font-bold text-slate-900 bg-slate-100 p-1.5 rounded border border-slate-300">
+                  <div className="font-mono font-bold text-slate-900 bg-slate-50 p-1.5 rounded border border-slate-200">
                     {manifest.receiver_facility?.spcb_consent_id || 'MPCB/HW-RECOVERY/SAT/2023-88'}
                   </div>
                   <div className="text-[10px] text-slate-600 mt-1">
@@ -311,13 +306,13 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
               </div>
 
               {/* Clause 8 - 11: Waste Description & Quantity */}
-              <div className="p-3 rounded border border-slate-400 bg-white/70">
+              <div className="p-3 rounded-lg border border-slate-300 bg-white/80">
                 <span className="font-bold text-slate-950 block mb-1.5">
                   8. Description of Hazardous / Other Waste:
                 </span>
                 <table className="w-full text-left border-collapse border border-slate-300 text-[11px]">
                   <thead>
-                    <tr className="bg-slate-200/80 font-bold text-slate-900">
+                    <tr className="bg-slate-100 font-bold text-slate-900">
                       <th className="p-1.5 border border-slate-300">CPCB Category</th>
                       <th className="p-1.5 border border-slate-300">Commercial Name</th>
                       <th className="p-1.5 border border-slate-300">Physical State</th>
@@ -347,7 +342,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                 </table>
 
                 {/* Clause 11: Special Handling & Emergency Instructions */}
-                <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 border-t border-slate-300">
+                <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 border-t border-slate-200">
                   <div>
                     <span className="font-bold text-slate-950 block text-[11px]">
                       9. Special Handling & Safety Instructions:
@@ -370,7 +365,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
               {/* Clause 12, 13, 14: Three Official Signature & Stamp Seals */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
                 {/* 1. Sender Cert */}
-                <div className="p-3 rounded border border-slate-400 bg-white flex flex-col justify-between h-40">
+                <div className="p-3 rounded-lg border border-slate-300 bg-white flex flex-col justify-between h-40">
                   <div>
                     <span className="font-bold text-[11px] text-slate-950 block">
                       11. Sender&apos;s Certificate
@@ -379,7 +374,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                       I hereby declare that the contents of this consignment are fully and accurately described above.
                     </p>
                   </div>
-                  <div className="text-center border-t border-dashed border-slate-400 pt-1">
+                  <div className="text-center border-t border-dashed border-slate-300 pt-1">
                     <div className="font-serif italic font-bold text-slate-900 text-xs">
                       [Digital Signature Verified]
                     </div>
@@ -393,7 +388,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                 </div>
 
                 {/* 2. Transporter Ack */}
-                <div className="p-3 rounded border border-slate-400 bg-white flex flex-col justify-between h-40">
+                <div className="p-3 rounded-lg border border-slate-300 bg-white flex flex-col justify-between h-40">
                   <div>
                     <span className="font-bold text-[11px] text-slate-950 block">
                       12. Transporter&apos;s Acknowledgment
@@ -402,7 +397,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                       Received the waste specified above in designated containers for transport to designated destination.
                     </p>
                   </div>
-                  <div className="text-center border-t border-dashed border-slate-400 pt-1">
+                  <div className="text-center border-t border-dashed border-slate-300 pt-1">
                     <div className="font-serif italic font-bold text-slate-900 text-xs">
                       [Vehicle Crew Verified]
                     </div>
@@ -416,7 +411,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                 </div>
 
                 {/* 3. Receiver Cert */}
-                <div className="p-3 rounded border border-slate-400 bg-white flex flex-col justify-between h-40">
+                <div className="p-3 rounded-lg border border-slate-300 bg-white flex flex-col justify-between h-40">
                   <div>
                     <span className="font-bold text-[11px] text-slate-950 block">
                       13. Receiver&apos;s Certificate
@@ -425,7 +420,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                       Consignment received safely. Chemical assay matched manifest specification within tolerance.
                     </p>
                   </div>
-                  <div className="text-center border-t border-dashed border-slate-400 pt-1">
+                  <div className="text-center border-t border-dashed border-slate-300 pt-1">
                     <div className="font-serif italic font-bold text-slate-900 text-xs">
                       {manifest.status === 'DELIVERED' || manifest.status === 'ACCEPTED_AT_SITE'
                         ? '[Site Weighbridge Signed]'
@@ -442,7 +437,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
               </div>
 
               {/* Bottom Security Footer: QR Code & Verification Watermark */}
-              <div className="pt-3 border-t border-slate-400 flex items-center justify-between text-[10px] text-slate-600 font-mono">
+              <div className="pt-3 border-t border-slate-300 flex items-center justify-between text-[10px] text-slate-600 font-mono">
                 <div className="flex items-center gap-2">
                   <QrCode className="w-8 h-8 text-slate-800" />
                   <div>
