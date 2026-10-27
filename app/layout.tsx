@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "leaflet/dist/leaflet.css";
 import "./globals.css";
+import { AuthProvider } from "@/lib/authContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -42,10 +43,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#F8FAFC] text-slate-900 font-sans selection:bg-emerald-100 selection:text-emerald-900">
-        {children}
+      <body
+        suppressHydrationWarning
+        className="min-h-full flex flex-col bg-[#F8FAFC] text-slate-900 font-sans selection:bg-emerald-100 selection:text-emerald-900"
+      >
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );

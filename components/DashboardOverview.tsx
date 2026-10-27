@@ -20,6 +20,7 @@ import {
 import { ClusterESGMetrics, Facility, MaterialStream, MatchProposal } from '@/types';
 import { formatINR, formatNumber } from '@/lib/utils';
 import { UserRole } from './Header';
+import { useAuth } from '@/lib/authContext';
 
 interface DashboardOverviewProps {
   esgMetrics: ClusterESGMetrics;
@@ -40,6 +41,7 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
   onNavigate,
   onSelectMatch,
 }) => {
+  const { isAuthenticated, openAuthModal } = useAuth();
   // Take top 4 matches for recent matches preview
   const recentMatches = matches.slice(0, 4);
 
@@ -86,7 +88,13 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {/* Action Card 1: Generator */}
         <div
-          onClick={() => onNavigate('INGEST')}
+          onClick={() => {
+            if (!isAuthenticated) {
+              openAuthModal('REGISTER');
+              return;
+            }
+            onNavigate('INGEST');
+          }}
           className="group cursor-pointer p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 hover:border-emerald-500 shadow-sm hover:shadow-md transition duration-200 flex flex-col justify-between space-y-5"
         >
           <div className="space-y-3">

@@ -19,6 +19,7 @@ import {
 import { Facility, PhysicalState, StreamType } from '@/types';
 import { UserRole } from './Header';
 import { formatINR } from '@/lib/utils';
+import { useAuth } from '@/lib/authContext';
 
 interface StreamIngestionPortalProps {
   facilities: Facility[];
@@ -33,9 +34,12 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
   activeRole,
   onNavigateToMatches,
 }) => {
-  // Select initial facility based on active role
+  const { user, isAuthenticated, openAuthModal } = useAuth();
+
+  // Select initial facility based on active role or authenticated user
   const defaultFacilityId =
-    activeRole === 'GEN_PRECISION'
+    user?.facilityId ||
+    (activeRole === 'GEN_PRECISION'
       ? 'fac-gen-01'
       : activeRole === 'GEN_AUTO'
       ? 'fac-gen-02'
@@ -43,7 +47,7 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
       ? 'fac-off-02'
       : activeRole === 'OFF_SAHYADRI'
       ? 'fac-off-01'
-      : facilities[0]?.id || 'fac-gen-01';
+      : facilities[0]?.id || 'fac-gen-01');
 
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
 
@@ -111,6 +115,10 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isAuthenticated) {
+      openAuthModal('REGISTER');
+      return;
+    }
     if (!materialName.trim()) return;
 
     setIsSubmitting(true);
@@ -146,6 +154,24 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
 
   return (
     <div className="max-w-4xl mx-auto py-6 px-4 space-y-6">
+      {/* Unauthenticated Guest Notification */}
+      {!isAuthenticated && (
+        <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+          <div className="flex items-center gap-2.5">
+            <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0" />
+            <span>
+              <strong>Guest Preview Mode:</strong> You are exploring the Stream Wizard as a guest. Authenticate or onboard your industrial unit to register live byproduct streams into the corridor ledger.
+            </span>
+          </div>
+          <button
+            type="button"
+            onClick={() => openAuthModal('REGISTER')}
+            className="px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs whitespace-nowrap transition self-start sm:self-auto"
+          >
+            Register Facility
+          </button>
+        </div>
+      )}
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-5">
         <div>

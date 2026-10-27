@@ -16,6 +16,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { UserRole, ROLE_LABELS } from './Header';
+import { useAuth } from '@/lib/authContext';
 
 export type MainNavTab = 'DASHBOARD' | 'MATCHES' | 'INGEST' | 'MAP' | 'COMPLIANCE';
 
@@ -44,6 +45,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   isOpenMobile,
   onCloseMobile,
 }) => {
+  const { user, isAuthenticated, openAuthModal, logout } = useAuth();
   const currentRoleMeta = ROLE_LABELS[activeRole];
 
   const navItems: { id: MainNavTab; label: string; icon: React.ReactNode; badge?: string | number }[] = [
@@ -190,36 +192,66 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <span className="text-[10px] text-slate-400">v2.4</span>
           </button>
 
-          {/* User Persona Profile Card */}
+          {/* User Persona / Authenticated Facility Card */}
           <div className="pt-2">
-            <div className="p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-1.5">
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
-                  Active Persona
-                </span>
-                <span className={`text-[10px] font-medium px-1.5 py-0.2 rounded border ${currentRoleMeta.color}`}>
-                  {currentRoleMeta.badge}
-                </span>
-              </div>
+            {isAuthenticated && user ? (
+              <div className="p-3 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-2">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 text-[10px] font-bold text-emerald-800 uppercase tracking-wider">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <span>Facility Session</span>
+                  </div>
+                  <span className="font-mono text-[9px] bg-slate-100 border border-slate-200 text-slate-700 px-1.5 py-0.2 rounded font-semibold">
+                    {user.maskedLabel}
+                  </span>
+                </div>
 
-              <div className="relative">
-                <select
-                  value={activeRole}
-                  onChange={(e) => onRoleChange(e.target.value as UserRole)}
-                  className="w-full bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5 text-[11px] font-semibold text-slate-900 focus:outline-none focus:ring-1 focus:ring-emerald-500 cursor-pointer"
+                <div>
+                  <div className="text-xs font-bold text-slate-900 truncate" title={user.facilityName}>
+                    {user.facilityName}
+                  </div>
+                  <div className="text-[10px] text-slate-500 truncate mt-0.5">
+                    {user.clusterZone}
+                  </div>
+                </div>
+
+                <div className="pt-1 flex items-center justify-between border-t border-slate-100">
+                  <span
+                    className={`text-[9px] font-bold uppercase px-1.5 py-0.2 rounded border ${
+                      user.role === 'GENERATOR'
+                        ? 'bg-amber-50 text-amber-800 border-amber-200'
+                        : user.role === 'OFFTAKER'
+                        ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                        : 'bg-indigo-50 text-indigo-800 border-indigo-200'
+                    }`}
+                  >
+                    {user.role}
+                  </span>
+                  <button
+                    onClick={logout}
+                    className="text-[11px] font-semibold text-slate-500 hover:text-rose-600 transition"
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-center">
+                <div className="flex items-center justify-center gap-1.5 text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
+                  <span>Guest Preview Mode</span>
+                </div>
+                <p className="text-[11px] text-slate-500 leading-snug">
+                  Sign in or register an industrial unit to list streams and transact.
+                </p>
+                <button
+                  onClick={() => openAuthModal('SIGN_IN')}
+                  className="w-full py-1.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-2xs transition"
                 >
-                  {Object.entries(ROLE_LABELS).map(([key, meta]) => (
-                    <option key={key} value={key}>
-                      {meta.label}
-                    </option>
-                  ))}
-                </select>
+                  Sign In / Register
+                </button>
               </div>
-
-              <div className="text-[10px] text-slate-500 truncate" title={currentRoleMeta.entity}>
-                {currentRoleMeta.entity}
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </aside>

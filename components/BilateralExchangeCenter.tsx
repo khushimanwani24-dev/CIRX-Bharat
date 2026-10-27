@@ -38,6 +38,7 @@ import {
   Scale,
 } from 'lucide-react';
 import { MatchExplanationDrawer } from './MatchExplanationDrawer';
+import { useAuth } from '@/lib/authContext';
 
 interface BilateralExchangeCenterProps {
   matches: MatchProposal[];
@@ -64,6 +65,7 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
   selectedMatchId,
   onSelectMatch,
 }) => {
+  const { isAuthenticated, openAuthModal } = useAuth();
   const [filterTier, setFilterTier] = useState<'ALL' | 'HAZARDOUS' | 'NON_HAZARDOUS'>('ALL');
   const [filterConsent, setFilterConsent] = useState<'ALL' | 'UNLOCKED' | 'PENDING'>('ALL');
   const [expandedBreakdown, setExpandedBreakdown] = useState<Record<string, boolean>>({});
@@ -83,6 +85,12 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
   };
 
   const handleConsentClick = async (match: MatchProposal, party: 'generator' | 'offtaker') => {
+    // Check authentication requirement
+    if (!isAuthenticated) {
+      openAuthModal('SIGN_IN');
+      return;
+    }
+
     // If this click completes the mutual consent, trigger confetti!
     const willBeUnlocked =
       (party === 'generator' && match.offtaker_consent) ||
@@ -487,40 +495,49 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
                 {/* Bilateral Connect & Mutual Consent Trigger Area */}
                 <div className="px-5 py-4 bg-white border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
                   {/* Two-Sided Consent Checklist */}
-                  <div className="flex items-center gap-3 w-full sm:w-auto">
-                    {/* Generator Side Consent */}
-                    <button
-                      onClick={() => handleConsentClick(match, 'generator')}
-                      className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition border ${
-                        match.generator_consent
-                          ? 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-2xs'
-                          : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900'
-                      }`}
-                    >
-                      <span className={`w-3.5 h-3.5 rounded-full flex items-center justify-center text-[10px] ${
-                        match.generator_consent ? 'bg-emerald-600 text-white font-bold' : 'border border-slate-300'
-                      }`}>
-                        {match.generator_consent ? '✓' : ''}
-                      </span>
-                      <span>Generator Consent</span>
-                    </button>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 w-full sm:w-auto">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>Disclose Identity:</span>
+                    </div>
 
-                    {/* Offtaker Side Consent */}
-                    <button
-                      onClick={() => handleConsentClick(match, 'offtaker')}
-                      className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition border ${
-                        match.offtaker_consent
-                          ? 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-2xs'
-                          : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900'
-                      }`}
-                    >
-                      <span className={`w-3.5 h-3.5 rounded-full flex items-center justify-center text-[10px] ${
-                        match.offtaker_consent ? 'bg-emerald-600 text-white font-bold' : 'border border-slate-300'
-                      }`}>
-                        {match.offtaker_consent ? '✓' : ''}
-                      </span>
-                      <span>Offtaker Consent</span>
-                    </button>
+                    <div className="flex items-center gap-2">
+                      {/* Generator Side Consent */}
+                      <button
+                        onClick={() => handleConsentClick(match, 'generator')}
+                        title={isAuthenticated ? 'Authorize identity disclosure as Generator' : 'Sign In required to disclose identity'}
+                        className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition border ${
+                          match.generator_consent
+                            ? 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-2xs'
+                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900'
+                        }`}
+                      >
+                        <span className={`w-3.5 h-3.5 rounded-full flex items-center justify-center text-[10px] ${
+                          match.generator_consent ? 'bg-emerald-600 text-white font-bold' : 'border border-slate-300'
+                        }`}>
+                          {match.generator_consent ? '✓' : ''}
+                        </span>
+                        <span>Generator Consent</span>
+                      </button>
+
+                      {/* Offtaker Side Consent */}
+                      <button
+                        onClick={() => handleConsentClick(match, 'offtaker')}
+                        title={isAuthenticated ? 'Authorize identity disclosure as Offtaker' : 'Sign In required to disclose identity'}
+                        className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition border ${
+                          match.offtaker_consent
+                            ? 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-2xs'
+                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900'
+                        }`}
+                      >
+                        <span className={`w-3.5 h-3.5 rounded-full flex items-center justify-center text-[10px] ${
+                          match.offtaker_consent ? 'bg-emerald-600 text-white font-bold' : 'border border-slate-300'
+                        }`}>
+                          {match.offtaker_consent ? '✓' : ''}
+                        </span>
+                        <span>Offtaker Consent</span>
+                      </button>
+                    </div>
                   </div>
 
                   {/* Manifest Generation & Action Buttons */}
@@ -561,7 +578,13 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
                       </button>
                     ) : isUnlocked ? (
                       <button
-                        onClick={() => onGenerateManifest(match.id)}
+                        onClick={() => {
+                          if (!isAuthenticated) {
+                            openAuthModal('SIGN_IN');
+                            return;
+                          }
+                          onGenerateManifest(match.id);
+                        }}
                         className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition"
                       >
                         <FileCheck2 className="w-4 h-4" />

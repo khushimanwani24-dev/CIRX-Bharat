@@ -21,6 +21,8 @@ import { IndustrialMap } from '@/components/IndustrialMap';
 import { ComplianceCenter } from '@/components/ComplianceCenter';
 import { TechnicalSpecsModal } from '@/components/TechnicalSpecsModal';
 import { Form10Modal } from '@/components/Form10Modal';
+import { AuthModal } from '@/components/AuthModal';
+import { useAuth } from '@/lib/authContext';
 import { runMatchingEngine } from '@/lib/matchingEngine';
 
 export default function Home() {
@@ -45,8 +47,18 @@ export default function Home() {
     hazardous_treated_mt: 20.0,
   });
 
+  const {
+    user,
+    registeredFacilities,
+    isAuthenticated,
+    isAuthModalOpen,
+    authModalTab,
+    openAuthModal,
+    closeAuthModal,
+  } = useAuth();
+
   // Default to DASHBOARD as the welcoming front door
-  const [activeRole, setActiveRole] = useState<UserRole>('GEN_PRECISION');
+  const [activeRole, setActiveRole] = useState<UserRole>(user?.activeRole || 'GEN_PRECISION');
   const [activeTab, setActiveTab] = useState<MainNavTab>('DASHBOARD');
   const [selectedMatchId, setSelectedMatchId] = useState<string | null>('match-001');
   const [activeManifestModal, setActiveManifestModal] = useState<Form10Manifest | null>(null);
@@ -60,6 +72,25 @@ export default function Home() {
       setToastMessage((current) => (current === msg ? null : current));
     }, 4500);
   };
+
+  // Sync active role when user profile changes
+  useEffect(() => {
+    if (user?.activeRole) {
+      setActiveRole(user.activeRole);
+    }
+  }, [user]);
+
+  // Merge dynamically registered facilities into the ledger
+  useEffect(() => {
+    if (registeredFacilities && registeredFacilities.length > 0) {
+      setFacilities((prev) => {
+        const existingIds = new Set(prev.map((f) => f.id));
+        const toAdd = registeredFacilities.filter((f) => !existingIds.has(f.id));
+        if (toAdd.length === 0) return prev;
+        return [...toAdd, ...prev];
+      });
+    }
+  }, [registeredFacilities]);
 
   // Sync with API on mount
   useEffect(() => {
@@ -114,6 +145,12 @@ export default function Home() {
 
   // Handle toggling generator or offtaker consent
   const handleToggleConsent = async (matchId: string, party: 'generator' | 'offtaker') => {
+    if (!isAuthenticated) {
+      showToast('🔒 Please sign in to authorize bilateral identity disclosure.');
+      openAuthModal('SIGN_IN');
+      return;
+    }
+
     try {
       const res = await fetch(`/api/matches/${matchId}/consent`, {
         method: 'POST',
@@ -197,6 +234,12 @@ export default function Home() {
 
   // Handle generating Form 10 manifest
   const handleGenerateManifest = async (matchId: string) => {
+    if (!isAuthenticated) {
+      showToast('🔒 Please sign in to approve matches & generate CPCB Form 10 manifests.');
+      openAuthModal('SIGN_IN');
+      return;
+    }
+
     try {
       const res = await fetch('/api/manifests', {
         method: 'POST',
@@ -411,6 +454,14 @@ export default function Home() {
           }}
         />
       )}
+
+      {/* Enterprise Auth & Facility Onboarding Modal */}
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={closeAuthModal}
+        defaultTab={authModalTab}
+        onSuccessToast={showToast}
+      />
     </div>
   );
 }
