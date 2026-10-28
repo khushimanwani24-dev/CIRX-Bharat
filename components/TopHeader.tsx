@@ -38,37 +38,37 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
     switch (activeTab) {
       case 'DASHBOARD':
         return {
-          section: 'Industrial Symbiosis Grid',
-          title: 'Executive Overview',
+          section: 'Industrial Exchange',
+          title: 'Executive Overview & Deal Pipeline',
           icon: <LayoutDashboard className="w-4 h-4 text-emerald-600" />,
         };
       case 'MATCHES':
         return {
-          section: 'Exchange Hub',
-          title: 'Bilateral Algorithmic Matches',
+          section: 'Deal Flow',
+          title: 'Bilateral Matches & Contracting',
           icon: <ArrowLeftRight className="w-4 h-4 text-emerald-600" />,
         };
       case 'INGEST':
         return {
-          section: 'Stream Ingestion',
-          title: '3-Step Intake Wizard',
+          section: 'Feedstock Ingestion',
+          title: 'List Secondary Stream',
           icon: <FilePlus2 className="w-4 h-4 text-emerald-600" />,
         };
       case 'MAP':
         return {
-          section: 'Geospatial Grid',
-          title: 'Ahmedabad Industrial GIS Corridor',
+          section: 'Logistics Corridor',
+          title: 'Cluster Map & Fleet Transit',
           icon: <MapPin className="w-4 h-4 text-emerald-600" />,
         };
       case 'COMPLIANCE':
         return {
-          section: 'GPCB Compliance',
-          title: 'Form 10 Manifests & Form 4 Returns',
-          icon: <Scale className="w-4 h-4 text-purple-600" />,
+          section: 'Regulatory Center',
+          title: 'Form 10 Manifests & CPCB Filings',
+          icon: <Scale className="w-4 h-4 text-emerald-600" />,
         };
       default:
         return {
-          section: 'Platform',
+          section: 'Operations',
           title: 'Workspace',
           icon: <LayoutDashboard className="w-4 h-4 text-emerald-600" />,
         };

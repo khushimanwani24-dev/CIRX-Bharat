@@ -473,10 +473,10 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
           <button
             onClick={() => setFilterType('HAZARDOUS')}
             className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition ${
-              filterType === 'HAZARDOUS' ? 'bg-rose-50 text-rose-700 border border-rose-200 font-semibold' : 'text-slate-600 hover:text-slate-900'
+              filterType === 'HAZARDOUS' ? 'bg-rose-50 text-rose-800 border border-rose-200 font-semibold' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Hazardous (Cat 35.3 / 21.1)
+            Hazardous
           </button>
           <button
             onClick={() => setFilterType('NON_HAZARDOUS')}
@@ -484,7 +484,7 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
               filterType === 'NON_HAZARDOUS' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200 font-semibold' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Circular Byproducts
+            Non-Hazardous
           </button>
         </div>
 
@@ -494,24 +494,24 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
           className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium border transition ${
             useExactCoords
               ? 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50 shadow-xs'
-              : 'bg-indigo-50 border-indigo-200 text-indigo-700 font-semibold shadow-xs'
+              : 'bg-emerald-50 border-emerald-200 text-emerald-800 font-semibold shadow-xs'
           }`}
           title="Toggle between exact PostGIS coordinates and blurred public +/- 1.5km privacy radius"
         >
-          {useExactCoords ? <Eye className="w-3.5 h-3.5 text-slate-500" /> : <EyeOff className="w-3.5 h-3.5 text-indigo-600" />}
-          <span>{useExactCoords ? 'Exact PostGIS' : 'Privacy Blur (+/- 1.5 km)'}</span>
+          {useExactCoords ? <Eye className="w-3.5 h-3.5 text-slate-500" /> : <EyeOff className="w-3.5 h-3.5 text-emerald-600" />}
+          <span>{useExactCoords ? 'Exact Coordinates' : 'Privacy Jitter (±1.5 km)'}</span>
         </button>
       </div>
 
       {/* Selected Match Route Card (Floating Bottom Left) */}
       {selectedMatch && (
-        <div className="absolute bottom-6 left-4 z-[500] w-88 bg-white/95 backdrop-blur-md rounded-2xl border border-emerald-200/90 p-4 shadow-xl space-y-2 text-slate-900">
+        <div className="absolute bottom-6 left-4 z-[500] w-88 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200/90 p-4 shadow-xl space-y-2 text-slate-900">
           <div className="flex items-center justify-between">
             <span className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
-              Active Symbiosis Route
+              Active Transit Route
             </span>
             <span className="text-xs font-bold text-emerald-700 font-sans">
-              {selectedMatch.match_score}% Score
+              {Math.round(selectedMatch.match_score)}% Fit
             </span>
           </div>
 
@@ -524,7 +524,7 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
             <span className="font-bold text-teal-700">{selectedMatch.avoided_co2_mt} MT CO₂e / mo</span>
           </div>
           <div className="text-xs text-slate-800 flex items-center justify-between">
-            <span className="text-slate-500 font-medium">Monthly Value:</span>
+            <span className="text-slate-500 font-medium">Monthly Arbitrage:</span>
             <span className="font-bold text-emerald-700">₹{selectedMatch.economic_benefit_inr.toLocaleString('en-IN')} / mo</span>
           </div>
           <div className="text-[11px] text-slate-500 truncate">
@@ -534,9 +534,9 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
           <div className="pt-2 flex items-center gap-2">
             <button
               onClick={() => onSelectMatch(selectedMatch.id)}
-              className="flex-1 py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs shadow-xs transition text-center font-sans"
+              className="flex-1 py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-xs transition text-center font-sans"
             >
-              Inspect Symbiosis Math
+              Inspect Deal & Manifest
             </button>
           </div>
         </div>

@@ -154,56 +154,57 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
 
   return (
     <div className="max-w-4xl mx-auto py-6 px-4 space-y-6">
-      {/* Unauthenticated Guest Notification */}
+      {/* Unauthenticated Demonstration Notice */}
       {!isAuthenticated && (
-        <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+        <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-slate-700 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
           <div className="flex items-center gap-2.5">
-            <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0" />
+            <span className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0" />
             <span>
-              <strong>Guest Preview Mode:</strong> You are exploring the Stream Wizard as a guest. Authenticate or onboard your industrial unit to register live byproduct streams into the corridor ledger.
+              <strong>Demonstration Mode:</strong> You can test-drive adding streams using common industrial templates or authenticate to link with your registered facility.
             </span>
           </div>
           <button
             type="button"
             onClick={() => openAuthModal('REGISTER')}
-            className="px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs whitespace-nowrap transition self-start sm:self-auto"
+            className="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs whitespace-nowrap transition self-start sm:self-auto"
           >
-            Register Facility
+            Sign In / Register
           </button>
         </div>
       )}
+
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-5">
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
               <Layers className="w-5 h-5 text-emerald-600" />
-              Stream Ingestion Wizard
+              List Industrial Material Stream
             </h2>
-            <span className="text-[11px] font-semibold uppercase px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-              3-Step Intake
+            <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+              Supply & Demand Intake
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-1">
-            Register industrial byproduct streams or feedstock procurement mandates with certified assay verification.
+            Register industrial byproducts for offtake or submit secondary raw material procurement mandates.
           </p>
         </div>
 
         <button
           type="button"
           onClick={onNavigateToMatches}
-          className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-xs shadow-sm transition self-start sm:self-auto"
+          className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs shadow-2xs transition self-start sm:self-auto"
         >
-          View Live Matches
+          <span>View Active Deals</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
 
       {/* Quick Ingestion Presets */}
-      <div className="p-4 bg-white rounded-2xl border border-slate-200/80 shadow-sm">
-        <div className="text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-          Load Standard Industrial Template (Ahmedabad Corridor Common Streams):
+      <div className="p-4 bg-white rounded-2xl border border-slate-200 shadow-2xs space-y-2.5">
+        <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+          <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+          <span>Quick Load Verified Stream Templates:</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
           <button

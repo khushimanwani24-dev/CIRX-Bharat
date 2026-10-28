@@ -132,24 +132,24 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
       {/* Exchange Banner & Filters */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 pb-5">
         <div>
-          <div className="flex items-center gap-2">
-            <h2 className="text-xl font-bold text-slate-900 font-sans flex items-center gap-2.5">
+          <div className="flex items-center gap-2.5">
+            <h2 className="text-xl font-bold text-slate-900 font-sans flex items-center gap-2">
               <RotateCw className="w-5 h-5 text-emerald-600" />
-              Bilateral Symbiosis Exchange Center
+              Bilateral Material Exchange & Deals
             </h2>
-            <span className="text-[10px] uppercase font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-              Zero-Leakage Privacy Engine
+            <span className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
+              Verified Pairings
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-1 font-medium">
-            Deterministic matching matrix pairing generator secondary streams with consented offtakers across the Ahmedabad manufacturing corridor (Vatva & Naroda GIDC).
+            Review secondary feedstock matches. Industrial counterparties remain anonymous until both parties review economics and authorize identity disclosure.
           </p>
         </div>
 
         {/* Filter Toolbar */}
         <div className="flex flex-wrap items-center gap-2">
           {/* Hazard Tier Filter */}
-          <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200/90 shadow-2xs text-xs">
+          <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200 shadow-2xs text-xs">
             <button
               onClick={() => setFilterTier('ALL')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
@@ -158,68 +158,68 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              All Matches ({matches.length})
+              All Deals ({matches.length})
             </button>
             <button
               onClick={() => setFilterTier('HAZARDOUS')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
                 filterTier === 'HAZARDOUS'
-                  ? 'bg-rose-50 text-rose-700 border border-rose-200'
+                  ? 'bg-rose-50 text-rose-800 border border-rose-200 font-bold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Hazardous (Cat 35.3 / 21.1)
+              Hazardous
             </button>
             <button
               onClick={() => setFilterTier('NON_HAZARDOUS')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
                 filterTier === 'NON_HAZARDOUS'
-                  ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                  ? 'bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Circular Non-Haz
+              Non-Hazardous
             </button>
           </div>
 
           {/* Privacy Consent Filter */}
-          <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200/90 shadow-2xs text-xs">
+          <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200 shadow-2xs text-xs">
             <button
               onClick={() => setFilterConsent('ALL')}
               className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition ${
                 filterConsent === 'ALL' ? 'bg-slate-900 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              All States
+              All Statuses
             </button>
             <button
               onClick={() => setFilterConsent('UNLOCKED')}
               className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1 ${
                 filterConsent === 'UNLOCKED'
-                  ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                  ? 'bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <Unlock className="w-3 h-3 text-emerald-600" />
-              Mutual Consent
+              Consented
             </button>
             <button
               onClick={() => setFilterConsent('PENDING')}
               className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1 ${
                 filterConsent === 'PENDING'
-                  ? 'bg-indigo-50 text-indigo-700 border border-indigo-200'
+                  ? 'bg-slate-100 text-slate-800 font-bold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <Lock className="w-3 h-3 text-indigo-500" />
-              Shielded
+              <Lock className="w-3 h-3 text-slate-500" />
+              Pending Handshake
             </button>
           </div>
         </div>
       </div>
 
       {/* Match Cards List */}
-      <div className="space-y-5">
+      <div className="space-y-6">
         {filteredMatches.length === 0 ? (
           <div className="p-12 text-center bg-white rounded-2xl border border-slate-200 shadow-sm">
             <p className="text-slate-500 text-sm">No matches found for the selected filter criteria.</p>
@@ -246,87 +246,106 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
             return (
               <div
                 key={match.id}
-                className={`relative rounded-2xl border transition-all duration-300 overflow-hidden bg-white ${
+                className={`relative rounded-2xl border transition-all duration-200 overflow-hidden bg-white shadow-2xs ${
                   isSelected
-                    ? 'border-emerald-500 shadow-md ring-1 ring-emerald-500/30'
-                    : 'border-slate-200/90 hover:border-slate-300 shadow-sm'
+                    ? 'border-emerald-500 ring-1 ring-emerald-500/30'
+                    : 'border-slate-200 hover:border-slate-300'
                 }`}
               >
-                {/* Match Top Bar: Score Badge + Haul Distance + Carbon + Privacy Shield Status */}
-                <div className="px-5 py-3.5 bg-slate-50/80 border-b border-slate-200/80 flex flex-wrap items-center justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    {/* Score Badge */}
-                    <button
-                      onClick={() => setDrawerMatchId(match.id)}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-emerald-50/50 border border-emerald-200 shadow-2xs hover:border-emerald-400 transition cursor-pointer text-left group"
-                      title="Click to open Symbiosis Engineering Breakdown Drawer"
-                    >
-                      <Sparkles className="w-4 h-4 text-emerald-600" />
-                      <span className="text-sm font-bold font-sans text-emerald-700">
-                        {match.match_score}%
+                {/* 1. Clean Top Header: Material Flow + Score + Haul + Value */}
+                <div className="px-6 py-4 bg-slate-50/70 border-b border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-base font-bold text-slate-900 font-sans">
+                        {supply.material_name}
+                      </h3>
+                      <ArrowRight className="w-4 h-4 text-slate-400" />
+                      <span className="text-sm font-semibold text-slate-700">
+                        Replaces {demand.material_name}
                       </span>
-                      <span className="text-[10px] uppercase font-sans text-emerald-600 font-semibold">
-                        Match Score ↗
-                      </span>
-                    </button>
-
-                    {/* Haul Distance */}
-                    <div className="flex items-center gap-1.5 text-xs text-slate-700 bg-white px-2.5 py-1 rounded-lg border border-slate-200 shadow-2xs font-sans">
-                      <MapPin className="w-3.5 h-3.5 text-sky-600" />
-                      <span><strong className="text-slate-900">{match.transit_distance_km} km</strong> Haul</span>
                     </div>
-
-                    {/* Avoided Carbon */}
-                    <div className="flex items-center gap-1.5 text-xs text-slate-700 bg-white px-2.5 py-1 rounded-lg border border-slate-200 shadow-2xs font-sans">
-                      <Leaf className="w-3.5 h-3.5 text-teal-600" />
-                      <span><strong className="text-teal-700">{match.avoided_co2_mt} MT</strong> CO₂e Avoided</span>
-                    </div>
-
-                    {/* Economic Benefit */}
-                    <div className="flex items-center gap-1.5 text-xs text-slate-700 bg-white px-2.5 py-1 rounded-lg border border-slate-200 shadow-2xs font-sans">
-                      <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
-                      <span><strong className="text-emerald-700">{formatINR(match.economic_benefit_inr)}</strong> / mo Value</span>
+                    <div className="text-xs text-slate-500 flex items-center gap-2">
+                      <span>{sanitizedGen.display_name} ({sanitizedGen.cluster_zone})</span>
+                      <span>➔</span>
+                      <span>{sanitizedOff.display_name} ({sanitizedOff.cluster_zone})</span>
                     </div>
                   </div>
 
-                  {/* Shield Status Indicator */}
-                  <div className="flex items-center gap-2">
-                    {isUnlocked ? (
-                      <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-medium">
-                        <Unlock className="w-3.5 h-3.5 text-emerald-600" />
-                        Shield Disengaged
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-700 border border-indigo-200 text-xs font-medium">
-                        <Lock className="w-3.5 h-3.5 text-indigo-500" />
-                        Identities Shielded
-                      </span>
-                    )}
+                  <div className="flex items-center gap-3 self-start md:self-center">
+                    {/* Compatibility Score */}
+                    <button
+                      onClick={() => setDrawerMatchId(match.id)}
+                      className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 hover:border-emerald-500 transition text-left shadow-2xs flex items-center gap-2"
+                      title="Inspect scoring breakdown"
+                    >
+                      <Sparkles className="w-4 h-4 text-emerald-600" />
+                      <div>
+                        <div className="text-xs font-bold text-slate-900">{Math.round(match.match_score)}% Fit</div>
+                        <div className="text-[9px] text-slate-400 uppercase font-medium">Algo Score</div>
+                      </div>
+                    </button>
 
+                    {/* Haul Distance */}
+                    <div className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 shadow-2xs text-left">
+                      <div className="text-xs font-bold text-slate-900">{match.transit_distance_km} km</div>
+                      <div className="text-[9px] text-slate-400 uppercase font-medium">Haul Distance</div>
+                    </div>
+
+                    {/* Net Arbitrage */}
+                    <div className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 shadow-2xs text-left">
+                      <div className="text-xs font-bold text-emerald-700">{formatINR(match.economic_benefit_inr)}</div>
+                      <div className="text-[9px] text-slate-400 uppercase font-medium">Monthly Savings</div>
+                    </div>
+
+                    {/* Locate on Map button */}
                     <button
                       onClick={() => onSelectMatch(match.id)}
-                      className={`text-xs px-2.5 py-1 rounded-lg font-medium transition ${
+                      className={`text-xs px-3 py-2 rounded-xl font-medium transition ${
                         isSelected
-                          ? 'bg-slate-900 text-white shadow-2xs'
+                          ? 'bg-slate-900 text-white'
                           : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200'
                       }`}
                     >
-                      {isSelected ? 'Focused' : 'Locate on GIS'}
+                      {isSelected ? 'Active Route' : 'Map View'}
                     </button>
                   </div>
                 </div>
 
-                {/* Industrial Arbitrage & ROI Badges */}
-                <div className="px-5 py-2.5 bg-emerald-50/40 border-b border-emerald-100/70 flex flex-wrap items-center gap-2">
-                  <span className="text-[11px] font-bold text-slate-700 flex items-center gap-1">
-                    <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
-                    Economic Arbitrage:
-                  </span>
-                  <span className="inline-flex items-center text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-white text-emerald-800 border border-emerald-300 shadow-2xs">
-                    Savings vs. NEPL/TSDF Landfill Fees (₹1,500/MT saved)
-                  </span>
-                  <span className="inline-flex items-center text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-white text-sky-800 border border-sky-300 shadow-2xs">
-                    Savings vs. Virgin Mineral Gypsum (₹1,050/MT saved)
+                {/* 2. Clear Operational Status Banner (Tells user EXACTLY what step this deal is in) */}
+                <div className={`px-6 py-2.5 border-b text-xs flex items-center justify-between ${
+                  isUnlocked
+                    ? 'bg-emerald-50/80 border-emerald-200/80 text-emerald-900'
+                    : match.generator_consent || match.offtaker_consent
+                    ? 'bg-amber-50/80 border-amber-200/80 text-amber-900'
+                    : 'bg-slate-50 border-slate-200 text-slate-700'
+                }`}>
+                  <div className="flex items-center gap-2">
+                    {isUnlocked ? (
+                      <>
+                        <Unlock className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                        <span className="font-semibold">
+                          Bilateral Consent Achieved: Confidential identities revealed. Statutory CPCB Form 10 manifest ready for road dispatch.
+                        </span>
+                      </>
+                    ) : match.generator_consent || match.offtaker_consent ? (
+                      <>
+                        <RotateCw className="w-4 h-4 text-amber-600 animate-spin flex-shrink-0" />
+                        <span className="font-medium">
+                          Handshake in Progress: {match.generator_consent ? 'Generator' : 'Offtaker'} has signed off. Awaiting final consent from counterparty.
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <Lock className="w-4 h-4 text-slate-400 flex-shrink-0" />
+                        <span className="font-medium">
+                          Identities Protected: Review technical assay parameters below and authorize handshake to unlock full contact details.
+                        </span>
+                      </>
+                    )}
+                  </div>
+
+                  <span className="text-[11px] font-semibold hidden sm:inline">
+                    Avoids {match.avoided_co2_mt} MT CO₂e / mo
                   </span>
                 </div>
 
@@ -493,12 +512,12 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
                 </div>
 
                 {/* Bilateral Connect & Mutual Consent Trigger Area */}
-                <div className="px-5 py-4 bg-white border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="px-6 py-4 bg-slate-50/50 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
                   {/* Two-Sided Consent Checklist */}
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 w-full sm:w-auto">
-                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>Disclose Identity:</span>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 w-full md:w-auto">
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                      <span>Bilateral Handshake:</span>
                     </div>
 
                     <div className="flex items-center gap-2">
@@ -506,75 +525,58 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
                       <button
                         onClick={() => handleConsentClick(match, 'generator')}
                         title={isAuthenticated ? 'Authorize identity disclosure as Generator' : 'Sign In required to disclose identity'}
-                        className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition border ${
+                        className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition border ${
                           match.generator_consent
-                            ? 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-2xs'
-                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900'
+                            ? 'bg-emerald-600 text-white border-emerald-600 shadow-2xs font-bold'
+                            : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50 hover:border-slate-400'
                         }`}
                       >
                         <span className={`w-3.5 h-3.5 rounded-full flex items-center justify-center text-[10px] ${
-                          match.generator_consent ? 'bg-emerald-600 text-white font-bold' : 'border border-slate-300'
+                          match.generator_consent ? 'bg-white text-emerald-700 font-extrabold' : 'border border-slate-400'
                         }`}>
                           {match.generator_consent ? '✓' : ''}
                         </span>
-                        <span>Generator Consent</span>
+                        <span>{match.generator_consent ? 'Generator Signed ✓' : 'Sign as Generator'}</span>
                       </button>
 
                       {/* Offtaker Side Consent */}
                       <button
                         onClick={() => handleConsentClick(match, 'offtaker')}
                         title={isAuthenticated ? 'Authorize identity disclosure as Offtaker' : 'Sign In required to disclose identity'}
-                        className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition border ${
+                        className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition border ${
                           match.offtaker_consent
-                            ? 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-2xs'
-                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900'
+                            ? 'bg-emerald-600 text-white border-emerald-600 shadow-2xs font-bold'
+                            : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50 hover:border-slate-400'
                         }`}
                       >
                         <span className={`w-3.5 h-3.5 rounded-full flex items-center justify-center text-[10px] ${
-                          match.offtaker_consent ? 'bg-emerald-600 text-white font-bold' : 'border border-slate-300'
+                          match.offtaker_consent ? 'bg-white text-emerald-700 font-extrabold' : 'border border-slate-400'
                         }`}>
                           {match.offtaker_consent ? '✓' : ''}
                         </span>
-                        <span>Offtaker Consent</span>
+                        <span>{match.offtaker_consent ? 'Offtaker Signed ✓' : 'Sign as Offtaker'}</span>
                       </button>
                     </div>
                   </div>
 
                   {/* Manifest Generation & Action Buttons */}
-                  <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+                  <div className="flex items-center gap-3 w-full md:w-auto justify-end">
                     <button
                       onClick={() => setDrawerMatchId(match.id)}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-50 text-slate-800 text-xs font-semibold border border-slate-200 shadow-2xs transition"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 shadow-2xs transition"
                       title="Open interactive Symbiosis Engineering Breakdown Drawer"
                     >
-                      <Scale className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>Symbiosis Breakdown</span>
-                    </button>
-
-                    <button
-                      onClick={() => toggleExpand(match.id)}
-                      className="text-xs text-slate-500 hover:text-slate-800 flex items-center gap-1 font-medium transition"
-                    >
-                      {isExpanded ? (
-                        <>
-                          <ChevronUp className="w-3.5 h-3.5" />
-                          Hide Engine Math
-                        </>
-                      ) : (
-                        <>
-                          <ChevronDown className="w-3.5 h-3.5" />
-                          Inspect Math
-                        </>
-                      )}
+                      <Scale className="w-3.5 h-3.5 text-slate-500" />
+                      <span>Assay Specs</span>
                     </button>
 
                     {existingManifest ? (
                       <button
                         onClick={() => onViewManifest(existingManifest.id)}
-                        className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-sm transition"
+                        className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-xs transition"
                       >
-                        <FileCheck2 className="w-3.5 h-3.5 text-emerald-400" />
-                        View Manifest #{existingManifest.id.toUpperCase()}
+                        <FileCheck2 className="w-4 h-4 text-emerald-400" />
+                        <span>View Form 10 Manifest</span>
                       </button>
                     ) : isUnlocked ? (
                       <button
@@ -585,15 +587,15 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
                           }
                           onGenerateManifest(match.id);
                         }}
-                        className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition"
+                        className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-xs hover:shadow transition"
                       >
                         <FileCheck2 className="w-4 h-4" />
-                        Approve Bilateral Match & Form 10
+                        <span>Generate Form 10 Transit Manifest →</span>
                       </button>
                     ) : (
-                      <div className="text-[11px] text-slate-500 flex items-center gap-1.5 font-medium">
-                        <Lock className="w-3.5 h-3.5 text-amber-500" />
-                        Awaiting Mutual Consent to Manifest
+                      <div className="text-[11px] text-slate-500 flex items-center gap-1.5 font-medium px-2 py-1 bg-white rounded-lg border border-slate-200">
+                        <Lock className="w-3.5 h-3.5 text-slate-400" />
+                        <span>Sign both sides to unlock manifest</span>
                       </div>
                     )}
                   </div>

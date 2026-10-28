@@ -39,13 +39,13 @@ export const ComplianceCenter: React.FC<ComplianceCenterProps> = ({
       <div className="max-w-7xl mx-auto px-4 pt-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-3 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-purple-50 text-purple-700 border border-purple-200">
+            <div className="p-2 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200">
               <Scale className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-slate-900">GPCB Statutory Compliance Center</h2>
+              <h2 className="text-base font-bold text-slate-900">Regulatory Compliance Center</h2>
               <p className="text-xs text-slate-500">
-                GPCB Extended Green Node (XGN) Rule 19 Form 10 tracking and Rule 20 (1) Form 4 filing
+                Rule 19 Form 10 hazardous waste tracking and Rule 20 Form 4 statutory annual returns
               </p>
             </div>
           </div>
