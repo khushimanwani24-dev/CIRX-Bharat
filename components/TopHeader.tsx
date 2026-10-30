@@ -38,38 +38,118 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
     switch (activeTab) {
       case 'DASHBOARD':
         return {
-          section: 'Industrial Exchange',
-          title: 'Executive Overview & Deal Pipeline',
+          section: 'Workspace',
+          title: 'Dashboard',
           icon: <LayoutDashboard className="w-4 h-4 text-emerald-600" />,
+        };
+      case 'EXCHANGE':
+      case 'INGEST':
+        return {
+          section: 'Workspace',
+          title: 'Material Exchange',
+          icon: <ArrowLeftRight className="w-4 h-4 text-emerald-600" />,
         };
       case 'MATCHES':
         return {
-          section: 'Deal Flow',
-          title: 'Bilateral Matches & Contracting',
+          section: 'Workspace',
+          title: 'Matches & Pairings',
           icon: <ArrowLeftRight className="w-4 h-4 text-emerald-600" />,
         };
-      case 'INGEST':
+      case 'REQUIREMENTS':
         return {
-          section: 'Feedstock Ingestion',
-          title: 'List Secondary Stream',
+          section: 'Workspace',
+          title: 'Feedstock Requirements',
           icon: <FilePlus2 className="w-4 h-4 text-emerald-600" />,
         };
+      case 'ENQUIRIES':
+        return {
+          section: 'Workspace',
+          title: 'Enquiries & Offers',
+          icon: <ArrowLeftRight className="w-4 h-4 text-emerald-600" />,
+        };
+      case 'TRANSACTIONS':
+        return {
+          section: 'Workspace',
+          title: 'Transactions & Contracts',
+          icon: <Scale className="w-4 h-4 text-emerald-600" />,
+        };
+      case 'LOGISTICS':
       case 'MAP':
         return {
-          section: 'Logistics Corridor',
-          title: 'Cluster Map & Fleet Transit',
+          section: 'Workspace',
+          title: 'Logistics & Corridor Map',
           icon: <MapPin className="w-4 h-4 text-emerald-600" />,
         };
       case 'COMPLIANCE':
         return {
-          section: 'Regulatory Center',
-          title: 'Form 10 Manifests & CPCB Filings',
+          section: 'Workspace',
+          title: 'Compliance Centre & Form 10',
           icon: <Scale className="w-4 h-4 text-emerald-600" />,
+        };
+      case 'DOCUMENTS':
+        return {
+          section: 'Workspace',
+          title: 'Documents & Lab Assays',
+          icon: <ShieldCheck className="w-4 h-4 text-emerald-600" />,
+        };
+      case 'MESSAGES':
+        return {
+          section: 'Workspace',
+          title: 'Messages & Communications',
+          icon: <CheckCircle2 className="w-4 h-4 text-emerald-600" />,
+        };
+      case 'ANALYTICS':
+        return {
+          section: 'Workspace',
+          title: 'Analytics & ESG Telemetry',
+          icon: <LayoutDashboard className="w-4 h-4 text-emerald-600" />,
+        };
+      case 'SETTINGS':
+        return {
+          section: 'Workspace',
+          title: 'Organisation Settings',
+          icon: <Building2 className="w-4 h-4 text-emerald-600" />,
+        };
+      case 'ADMIN_OVERVIEW':
+        return {
+          section: 'Platform Administration',
+          title: 'Platform Overview',
+          icon: <LayoutDashboard className="w-4 h-4 text-emerald-600" />,
+        };
+      case 'ADMIN_ORGANISATIONS':
+        return {
+          section: 'Platform Administration',
+          title: 'Organisations Directory',
+          icon: <Building2 className="w-4 h-4 text-emerald-600" />,
+        };
+      case 'ADMIN_MODERATION':
+        return {
+          section: 'Platform Administration',
+          title: 'Listing Moderation',
+          icon: <ShieldCheck className="w-4 h-4 text-emerald-600" />,
+        };
+      case 'ADMIN_REVIEW':
+        return {
+          section: 'Platform Administration',
+          title: 'Review Queue',
+          icon: <Scale className="w-4 h-4 text-emerald-600" />,
+        };
+      case 'ADMIN_OVERSIGHT':
+        return {
+          section: 'Platform Administration',
+          title: 'Transaction Oversight',
+          icon: <Scale className="w-4 h-4 text-emerald-600" />,
+        };
+      case 'ADMIN_AUDIT':
+        return {
+          section: 'Platform Administration',
+          title: 'Regulatory Audit Log',
+          icon: <ShieldCheck className="w-4 h-4 text-emerald-600" />,
         };
       default:
         return {
-          section: 'Operations',
-          title: 'Workspace',
+          section: 'Workspace',
+          title: 'Dashboard',
           icon: <LayoutDashboard className="w-4 h-4 text-emerald-600" />,
         };
     }

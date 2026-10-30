@@ -22,6 +22,7 @@ import { ComplianceCenter } from '@/components/ComplianceCenter';
 import { TechnicalSpecsModal } from '@/components/TechnicalSpecsModal';
 import { Form10Modal } from '@/components/Form10Modal';
 import { AuthModal } from '@/components/AuthModal';
+import { WorkspaceExtendedViews } from '@/components/WorkspaceExtendedViews';
 import { useAuth } from '@/lib/authContext';
 import { runMatchingEngine } from '@/lib/matchingEngine';
 
@@ -370,7 +371,7 @@ export default function Home() {
               facilities={facilities}
               streams={streams}
               activeRole={activeRole}
-              onNavigate={(tab) => setActiveTab(tab)}
+              onNavigate={(tab) => setActiveTab(tab as MainNavTab)}
               onSelectMatch={(matchId) => {
                 setSelectedMatchId(matchId);
                 setActiveTab('MATCHES');
@@ -394,12 +395,12 @@ export default function Home() {
               selectedMatchId={selectedMatchId}
               onSelectMatch={(matchId) => {
                 setSelectedMatchId(matchId);
-                setActiveTab('MAP');
+                setActiveTab('LOGISTICS');
               }}
             />
           )}
 
-          {activeTab === 'INGEST' && (
+          {(activeTab === 'EXCHANGE' || activeTab === 'INGEST') && (
             <StreamIngestionPortal
               facilities={facilities}
               onStreamCreated={handleStreamCreated}
@@ -408,7 +409,7 @@ export default function Home() {
             />
           )}
 
-          {activeTab === 'MAP' && (
+          {(activeTab === 'LOGISTICS' || activeTab === 'MAP') && (
             <div className="max-w-7xl mx-auto py-6 px-4">
               <IndustrialMap
                 facilities={facilities}
@@ -435,6 +436,30 @@ export default function Home() {
               activeRole={activeRole}
             />
           )}
+
+          {/* Extended Workspace and Platform Administration Views */}
+          {activeTab !== 'DASHBOARD' &&
+            activeTab !== 'MATCHES' &&
+            activeTab !== 'EXCHANGE' &&
+            activeTab !== 'INGEST' &&
+            activeTab !== 'LOGISTICS' &&
+            activeTab !== 'MAP' &&
+            activeTab !== 'COMPLIANCE' && (
+              <WorkspaceExtendedViews
+                activeTab={activeTab}
+                facilities={facilities}
+                streams={streams}
+                matches={matches}
+                manifests={manifests}
+                esgMetrics={esgMetrics}
+                onNavigate={(tab) => setActiveTab(tab)}
+                onSelectMatch={(matchId) => {
+                  setSelectedMatchId(matchId);
+                  setActiveTab('MATCHES');
+                }}
+                onOpenManifest={(m) => setActiveManifestModal(m)}
+              />
+            )}
         </main>
       </div>
 
