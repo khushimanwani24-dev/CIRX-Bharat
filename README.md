@@ -1,5 +1,6 @@
-# ReBharat (री-भारत)
-### *Next-Generation B2B Industrial Symbiosis & Secondary Feedstock Exchange*
+# CIRX Bharat (सर्क-भारत)
+### *Next-Generation Autonomous B2B Industrial Symbiosis & Secondary Feedstock Exchange*
+**Team UdyogSetu (उद्योग-सेतु) • Environment & Sustainability Track • Viksit Bharat 2047**
 
 [![Next.js 14](https://img.shields.io/badge/Next.js-14_App_Router-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0_Strict-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -12,7 +13,7 @@
 
 ## Executive Summary
 
-**ReBharat (री-भारत)** is an enterprise-grade industrial symbiosis and secondary raw material exchange platform designed for India's high-density manufacturing corridors. It establishes a closed-loop digital twin across chemical dye-intermediates, acid processing, cement grinding, and building material clusters, diverting hazardous and industrial byproducts away from landfills into high-value circular supply chains.
+**CIRX Bharat (सर्क-भारत)** is an enterprise-grade industrial symbiosis and secondary raw material exchange platform designed for India's high-density manufacturing corridors. Developed by **Team UdyogSetu (उद्योग-सेतु)**, it establishes a closed-loop digital twin across chemical dye-intermediates, acid processing, cement grinding, and building material clusters, diverting hazardous and industrial byproducts away from landfills into high-value circular supply chains.
 
 The platform's flagship deployment model targets the **Ahmedabad Industrial Cluster** in Gujarat (encompassing Vatva GIDC Phase-III, Naroda GIDC, Kathwada GIDC, and the Sanand / Sarkhej Grinding Belt), orchestrating algorithmic byproduct discovery, cryptographic trade-secret protection, automated logistics dispatch, and statutory regulatory compliance under the **Gujarat Pollution Control Board (GPCB)** and CPCB.
 
@@ -56,11 +57,11 @@ India is accelerating toward a **$30+ Trillion economy by 2047**, with manufactu
 
 ## 🏛️ The 4-Layer Architecture Breakdown
 
-ReBharat is architected around a resilient, high-throughput four-layer operational stack that enforces strict separation of concerns, deterministic reproducibility, trade-secret privacy, and regulatory auditability.
+CIRX Bharat is architected around a resilient, high-throughput four-layer operational stack that enforces strict separation of concerns, deterministic reproducibility, trade-secret privacy, and regulatory auditability.
 
 ```
 ┌───────────────────────────────────────────────────────────────────────────────────────────┐
-│                                REBHARAT SYSTEM TOPOLOGY                                   │
+│                               CIRX BHARAT SYSTEM TOPOLOGY                                 │
 └───────────────────────────────────────────────────────────────────────────────────────────┘
                                               │
  ┌────────────────────────────────────────────┴───────────────────────────────────────────┐
@@ -122,7 +123,7 @@ ReBharat is architected around a resilient, high-throughput four-layer operation
 
 ## 🧮 Mathematical Scoring Formulation
 
-The ReBharat matching algorithm evaluates pairwise industrial symbiosis feasibility through a normalized composite scoring model bounded in the interval $[0, 100]$:
+The CIRX Bharat matching algorithm evaluates pairwise industrial symbiosis feasibility through a normalized composite scoring model bounded in the interval $[0, 100]$:
 
 $$\mathcal{S}_{\text{composite}} = \left( 0.50 \cdot \mathcal{S}_{\text{chem}} + 0.35 \cdot \mathcal{S}_{\text{dist}} + 0.15 \cdot \mathcal{S}_{\text{vol}} \right) \times 100$$
 
@@ -217,7 +218,7 @@ Where:
 
 ## 📜 Regulatory Engine: CPCB Form 10 Manifest System
 
-Under **Rule 19 (1)** of the *Hazardous and Other Wastes (Management and Transboundary Movement) Rules, 2016*, every hazardous byproduct shipment must follow a strict, color-coded 7-copy consignment manifest. ReBharat translates this physical workflow into a real-time digital custody chain:
+Under **Rule 19 (1)** of the *Hazardous and Other Wastes (Management and Transboundary Movement) Rules, 2016*, every hazardous byproduct shipment must follow a strict, color-coded 7-copy consignment manifest. CIRX Bharat translates this physical workflow into a real-time digital custody chain:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -293,7 +294,7 @@ The repository comes pre-loaded with comprehensive industrial fixtures (`/data/s
 
 ## 🛠️ Step-by-Step Local Installation
 
-Follow these steps to set up and run ReBharat in your local development environment:
+Follow these steps to set up and run CIRX Bharat in your local development environment:
 
 ### 1. Prerequisites
 Ensure your workstation meets the following runtime requirements:
@@ -310,8 +311,8 @@ git --version
 
 ### 2. Clone the Repository
 ```bash
-git clone https://github.com/khushimanwani24/rebharat.git
-cd rebharat
+git clone https://github.com/khushimanwani24-dev/CIRX-Bharat.git
+cd CIRX-Bharat
 ```
 
 ### 3. Install Dependencies
@@ -352,7 +353,7 @@ npm start
 
 ## 🧭 Operational Walkthrough & Navigation Guide
 
-Upon launching ReBharat, you can test end-to-end industrial workflows across 5 primary modules:
+Upon launching CIRX Bharat, you can test end-to-end industrial workflows across 5 primary modules:
 
 ```
 [ Top Header: Live Cluster ESG & Carbon Counter (Diverted MT, ₹ Saved, Avoided CO₂e) ]
@@ -389,7 +390,7 @@ The backend exposes RESTful route handlers to power industrial integrations and 
 
 ## 🇮🇳 Vision for Viksit Bharat 2047 Alignment
 
-ReBharat is built to advance the **Viksit Bharat 2047** national imperative—transforming India into a developed, self-reliant, high-value manufacturing powerhouse with Net-Zero emissions by 2070.
+CIRX Bharat is built to advance the **Viksit Bharat 2047** national imperative—transforming India into a developed, self-reliant, high-value manufacturing powerhouse with Net-Zero emissions by 2070.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -416,14 +417,14 @@ ReBharat is built to advance the **Viksit Bharat 2047** national imperative—tr
 - Every million tonnes of foundry slag directed into paver infrastructure preserves riverbeds and agricultural soils from sand mining.
 
 ### 2. Digital Public Infrastructure (DPI) for Environmental Governance
-- Following the transformative impact of UPI in payments and ONDC in commerce, ReBharat envisions an **Open Industrial Symbiosis Protocol (OISP)** as public digital infrastructure for India's 100+ industrial corridors.
+- Following the transformative impact of UPI in payments and ONDC in commerce, CIRX Bharat envisions an **Open Industrial Symbiosis Protocol (OISP)** as public digital infrastructure for India's 100+ industrial corridors.
 - Regulators transition from backward-looking annual audits to real-time, telemetry-backed hazardous waste monitoring, ending the menace of illicit midnight dumping into river ecosystems like the Godavari.
 
 ### 3. Raw Material Sovereignty & Import Substitution
 - Cement production consumes millions of tonnes of imported fossil petcoke. Co-processing paint sludges and non-recyclable polymers as Alternative Fuel and Raw Materials (AFR) reduces foreign exchange outflows and insulates domestic manufacturers from global commodity price volatility.
 
 ### 4. Scope 3 ESG Integrity & Sovereign Green Capital
-- Indian MSMEs integrated into global supply chains face tightening European and international carbon border tariffs (CBAM). ReBharat provides verifiable, transaction-level avoided carbon certificates ($0.82\text{ kg CO}_2\text{e/kg}$), empowering Indian exporters to access low-cost sovereign green finance and ESG investment pools.
+- Indian MSMEs integrated into global supply chains face tightening European and international carbon border tariffs (CBAM). CIRX Bharat provides verifiable, transaction-level avoided carbon certificates ($0.82\text{ kg CO}_2\text{e/kg}$), empowering Indian exporters to access low-cost sovereign green finance and ESG investment pools.
 
 ### 5. Corridor-Scale Replicability under PM Gati Shakti
 - The Ahmedabad Industrial Pilot (Vatva & Naroda GIDC) serves as a reproducible blueprint designed for direct federation with the **PM Gati Shakti National Master Plan**.
@@ -442,6 +443,6 @@ ReBharat is built to advance the **Viksit Bharat 2047** national imperative—tr
 
 ## 👥 Contributors & Stewardship
 
-Developed with pride for **ReBharat (री-भारत)** — *Powering Indian Industry through Closed-Loop Circular Symbiosis.*
+Developed with pride by **Team UdyogSetu (उद्योग-सेतु)** for **CIRX Bharat (सर्क-भारत)** — *Powering Indian Industry through Closed-Loop Circular Symbiosis.*
 
 For inquiries, pilot cluster deployments, or regulatory API integrations, please open an issue or submit a pull request through the official project repository.

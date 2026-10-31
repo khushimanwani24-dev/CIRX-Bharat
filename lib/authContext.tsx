@@ -87,9 +87,9 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const AUTH_STORAGE_KEY = 'rebharat_auth_session';
-const REGISTERED_FACILITIES_KEY = 'rebharat_registered_facilities';
-const REGISTERED_FULL_FACILITIES_KEY = 'rebharat_registered_full_facilities';
+const AUTH_STORAGE_KEY = 'cirxbharat_auth_session';
+const REGISTERED_FACILITIES_KEY = 'cirxbharat_registered_facilities';
+const REGISTERED_FULL_FACILITIES_KEY = 'cirxbharat_registered_full_facilities';
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<UserProfile | null>(null);

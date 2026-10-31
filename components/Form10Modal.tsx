@@ -441,7 +441,7 @@ export const Form10Modal: React.FC<Form10ModalProps> = ({
                 <div className="flex items-center gap-2">
                   <QrCode className="w-8 h-8 text-slate-800" />
                   <div>
-                    <div>ReBharat Circular Chain Verified #RB-{manifest.id.toUpperCase()}</div>
+                    <div>CIRX Bharat Circular Chain Verified #CX-{manifest.id.toUpperCase()}</div>
                     <div>GPCB Regional Office (Ahmedabad East - Paryavaran Bhavan, Vatva) Extended Green Node (XGN) Hazardous Waste Registry</div>
                   </div>
                 </div>

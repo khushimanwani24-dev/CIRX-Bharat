@@ -30,7 +30,7 @@ export async function POST(request: Request) {
       moisture_percent: body.moisture_percent ? Number(body.moisture_percent) : undefined,
       is_hazardous: Boolean(body.is_hazardous),
       price_per_mt: Number(body.price_per_mt || 0),
-      assay_report_url: body.assay_report_url || 'https://rebharat.in/reports/assay-pending.pdf',
+      assay_report_url: body.assay_report_url || 'https://cirxbharat.in/reports/assay-pending.pdf',
       chemical_assay_summary: body.chemical_assay_summary || 'Standard laboratory assay verification in progress',
     });
 

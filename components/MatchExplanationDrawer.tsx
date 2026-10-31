@@ -399,7 +399,7 @@ export const MatchExplanationDrawer: React.FC<MatchExplanationDrawerProps> = ({
                   Secondary Recovered Stream
                 </div>
                 <div className="text-xs text-slate-700 font-medium truncate">
-                  ReBharat Circular Feedstock (Ahmedabad Hub)
+                  CIRX Bharat Circular Feedstock (Ahmedabad Hub)
                 </div>
                 <div className="text-lg font-bold font-sans text-emerald-700">
                   {formatINR(unitEconomics.secondaryRecoveredCostPerMt)} <span className="text-xs font-normal text-slate-500">/ MT</span>

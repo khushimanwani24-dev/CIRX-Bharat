@@ -20,7 +20,7 @@ export const ArchitectureDocs: React.FC = () => {
         <div className="flex items-center gap-2">
           <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
             <Cpu className="w-5 h-5 text-emerald-600" />
-            ReBharat Enterprise Architecture & Regulatory Specifications
+            CIRX Bharat Enterprise Architecture & Regulatory Specifications
           </h2>
         </div>
         <p className="text-xs text-slate-500 mt-1">

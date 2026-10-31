@@ -383,7 +383,7 @@ export const IndustrialMap: React.FC<IndustrialMapProps> = ({
           ${
             isPrivileged
               ? `<div style="font-size: 11px; font-family: monospace; color: #475569; margin-top: 2px;">GSTIN: ${fac.gstin}</div>`
-              : `<div style="font-size: 11px; color: #64748b; margin-top: 2px;">Identity Protected by ReBharat Shield</div>`
+              : `<div style="font-size: 11px; color: #64748b; margin-top: 2px;">Identity Protected by CIRX Bharat Shield</div>`
           }
 
           <div style="margin-top: 10px;">

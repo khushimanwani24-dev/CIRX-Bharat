@@ -87,7 +87,7 @@
       "moisture_percent": 18,
       "is_hazardous": false,
       "price_per_mt": -1200,
-      "assay_report_url": "https://rebharat.in/reports/assay-vatva-009-gyp.pdf",
+      "assay_report_url": "https://cirxbharat.in/reports/assay-vatva-009-gyp.pdf",
       "chemical_assay_summary": "CaSO4·2H2O (Gypsum): 82.4%, Free Moisture: 18%, pH: 6.8, Chlorides < 0.08%, Fe2O3 < 0.4%, Suitable for AAC block & cement retarder"
     },
     {
@@ -103,7 +103,7 @@
       "moisture_percent": 28,
       "is_hazardous": true,
       "price_per_mt": 0,
-      "assay_report_url": "https://rebharat.in/reports/assay-naroda-022-acid.pdf",
+      "assay_report_url": "https://cirxbharat.in/reports/assay-naroda-022-acid.pdf",
       "chemical_assay_summary": "Free H2SO4: 68.5%, Total Acidity: 71.2%, Organic Impurities < 0.5%, Specific Gravity: 1.58, Ideal for synthetic gypsum neutralization"
     },
     {
@@ -119,7 +119,7 @@
       "moisture_percent": 20,
       "is_hazardous": false,
       "price_per_mt": 450,
-      "assay_report_url": "https://rebharat.in/specs/spec-kathwada-aac.pdf",
+      "assay_report_url": "https://cirxbharat.in/specs/spec-kathwada-aac.pdf",
       "chemical_assay_summary": "Accepting neutralized synthetic gypsum (CaSO4 purity > 75%, moisture < 22%) for fly ash brick and AAC block curing"
     },
     {
@@ -135,7 +135,7 @@
       "moisture_percent": 15,
       "is_hazardous": false,
       "price_per_mt": 750,
-      "assay_report_url": "https://rebharat.in/specs/spec-cement-retarder.pdf",
+      "assay_report_url": "https://cirxbharat.in/specs/spec-cement-retarder.pdf",
       "chemical_assay_summary": "SO3 content > 35%, Total P2O5 < 0.5%, Moisture < 15%, Chloride < 0.05%, Setting retarder for OPC & PPC grinding"
     }
   ],

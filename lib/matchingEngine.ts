@@ -6,7 +6,7 @@ import {
 } from '@/types';
 
 /**
- * ReBharat Deterministic Industrial Symbiosis Matching Engine
+ * CIRX Bharat Deterministic Industrial Symbiosis Matching Engine
  * 
  * Rules Matrix:
  * 1. Physical & Chemical Compatibility: pH window, Calorific Value, CPCB waste schedule compatibility

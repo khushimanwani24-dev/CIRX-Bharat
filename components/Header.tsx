@@ -106,14 +106,14 @@ export const Header: React.FC<HeaderProps> = ({
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2 font-sans">
-                ReBharat
+                CIRX Bharat
                 <span className="text-[10px] uppercase font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 tracking-wide">
-                  v2.4 Enterprise
+                  v3.0 Enterprise
                 </span>
               </h1>
             </div>
             <p className="text-xs text-slate-500 font-medium">
-              Closed-Loop Secondary Feedstock Exchange for Gujarat MSMEs
+              Autonomous B2B Circular Feedstock Exchange • Team UdyogSetu
             </p>
           </div>
         </div>

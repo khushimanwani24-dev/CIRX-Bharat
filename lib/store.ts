@@ -12,7 +12,7 @@ import { runMatchingEngine } from './matchingEngine';
 import { generateForm10Manifest } from './manifestEngine';
 
 // In-memory runtime state for serverless API routes with seed fallback
-class ReBharatDataStore {
+class CIRXDataStore {
   private facilities: Facility[];
   private streams: MaterialStream[];
   private matches: MatchProposal[];
@@ -211,4 +211,4 @@ class ReBharatDataStore {
   }
 }
 
-export const dataStore = new ReBharatDataStore();
+export const dataStore = new CIRXDataStore();

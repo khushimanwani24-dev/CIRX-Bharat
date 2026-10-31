@@ -8,7 +8,7 @@ import {
 } from '@/types';
 
 /**
- * ReBharat Regulatory Compliance Engine: CPCB Form 10 Manifest Manager
+ * CIRX Bharat Regulatory Compliance Engine: CPCB Form 10 Manifest Manager
  * Compliance with Rule 19 of Hazardous and Other Wastes (Management and Transboundary Movement) Rules, 2016.
  */
 

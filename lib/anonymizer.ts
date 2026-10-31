@@ -1,7 +1,7 @@
 import { Facility, MaterialStream, MatchProposal } from '@/types';
 
 /**
- * ReBharat Zero-Leakage Privacy & Anonymization Engine
+ * CIRX Bharat Zero-Leakage Privacy & Anonymization Engine
  * 
  * Guarantees trade-secret and competitive confidentiality:
  * - Counterparties only see anonymous labels (e.g., "GIDC-Vatva-Unit-09")
