@@ -446,3 +446,9 @@ CIRX Bharat is built to advance the **Viksit Bharat 2047** national imperative�
 Developed with pride by **Team UdyogSetu (उद्योग-सेतु)** for **CIRX Bharat (सर्क-भारत)** — *Powering Indian Industry through Closed-Loop Circular Symbiosis.*
 
 For inquiries, pilot cluster deployments, or regulatory API integrations, please open an issue or submit a pull request through the official project repository.
+
+# Disclosure of AI Tool Usage:
+
+- **Role of AI:** AI-assisted developer tools (LLMs) were utilized strictly as a coding copilot for front-end boilerplate scaffolding, code formatting, and syntax documentation.
+- **Human-Led Core Logic:** All core problem framing, cluster field research, statutory CPCB Rule 9/19 workflows, and the deterministic 50-35-15 mathematical symbiosis algorithms were designed and formulated by Team UdyogSetu. To prevent hallucinations with hazardous materials, the platform deliberately uses deterministic mathematics rather than generative AI for material matching.
+- **Estimated Proportion of AI Assistance:** ~20% – 25% (limited to IDE productivity assistance, documentation syntax, and component templating).
