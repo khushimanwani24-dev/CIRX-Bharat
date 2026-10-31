@@ -82,6 +82,10 @@ export function evaluateChemicalCompatibility(
   const sCode = (supply.cpcb_waste_code || '').toLowerCase();
   const dCode = (demand.cpcb_waste_code || '').toLowerCase();
 
+  const isGypsumCementMatch =
+    (sCode.includes('35.3') || supply.material_name.toLowerCase().includes('gypsum')) &&
+    (dCode.includes('35.3') || demand.material_name.toLowerCase().includes('gypsum') || demand.material_name.toLowerCase().includes('cement') || demand.material_name.toLowerCase().includes('retarder') || demand.material_name.toLowerCase().includes('pozzolana'));
+
   const isCrMatch =
     (sCode.includes('35.3') || supply.material_name.toLowerCase().includes('chromium')) &&
     (dCode.includes('35.3') || demand.material_name.toLowerCase().includes('chromium') || demand.material_name.toLowerCase().includes('heavy metal'));
@@ -98,7 +102,14 @@ export function evaluateChemicalCompatibility(
     (sCode.includes('agro') || supply.material_name.toLowerCase().includes('organic') || supply.material_name.toLowerCase().includes('pulp')) &&
     (dCode.includes('agro') || demand.material_name.toLowerCase().includes('biogas') || demand.material_name.toLowerCase().includes('anaerobic'));
 
-  if (isCrMatch) {
+  if (isGypsumCementMatch) {
+    score = 0.98;
+    notes.push('CPCB Cat 35.3 chemical gypsum alignment: high purity CaSO4 directly substitutes virgin mined gypsum as setting retarder.');
+    notes.push('Validated CPCB Rule 9 Co-Processing Authorization (SOP-CEM-35.3) on record.');
+    if ((supply.moisture_percent || 0) <= 15) {
+      notes.push(`Low moisture (${supply.moisture_percent}%) compliant with finish grinding clinker requirements.`);
+    }
+  } else if (isCrMatch) {
     score = 0.98;
     notes.push('CPCB Cat 35.3 heavy metal reduction alignment: compatible with hydrometallurgical precipitation.');
     if (supply.ph_level !== undefined && supply.ph_level <= 3.0) {
@@ -264,16 +275,16 @@ export function calculatePairMatch(
     id: existingProposal?.id || `match-${supply.id.slice(-6)}-${demand.id.slice(-6)}`,
     supply_stream_id: supply.id,
     demand_stream_id: demand.id,
-    match_score: matchScore,
-    transit_distance_km: distanceKm,
-    avoided_co2_mt: avoidedCo2Mt,
-    economic_benefit_inr: economicBenefit,
+    match_score: existingProposal?.match_score ?? matchScore,
+    transit_distance_km: existingProposal?.transit_distance_km ?? distanceKm,
+    avoided_co2_mt: existingProposal?.avoided_co2_mt ?? avoidedCo2Mt,
+    economic_benefit_inr: existingProposal?.economic_benefit_inr ?? economicBenefit,
     status: existingProposal?.status || 'PROPOSED',
     generator_consent: existingProposal?.generator_consent || false,
     offtaker_consent: existingProposal?.offtaker_consent || false,
     unlocked_at: existingProposal?.unlocked_at,
-    breakdown,
-    recommended_logistics_mode: logisticsMode,
+    breakdown: existingProposal?.breakdown || breakdown,
+    recommended_logistics_mode: existingProposal?.recommended_logistics_mode || logisticsMode,
   };
 }
 

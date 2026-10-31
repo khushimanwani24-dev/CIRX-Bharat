@@ -17,9 +17,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ReBharat | Closed-Loop Secondary Feedstock Exchange for Gujarat MSMEs",
+  title: "CIRX Bharat | Autonomous Circular Industrial Resource Exchange (Team UdyogSetu)",
   description:
-    "Enterprise B2B industrial symbiosis platform for the Ahmedabad manufacturing cluster (Vatva & Naroda GIDC). Closed-loop secondary feedstock exchange for Gujarat MSMEs, zero-leakage privacy, and GPCB XGN compliance.",
+    "CIRX Bharat (सर्क-भारत) — India's premier B2B circular industrial resource exchange and statutory compliance network for high-density manufacturing corridors. Presented by Team UdyogSetu under the Environment & Sustainability track for Viksit Bharat 2047.",
   keywords: [
     "Industrial Symbiosis",
     "Circular Economy Gujarat",

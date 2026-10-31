@@ -190,21 +190,25 @@ class ReBharatDataStore {
   }
 
   public reset(): void {
-    this.facilities = JSON.parse(JSON.stringify(seedData.facilities)) as Facility[];
-    this.streams = JSON.parse(JSON.stringify(seedData.material_streams)) as MaterialStream[];
-    this.matches = JSON.parse(JSON.stringify(seedData.match_proposals)) as MatchProposal[];
-    this.manifests = JSON.parse(JSON.stringify(seedData.manifests)) as Form10Manifest[];
+    try {
+      // Direct file read ensures hot edits to seed.json are immediately reflected without server restart
+      const fs = require('fs');
+      const path = require('path');
+      const freshSeed = JSON.parse(
+        fs.readFileSync(path.join(process.cwd(), 'data', 'seed.json'), 'utf8')
+      );
+      this.facilities = freshSeed.facilities;
+      this.streams = freshSeed.material_streams;
+      this.matches = freshSeed.match_proposals;
+      this.manifests = freshSeed.manifests;
+    } catch (e) {
+      this.facilities = JSON.parse(JSON.stringify(seedData.facilities)) as Facility[];
+      this.streams = JSON.parse(JSON.stringify(seedData.material_streams)) as MaterialStream[];
+      this.matches = JSON.parse(JSON.stringify(seedData.match_proposals)) as MatchProposal[];
+      this.manifests = JSON.parse(JSON.stringify(seedData.manifests)) as Form10Manifest[];
+    }
     this.hydrateManifests();
   }
 }
 
-// Global singleton instance for hot-reloading in dev
-declare global {
-  // eslint-disable-next-line no-var
-  var __rebharatStore: ReBharatDataStore | undefined;
-}
-
-export const dataStore = global.__rebharatStore || new ReBharatDataStore();
-if (process.env.NODE_ENV !== 'production') {
-  global.__rebharatStore = dataStore;
-}
+export const dataStore = new ReBharatDataStore();

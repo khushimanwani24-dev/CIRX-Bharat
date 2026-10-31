@@ -85,6 +85,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   const { user, isAuthenticated, quickLogin, logout } = useAuth();
   const [isOrgDropdownOpen, setIsOrgDropdownOpen] = useState(false);
+  const [showAdminSection, setShowAdminSection] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown when clicking outside
@@ -266,6 +267,28 @@ export const Sidebar: React.FC<SidebarProps> = ({
       >
         {/* Scrollable Navigation Body */}
         <div className="flex-1 overflow-y-auto py-5 px-3 space-y-6">
+          {/* Brand Header */}
+          <div className="px-1 pb-4 border-b border-[#1a2332] flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-black text-xs shadow-xs">
+                CX
+              </div>
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <span className="font-bold text-white text-[13px] tracking-tight font-sans">
+                    CIRX Bharat
+                  </span>
+                  <span className="text-[9px] uppercase font-mono px-1.5 py-0.2 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">
+                    v3.0
+                  </span>
+                </div>
+                <div className="text-[10px] text-slate-400 font-medium">
+                  Team UdyogSetu • Environment Track
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Top Section: ACTIVE ORGANISATION */}
           <div className="px-1" ref={dropdownRef}>
             <div className="text-[11px] font-bold text-[#64748b] uppercase tracking-wider mb-2">
@@ -380,46 +403,75 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </nav>
           </div>
 
-          {/* Section 2: PLATFORM ADMINISTRATION */}
-          <div>
-            <div className="text-[11px] font-bold text-[#64748b] uppercase tracking-widest px-3 mb-1.5">
-              PLATFORM ADMINISTRATION
-            </div>
-
-            <nav className="space-y-0.5">
-              {adminItems.map((item) => {
-                const active = isItemActive(item.id);
-
-                return (
+          {/* Section 2: PLATFORM ADMINISTRATION (Role-Gated for Regulators & Auditing) */}
+          {(user?.role === 'REGULATOR' || showAdminSection) ? (
+            <div className="pt-2 border-t border-[#1a2332]">
+              <div className="flex items-center justify-between px-3 mb-1.5">
+                <div className="text-[11px] font-bold text-amber-500 uppercase tracking-widest flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-amber-500" />
+                  <span>REGULATORY OVERSIGHT</span>
+                </div>
+                {user?.role !== 'REGULATOR' && (
                   <button
-                    key={item.id}
-                    onClick={() => handleSelectNav(item.id)}
-                    className={`relative w-full flex items-center justify-between px-3 py-2 rounded-md text-[13px] font-normal transition text-left group ${
-                      active
-                        ? 'bg-[#182334] text-white font-medium'
-                        : 'text-[#94a3b8] hover:text-white hover:bg-[#141d2c]'
-                    }`}
+                    onClick={() => setShowAdminSection(false)}
+                    className="text-[10px] text-slate-500 hover:text-slate-300"
                   >
-                    {/* Left Active Orange Bar */}
-                    {active && (
-                      <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-orange-500 rounded-r" />
-                    )}
-
-                    <div className="flex items-center gap-3 min-w-0">
-                      <span
-                        className={`shrink-0 transition ${
-                          active ? 'text-white' : 'text-[#94a3b8] group-hover:text-white'
-                        }`}
-                      >
-                        {item.icon}
-                      </span>
-                      <span className="truncate">{item.label}</span>
-                    </div>
+                    Hide
                   </button>
-                );
-              })}
-            </nav>
-          </div>
+                )}
+              </div>
+
+              <nav className="space-y-0.5">
+                {adminItems.map((item) => {
+                  const active = isItemActive(item.id);
+
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => handleSelectNav(item.id)}
+                      className={`relative w-full flex items-center justify-between px-3 py-2 rounded-md text-[13px] font-normal transition text-left group ${
+                        active
+                          ? 'bg-[#182334] text-white font-medium'
+                          : 'text-[#94a3b8] hover:text-white hover:bg-[#141d2c]'
+                      }`}
+                    >
+                      {/* Left Active Orange Bar */}
+                      {active && (
+                        <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-amber-500 rounded-r" />
+                      )}
+
+                      <div className="flex items-center gap-3 min-w-0">
+                        <span
+                          className={`shrink-0 transition ${
+                            active ? 'text-amber-400' : 'text-[#94a3b8] group-hover:text-white'
+                          }`}
+                        >
+                          {item.icon}
+                        </span>
+                        <span className="truncate">{item.label}</span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </nav>
+            </div>
+          ) : (
+            <div className="pt-2 px-1">
+              <button
+                type="button"
+                onClick={() => setShowAdminSection(true)}
+                className="w-full py-2 px-3 rounded-lg bg-[#141d2b] hover:bg-[#182334] border border-[#223145] text-[11px] text-slate-400 hover:text-slate-200 transition flex items-center justify-between group"
+              >
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-3.5 h-3.5 text-amber-500/80 group-hover:text-amber-400" />
+                  <span>GPCB Oversight & Admin Tools</span>
+                </div>
+                <span className="text-[10px] uppercase font-mono px-1.5 py-0.2 rounded bg-[#1e2a3c] text-slate-400 group-hover:text-amber-300">
+                  Audit View
+                </span>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Discrete Footer Utility */}

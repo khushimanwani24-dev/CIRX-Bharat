@@ -143,6 +143,30 @@
     {
       "id": "match-001",
       "supply_stream_id": "stream-sup-01",
+      "demand_stream_id": "stream-dem-02",
+      "match_score": 96.0,
+      "transit_distance_km": 28.0,
+      "avoided_co2_mt": 36.9,
+      "economic_benefit_inr": 87750,
+      "status": "PROPOSED",
+      "generator_consent": false,
+      "offtaker_consent": false,
+      "breakdown": {
+        "chemical_compatibility": 0.98,
+        "distance_score": 0.94,
+        "volume_ratio": 0.75,
+        "compatibility_notes": [
+          "Neutralized Chemical Gypsum directly meets Sanand cement rotary kiln finish grinding specs (CaSO4 purity 91.4% > 85%, Chlorides 0.04% < 0.10%).",
+          "Savings vs. NEPL/TSDF Landfill Fees (₹3,000/MT tipping fee saved) and Savings vs. Virgin Imported Gypsum (₹4,500/MT saved).",
+          "Direct 28 km transit via Vatva-Sanand corridor, well inside 150 km economic freight radius.",
+          "Verified CPCB Rule 9 Co-Processing Authorization (SOP-CEM-35.3) on record."
+        ]
+      },
+      "recommended_logistics_mode": "Hydraulic Tipping Trailer with Sealed Moisture Cover"
+    },
+    {
+      "id": "match-002",
+      "supply_stream_id": "stream-sup-01",
       "demand_stream_id": "stream-dem-01",
       "match_score": 97.4,
       "transit_distance_km": 11.2,
@@ -163,30 +187,6 @@
         ]
       },
       "recommended_logistics_mode": "Tarpaulin-Covered Sealed Dumper (16 MT Payload)"
-    },
-    {
-      "id": "match-002",
-      "supply_stream_id": "stream-sup-01",
-      "demand_stream_id": "stream-dem-02",
-      "match_score": 94.1,
-      "transit_distance_km": 23.8,
-      "avoided_co2_mt": 36.9,
-      "economic_benefit_inr": 87750,
-      "status": "MANIFEST_GENERATED",
-      "generator_consent": true,
-      "offtaker_consent": true,
-      "unlocked_at": "2026-10-23T14:30:00.000Z",
-      "breakdown": {
-        "chemical_compatibility": 0.95,
-        "distance_score": 0.91,
-        "volume_ratio": 0.3,
-        "compatibility_notes": [
-          "GPCB certified synthetic gypsum setting retarder for Portland cement finish grinding.",
-          "Savings vs. NEPL/TSDF Landfill Fees (₹1,500/MT saved) and Savings vs. Virgin Mineral Gypsum (₹1,050/MT saved).",
-          "Replaces expensive virgin gypsum hauled 650 km from Rajasthan mines."
-        ]
-      },
-      "recommended_logistics_mode": "Hydraulic Tipping Trailer with Moisture Cover"
     },
     {
       "id": "match-003",

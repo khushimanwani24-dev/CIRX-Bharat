@@ -212,24 +212,24 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
             onClick={() =>
               applyPreset({
                 type: 'SUPPLY',
-                name: 'Neutralized Chemical Gypsum Sludge',
+                name: 'Neutralized Chemical Gypsum',
                 code: 'CPCB Schedule I, Cat 35.3',
                 state: 'SLUDGE',
                 volume: 45,
                 ph: 6.8,
                 cal: 0,
-                moist: 18,
+                moist: 11.2,
                 haz: false,
                 price: -1200,
-                desc: 'CaSO4·2H2O: 84%, Moisture: 18%, pH: 6.8, Non-Hazardous aggregate grade, Tipping fee subsidy: -₹1,200/MT',
+                desc: 'NABL Certified Lab Assay: 91.4% Purity (CaSO4·2H2O), 11.2% Moisture, 0.04% Chlorides, pH 6.8. Non-Hazardous aggregate grade. Tipping fee subsidy: -₹1,200/MT',
               })
             }
             className="p-3 rounded-xl bg-amber-50/40 hover:bg-amber-50/80 border border-amber-200/80 text-left transition text-xs group shadow-2xs"
           >
             <div className="font-semibold text-amber-900 group-hover:text-amber-950">
-              Neutralized Gypsum Sludge
+              Neutralized Chemical Gypsum
             </div>
-            <div className="text-[11px] text-slate-500 mt-0.5">Cat 35.3 • pH 6.8 • 45 MT/mo</div>
+            <div className="text-[11px] text-slate-500 mt-0.5">Cat 35.3 • 91.4% Purity • 11.2% Moisture</div>
           </button>
 
           <button
@@ -478,8 +478,22 @@ export const StreamIngestionPortal: React.FC<StreamIngestionPortalProps> = ({
                   ))}
                 </select>
                 {currentFac && (
-                  <div className="text-[11px] text-slate-500 mt-1">
-                    Consent: <span className="font-mono text-slate-700">{currentFac.spcb_consent_id}</span> • Cluster: {currentFac.cluster_zone}
+                  <div className="space-y-1.5 mt-2">
+                    <div className="text-[11px] text-slate-500">
+                      Consent: <span className="font-mono text-slate-700">{currentFac.spcb_consent_id}</span> • Cluster: {currentFac.cluster_zone}
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-slate-200 flex items-start gap-2 shadow-xs">
+                      <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <div>
+                        <div className="font-semibold text-white flex items-center gap-1.5">
+                          <span>Zero-Knowledge Spatial Privacy Shield Active</span>
+                          <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">±1.5 km Jitter</span>
+                        </div>
+                        <div className="text-slate-400 text-[10px] mt-0.5">
+                          Masked as <span className="font-mono text-emerald-300 font-semibold">{currentFac.anonymous_label}</span>. Real street address and GSTIN are shielded until bilateral handshake.
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>

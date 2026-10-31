@@ -70,12 +70,12 @@ export default function PresentationPage() {
     // Slide 1: Title & Hook
     {
       id: 1,
-      badge: 'VBYLD Hackathon • Mission Viksit Bharat 2047',
-      badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
-      title: 'ReBharat (री-भारत)',
-      subtitle: 'Next-Generation B2B Industrial Symbiosis & Secondary Feedstock Exchange',
+      badge: 'VBYLD 2047 • Theme: Environment & Sustainability • Presented by Team UdyogSetu',
+      badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+      title: 'CIRX Bharat (सर्क-भारत)',
+      subtitle: 'Circular Industrial Resource eXchange — Presented by Team UdyogSetu',
       speakerNotes:
-        "Respected judges, India is accelerating toward a $30 Trillion economy by 2047, where manufacturing will contribute over 25% of GDP. But Indian industrial clusters face a massive bottleneck: 62M MT of byproducts are buried in landfills yearly, while neighboring plants import the exact same raw materials. ReBharat is India's first enterprise industrial symbiosis grid that turns one factory's toxic liability into another factory's circular gold.",
+        "Respected jury, we are Team UdyogSetu. Under the Environment & Sustainability track for Viksit Bharat 2047, we present CIRX Bharat (Circular Industrial Resource Exchange)—India's first autonomous B2B secondary feedstock exchange. We solve a ₹1,800-Crore industrial paradox in Gujarat: bridging the 50-km gap between chemical waste in Vatva and cement kilns in Sanand through geospatial GIS, zero-knowledge chemistry matching, and automated CPCB Form 10 manifests.",
       content: (
         <div className="flex flex-col items-center justify-center text-center py-8 space-y-8 max-w-4xl mx-auto">
           <div className="relative flex items-center justify-center w-24 h-24 rounded-3xl bg-emerald-600 text-white shadow-2xl shadow-emerald-600/40 ring-8 ring-emerald-500/20 animate-pulse">
@@ -83,11 +83,15 @@ export default function PresentationPage() {
           </div>
 
           <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-semibold">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              Presented by Team UdyogSetu • Environment & Sustainability Track
+            </div>
             <h1 className="text-5xl sm:text-7xl font-black tracking-tight text-white font-sans">
-              ReBharat <span className="text-emerald-400 font-serif font-normal">(री-भारत)</span>
+              CIRX Bharat <span className="text-emerald-400 font-serif font-normal">(सर्क-भारत)</span>
             </h1>
             <p className="text-xl sm:text-2xl text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
-              Closed-Loop Secondary Feedstock Exchange & Statutory Compliance Engine for High-Density Indian Manufacturing Corridors.
+              Autonomous B2B Circular Industrial Resource Exchange & Statutory Compliance Network for High-Density Manufacturing Corridors.
             </p>
           </div>
 
@@ -212,15 +216,15 @@ export default function PresentationPage() {
       ),
     },
 
-    // Slide 4: ReBharat Solution Architecture
+    // Slide 4: CIRX Bharat Solution Architecture
     {
       id: 4,
       badge: 'The Solution Architecture',
       badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
-      title: 'ReBharat 4-Layer Operational Stack',
+      title: 'CIRX Bharat 4-Layer Operational Stack',
       subtitle: 'Deterministic, zero-leakage, and legally compliant by-design industrial digital twin.',
       speakerNotes:
-        'ReBharat is built on a 4-layer architecture: Layer 1 is the Reactive Ledger that ingests lab assays; Layer 2 is the Deterministic Matching Engine running mathematical optimization; Layer 3 is the Zero-Leakage Privacy Engine providing spatial coordinate blurring and bilateral handshakes; and Layer 4 is the Statutory Compliance Engine managing CPCB Form 10 and Form 4 returns.',
+        'CIRX Bharat is built on a 4-layer architecture: Layer 1 is the Reactive Ledger that ingests lab assays; Layer 2 is the Deterministic Matching Engine running mathematical optimization; Layer 3 is the Zero-Leakage Privacy Engine providing spatial coordinate blurring and bilateral handshakes; and Layer 4 is the Statutory Compliance Engine managing CPCB Form 10 and Form 4 returns.',
       content: (
         <div className="space-y-3 max-w-4xl mx-auto py-2">
           <div className="p-4 rounded-xl bg-slate-900/90 border border-indigo-500/30 flex items-center gap-4">
@@ -266,7 +270,7 @@ export default function PresentationPage() {
       title: 'Deterministic Matching Engine & Mathematical Model',
       subtitle: 'Eliminating subjective guesswork through transparent, multi-parametric feasibility scoring.',
       speakerNotes:
-        'We do not rely on probabilistic AI hallucinations for hazardous waste. ReBharat runs a deterministic formula: 50% Chemical Compatibility validating CPCB schedule codes, pH neutralization windows, and cement kiln AFR thresholds of GCV >= 2500 kcal/kg; 35% Haversine geospatial proximity with a non-linear decay penalty and 150 km cutoff; and 15% batch volume fit.',
+        'We do not rely on probabilistic AI hallucinations for hazardous waste. CIRX Bharat runs a deterministic formula: 50% Chemical Compatibility validating CPCB schedule codes, pH neutralization windows, and cement kiln AFR thresholds of GCV >= 2500 kcal/kg; 35% Haversine geospatial proximity with a non-linear decay penalty and 150 km cutoff; and 15% batch volume fit.',
       content: (
         <div className="space-y-4 max-w-4xl mx-auto py-2">
           <div className="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/40 text-center font-mono text-sm sm:text-base text-emerald-300 font-bold shadow-lg">
@@ -354,7 +358,7 @@ export default function PresentationPage() {
       title: 'CPCB Form 10 & Form 4 Statutory Engine',
       subtitle: 'Eliminating carbon-paper forgery with digitized 7-color slip chain-of-custody tracking.',
       speakerNotes:
-        'We bridge digital software with real-world law. Under Rule 19 of the Hazardous Waste Rules 2016, shipments require a 7-copy Form 10 manifest. ReBharat tracks all seven statutory copies from dispatch to delivery, with print-ready government formatting. For annual compliance, ReBharat auto-compiles the Rule 20 Form 4 return for instant GPCB XGN filing.',
+        'We bridge digital software with real-world law. Under Rule 19 of the Hazardous Waste Rules 2016, shipments require a 7-copy Form 10 manifest. CIRX Bharat tracks all seven statutory copies from dispatch to delivery, with print-ready government formatting. For annual compliance, CIRX Bharat auto-compiles the Rule 20 Form 4 return for instant GPCB XGN filing.',
       content: (
         <div className="space-y-4 max-w-4xl mx-auto py-2">
           <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2">
@@ -463,7 +467,7 @@ export default function PresentationPage() {
       title: 'Scalability Across 1,200+ Indian Industrial Clusters',
       subtitle: 'From local GIDC Ahmedabad estates to national circular supply chains.',
       speakerNotes:
-        'In our Ahmedabad pilot across just 2 active symbioses, we divert 90 MT/month, save ₹1.62 Lakhs/month, and cut 73.8 MT of carbon emissions. When scaled across India’s 1,200 industrial estates in Gujarat GIDC, Maharashtra MIDC, and Tamil Nadu SIPCOT, ReBharat unlocks an ₹1,800 Crore circular economy arbitrage and diverts 12M MT of industrial waste yearly.',
+        'In our Ahmedabad pilot across just 2 active symbioses, we divert 90 MT/month, save ₹1.62 Lakhs/month, and cut 73.8 MT of carbon emissions. When scaled across India’s 1,200 industrial estates in Gujarat GIDC, Maharashtra MIDC, and Tamil Nadu SIPCOT, CIRX Bharat unlocks an ₹1,800 Crore circular economy arbitrage and diverts 12M MT of industrial waste yearly.',
       content: (
         <div className="space-y-6 max-w-4xl mx-auto py-2">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -521,7 +525,7 @@ export default function PresentationPage() {
       title: 'Powering a Circular, Self-Reliant India',
       subtitle: 'From linear waste dumping to national resource sovereignty.',
       speakerNotes:
-        'As India strides toward Viksit Bharat 2047, we cannot build a $30 Trillion manufacturing powerhouse on a 19th-century linear landfill model. ReBharat empowers India’s 63 million MSMEs with the trust, chemistry, and compliance tools to build a zero-leakage, circular, and self-reliant nation. Thank you, and we welcome your questions!',
+        'As India strides toward Viksit Bharat 2047, we cannot build a $30 Trillion manufacturing powerhouse on a 19th-century linear landfill model. CIRX Bharat empowers India’s 63 million MSMEs with the trust, chemistry, and compliance tools to build a zero-leakage, circular, and self-reliant nation. On behalf of Team UdyogSetu, thank you, and we welcome your questions!',
       content: (
         <div className="flex flex-col items-center justify-center text-center py-6 space-y-8 max-w-4xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full text-left">
@@ -558,10 +562,10 @@ export default function PresentationPage() {
 
           <div className="p-6 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-slate-900 to-amber-950/40 border border-slate-700 max-w-2xl w-full">
             <p className="text-base sm:text-lg font-bold text-white leading-relaxed">
-              &quot;ReBharat is not just an application; it is the digital circulatory system for an industrialized, ecologically sovereign Viksit Bharat 2047.&quot;
+              &quot;CIRX Bharat is not just an application; it is the digital circulatory system for an industrialized, ecologically sovereign Viksit Bharat 2047.&quot;
             </p>
             <div className="pt-3 text-xs text-emerald-400 font-semibold">
-              Thank You! Ready for Demonstration & Judges Q&A.
+              Thank You! Presented by Team UdyogSetu • Ready for Judges Q&A.
             </div>
           </div>
 
@@ -627,7 +631,7 @@ export default function PresentationPage() {
             <div className="w-7 h-7 rounded-lg bg-emerald-600 flex items-center justify-center text-white">
               <RotateCw className="w-3.5 h-3.5" />
             </div>
-            <span className="hidden sm:inline">Exit to ReBharat App</span>
+            <span className="hidden sm:inline">Exit to CIRX Bharat App</span>
           </Link>
           <span className="text-slate-600">|</span>
           <span className="text-xs font-semibold text-slate-300">

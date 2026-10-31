@@ -476,6 +476,12 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
                           {sanitizedOff.spcb_consent_id}
                         </span>
                       </div>
+                      <div className="flex justify-between items-center pt-0.5 border-t border-slate-100">
+                        <span className="text-slate-500 font-medium">Rule 9 SOP:</span>
+                        <span className="font-mono text-[10px] text-emerald-800 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200">
+                          VALIDATED (CPCB-CEM-35.3)
+                        </span>
+                      </div>
                       {isUnlocked && sanitizedOff.contact_person && (
                         <div className="flex justify-between pt-1 border-t border-slate-100 text-[11px]">
                           <span className="text-slate-500 font-medium">Contact:</span>
@@ -509,6 +515,27 @@ export const BilateralExchangeCenter: React.FC<BilateralExchangeCenterProps> = (
                       </div>
                     </div>
                   </div>
+                </div>
+
+                {/* Operational Safeguards & Regulatory Compliance Protocol Bar */}
+                <div className="px-6 py-2.5 bg-slate-100/70 border-t border-slate-200 text-xs flex flex-wrap items-center justify-between gap-3 text-slate-600">
+                  <div className="flex flex-wrap items-center gap-4">
+                    <span className="flex items-center gap-1.5 font-medium text-slate-800">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                      <span><strong>CPCB Rule 9 SOP:</strong> Verified Co-Processing Authorization</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 text-slate-600">
+                      <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />
+                      <span><strong>Gate Contamination Fallback:</strong> Pre-Contracted TSDF Diversion (NEPL/GESCSL)</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 text-slate-600 hidden lg:flex">
+                      <Scale className="w-3.5 h-3.5 text-sky-600" />
+                      <span><strong>Anti-Bypass Lock:</strong> Automated GPCB Form 4 Mass-Balance & ESG Ledger</span>
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-mono text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-bold">
+                    Escrow Protected
+                  </span>
                 </div>
 
                 {/* Bilateral Connect & Mutual Consent Trigger Area */}

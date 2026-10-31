@@ -153,13 +153,13 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-xs space-y-3">
             <div className="font-bold text-slate-200 flex items-center gap-2">
               <span className="text-emerald-400">💡 In Simple English:</span>
-              <span>Why ReBharat exists and who benefits</span>
+              <span>Why CIRX Bharat exists and who benefits (Team UdyogSetu)</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-slate-300">
               <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-700/50 space-y-1">
                 <div className="font-bold text-amber-400">1. Waste Generator (Factory A)</div>
                 <p className="text-[11px] text-slate-400 leading-relaxed">
-                  Produces chemical sludge or spent acid. Usually pays ₹1,500/MT to landfill it. Lists it on ReBharat anonymously so competitors cannot spy on recipes.
+                  Produces chemical sludge or spent acid. Usually pays ₹1,500/MT to landfill it. Lists it on CIRX Bharat anonymously so competitors cannot spy on recipes.
                 </p>
               </div>
               <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-700/50 space-y-1">
@@ -171,7 +171,7 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
               <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-700/50 space-y-1">
                 <div className="font-bold text-sky-400">3. Legal Protection (Form 10)</div>
                 <p className="text-[11px] text-slate-400 leading-relaxed">
-                  Trucks transporting industrial waste require official CPCB Form 10 transit papers. ReBharat automatically generates the 7-color slip manifests so trucks pass inspection.
+                  Trucks transporting industrial waste require official CPCB Form 10 transit papers. CIRX Bharat automatically generates the 7-color slip manifests so trucks pass inspection.
                 </p>
               </div>
             </div>
